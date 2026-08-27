@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WISE — Production</title>
+  <meta name="description" content="WISE production portfolio">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="WISE home">
+      <img src="WISE_LOGO_Ori.png" alt="WISE">
+    </a>
+    <button class="menu-toggle" aria-label="메뉴 열기">MENU</button>
+    <nav class="nav">
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">PRODUCTION / SEOUL</p>
+        <h1>WISE</h1>
+        <p class="tagline">TRUST ME,<br>I WON'T WASTE YOUR TIME.</p>
+      </div>
+      <div class="hero-reel">
+        <div class="video-placeholder">
+          <span>SHOWREEL</span>
+          <small>대표 영상으로 교체</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section" id="work">
+      <div class="section-head">
+        <h2>SELECTED WORK</h2>
+        <p>Commercial · Branded Content · Film</p>
+      </div>
+
+      <div class="work-grid">
+        <a class="project" href="#" data-title="LEGO × KAI" data-category="BRANDED CONTENT">
+          <div class="thumb thumb-1"><span>01</span></div>
+          <div class="meta"><strong>LEGO × KAI</strong><span>BRANDED CONTENT</span></div>
+        </a>
+        <a class="project" href="#" data-title="CERAGEM" data-category="COMMERCIAL">
+          <div class="thumb thumb-2"><span>02</span></div>
+          <div class="meta"><strong>CERAGEM</strong><span>COMMERCIAL</span></div>
+        </a>
+        <a class="project" href="#" data-title="SUNGSHIN CEMENT" data-category="BRAND FILM">
+          <div class="thumb thumb-3"><span>03</span></div>
+          <div class="meta"><strong>SUNGSHIN CEMENT</strong><span>BRAND FILM</span></div>
+        </a>
+        <a class="project" href="#" data-title="DONGGUK UNIVERSITY" data-category="PR FILM">
+          <div class="thumb thumb-4"><span>04</span></div>
+          <div class="meta"><strong>DONGGUK UNIVERSITY</strong><span>PR FILM</span></div>
+        </a>
+        <a class="project" href="#" data-title="SPORTSTOTO" data-category="CAMPAIGN">
+          <div class="thumb thumb-5"><span>05</span></div>
+          <div class="meta"><strong>SPORTSTOTO</strong><span>CAMPAIGN</span></div>
+        </a>
+        <a class="project" href="#" data-title="PROJECT 06" data-category="FILM">
+          <div class="thumb thumb-6"><span>06</span></div>
+          <div class="meta"><strong>PROJECT 06</strong><span>FILM</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="section-head">
+        <h2>ABOUT</h2>
+      </div>
+      <div class="about-grid">
+        <p class="about-lead">WISE는 광고와 브랜드 콘텐츠를 제작하는 프로덕션입니다.</p>
+        <p class="about-body">
+          기획부터 촬영, 후반 제작까지 프로젝트에 필요한 과정을 효율적으로 연결합니다.
+          좋은 결과물을 만들기 위해 복잡한 과정을 단순하게 정리하고,
+          필요한 순간에 정확한 선택을 합니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="section-head">
+        <h2>CONTACT</h2>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <p class="contact-label">EMAIL</p>
+          <a href="mailto:hello@bywise.kr">hello@bywise.kr</a>
+        </div>
+        <div>
+          <p class="contact-label">WEB</p>
+          <a href="https://bywise.kr">bywise.kr</a>
+        </div>
+        <div>
+          <p class="contact-label">LOCATION</p>
+          <span>SEOUL, KOREA</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 WISE</span>
+    <span>BYWISE.KR</span>
+  </footer>
+
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <button class="modal-close" aria-label="닫기">CLOSE</button>
+    <div class="modal-inner">
+      <p id="modalCategory"></p>
+      <h3 id="modalTitle"></h3>
+      <div class="modal-video">영상 임베드 영역</div>
+      <p class="modal-note">여기에 YouTube/Vimeo 링크 또는 프로젝트 설명을 넣으면 됩니다.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
