@@ -171,17 +171,17 @@ a {
   letter-spacing: .14em;
 }
 
-
-/* PC - 3열 */
-
 .work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 0;
   background: #147a43;
 }
 
 .work-card {
+  width: 100%;
+  min-width: 0;
   aspect-ratio: 16 / 9;
   position: relative;
   overflow: hidden;
@@ -266,9 +266,6 @@ a {
   background: #147a43;
 }
 
-
-/* CONTACT LEFT */
-
 .contact-copy > p {
   font-size: 11px;
   letter-spacing: .16em;
@@ -287,9 +284,6 @@ a {
   padding-bottom: 5px;
 }
 
-
-/* CONTACT FORM */
-
 .contact-main form {
   width: 100%;
   display: grid;
@@ -297,9 +291,6 @@ a {
   column-gap: 40px;
   row-gap: 36px;
 }
-
-
-/* NAME / EMAIL / PHONE */
 
 .contact-main label {
   display: flex;
@@ -310,9 +301,6 @@ a {
   letter-spacing: .08em;
   line-height: 1.4;
 }
-
-
-/* INPUT */
 
 .contact-main input,
 .contact-main select {
@@ -335,9 +323,6 @@ a {
   font-size: 16px;
   font-weight: 400;
 }
-
-
-/* MESSAGE */
 
 .contact-main textarea {
   display: block;
@@ -363,17 +348,11 @@ a {
   resize: vertical;
 }
 
-
-/* PLACEHOLDER */
-
 .contact-main input::placeholder,
 .contact-main textarea::placeholder {
   color: rgba(255, 255, 255, .5);
   font-size: 16px;
 }
-
-
-/* SELECT */
 
 .contact-main select {
   font-size: 16px;
@@ -384,15 +363,9 @@ a {
   font-size: 16px;
 }
 
-
-/* FULL WIDTH */
-
 .contact-main .wide {
   grid-column: 1 / -1;
 }
-
-
-/* SEND BUTTON */
 
 .contact-main button {
   grid-column: 1 / -1;
@@ -422,19 +395,6 @@ a {
 
 
 /* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1024px) and (min-width: 761px) {
-
-  .work-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-
-/* =========================
    MOBILE
 ========================= */
 
@@ -457,9 +417,6 @@ a {
     font-size: 13px !important;
   }
 
-
-  /* HOME */
-
   .home-main {
     padding: 0 16px 20px;
   }
@@ -478,11 +435,8 @@ a {
     font-size: 9px;
   }
 
-
-  /* WORK - 모바일 1열 */
-
   .work-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .page-title {
@@ -493,9 +447,6 @@ a {
     left: 16px;
     bottom: 15px;
   }
-
-
-  /* CONTACT */
 
   .contact-main {
     padding: 60px 20px;
