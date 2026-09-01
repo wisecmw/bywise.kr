@@ -1,12 +1,20 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js?v=20";
 
-const $ = (id) => document.getElementById(id);
-
-const supabase = createClient(
+import {
   SUPABASE_URL,
   SUPABASE_ANON_KEY
-);
+} from "./config.js?v=20";
+
+
+const $ = (id) =>
+  document.getElementById(id);
+
+
+const supabase =
+  createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
 
 
 /* =========================
@@ -17,17 +25,34 @@ async function refreshUI() {
 
   const {
     data: { session }
-  } = await supabase.auth.getSession();
+  } =
+    await supabase.auth.getSession();
 
-  const loggedIn = !!session;
 
-  $("login-card").classList.toggle("hidden", loggedIn);
-  $("editor-card").classList.toggle("hidden", !loggedIn);
-  $("list-card").classList.toggle("hidden", !loggedIn);
+  const loggedIn =
+    !!session;
+
+
+  $("login-card").classList.toggle(
+    "hidden",
+    loggedIn
+  );
+
+  $("editor-card").classList.toggle(
+    "hidden",
+    !loggedIn
+  );
+
+  $("list-card").classList.toggle(
+    "hidden",
+    !loggedIn
+  );
+
 
   if (loggedIn) {
     await loadList();
   }
+
 }
 
 
@@ -35,94 +60,156 @@ async function refreshUI() {
    LOGIN
 ========================= */
 
-$("login-btn").onclick = async () => {
+$("login-btn").onclick =
+  async () => {
 
-  const email = $("login-email").value.trim();
-  const password = $("login-password").value;
+    const email =
+      $("login-email")
+        .value
+        .trim();
 
-  if (!email || !password) {
+
+    const password =
+      $("login-password")
+        .value;
+
+
+    if (!email || !password) {
+
+      $("login-status").textContent =
+        "이메일과 비밀번호를 입력해주세요.";
+
+      return;
+
+    }
+
+
     $("login-status").textContent =
-      "이메일과 비밀번호를 입력해주세요.";
-    return;
-  }
+      "로그인 중...";
 
-  $("login-status").textContent = "로그인 중...";
 
-  const { error } =
-    await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
+    const { error } =
+      await supabase.auth
+        .signInWithPassword({
+          email,
+          password
+        });
 
-  if (error) {
+
+    if (error) {
+
+      $("login-status").textContent =
+        "로그인 실패: " +
+        error.message;
+
+      return;
+
+    }
+
+
     $("login-status").textContent =
-      "로그인 실패: " + error.message;
-    return;
-  }
+      "";
 
-  $("login-status").textContent = "";
 
-  await refreshUI();
-};
+    await refreshUI();
+
+  };
 
 
 /* ENTER 로그인 */
 
-$("login-password").addEventListener(
-  "keydown",
-  (event) => {
+$("login-password")
+  .addEventListener(
+    "keydown",
+    (event) => {
 
-    if (event.key === "Enter") {
-      $("login-btn").click();
+      if (event.key === "Enter") {
+
+        $("login-btn").click();
+
+      }
+
     }
-
-  }
-);
+  );
 
 
 /* =========================
    LOGOUT
 ========================= */
 
-$("logout-btn").onclick = async () => {
+$("logout-btn").onclick =
+  async () => {
 
-  await supabase.auth.signOut();
+    await supabase.auth.signOut();
 
-  await refreshUI();
-};
+    await refreshUI();
+
+  };
 
 
 /* =========================
    ORDER 밀기
 ========================= */
 
-async function shiftOrdersFrom(startOrder) {
+async function shiftOrdersFrom(
+  startOrder
+) {
 
-  const { data, error } = await supabase
-    .from("projects")
-    .select("id, sort_order")
-    .gte("sort_order", startOrder)
-    .order("sort_order", {
-      ascending: false
-    });
+  const {
+    data,
+    error
+  } =
+    await supabase
+      .from("projects")
+      .select("id, sort_order")
+      .gte(
+        "sort_order",
+        startOrder
+      )
+      .order(
+        "sort_order",
+        {
+          ascending: false
+        }
+      );
 
-  if (error) throw error;
 
-  for (const project of data || []) {
+  if (error) {
+    throw error;
+  }
+
+
+  for (
+    const project of data || []
+  ) {
 
     const currentOrder =
-      Number(project.sort_order || 0);
+      Number(
+        project.sort_order || 0
+      );
 
-    const { error: updateError } =
+
+    const {
+      error: updateError
+    } =
       await supabase
         .from("projects")
         .update({
-          sort_order: currentOrder + 1
+          sort_order:
+            currentOrder + 1
         })
-        .eq("id", project.id);
+        .eq(
+          "id",
+          project.id
+        );
 
-    if (updateError) throw updateError;
+
+    if (updateError) {
+      throw updateError;
+    }
+
   }
+
 }
 
 
@@ -130,127 +217,203 @@ async function shiftOrdersFrom(startOrder) {
    PROJECT UPLOAD
 ========================= */
 
-$("upload-btn").onclick = async () => {
-
-  const title = $("title").value.trim();
-  const type = $("type").value.trim();
-  const video = $("video").value.trim();
-
-  const rawSort =
-    Number($("sort").value);
-
-  const sort =
-    Number.isFinite(rawSort) && rawSort >= 0
-      ? Math.floor(rawSort)
-      : 0;
-
-  const featured =
-    $("featured").value === "true";
-
-  const file =
-    $("thumb").files[0];
+$("upload-btn").onclick =
+  async () => {
 
 
-  if (!title || !file) {
-
-    $("upload-status").textContent =
-      "프로젝트명과 썸네일 이미지는 필수입니다.";
-
-    return;
-  }
+    const title =
+      $("title")
+        .value
+        .trim();
 
 
-  $("upload-status").textContent =
-    "업로드 중...";
+    const type =
+      $("type")
+        .value;
 
 
-  try {
-
-    await shiftOrdersFrom(sort);
-
-
-    const safeName =
-      `${Date.now()}-${file.name.replace(
-        /[^a-zA-Z0-9._-]/g,
-        "_"
-      )}`;
+    const video =
+      $("video")
+        .value
+        .trim();
 
 
-    const { error: uploadError } =
-      await supabase.storage
-        .from("thumbnails")
-        .upload(
-          safeName,
-          file,
-          {
-            upsert: false
-          }
-        );
-
-    if (uploadError) {
-      throw uploadError;
-    }
+    const rawSort =
+      Number(
+        $("sort").value
+      );
 
 
-    const { data: publicData } =
-      supabase.storage
-        .from("thumbnails")
-        .getPublicUrl(safeName);
+    const sort =
+      Number.isFinite(rawSort) &&
+      rawSort >= 0
+        ? Math.floor(rawSort)
+        : 0;
 
 
-    const thumbnail_url =
-      publicData.publicUrl;
+    const featured =
+      $("featured").value ===
+      "true";
 
 
-    const { error: insertError } =
-      await supabase
-        .from("projects")
-        .insert({
-          title,
-          type,
-          video_url: video,
-          thumbnail_url,
-          featured,
-          sort_order: sort,
-          storage_path: safeName
-        });
+    const file =
+      $("thumb").files[0];
 
 
-    if (insertError) {
+    if (!title || !file) {
 
-      await supabase.storage
-        .from("thumbnails")
-        .remove([safeName]);
+      $("upload-status").textContent =
+        "프로젝트명과 썸네일 이미지는 필수입니다.";
 
-      throw insertError;
+      return;
+
     }
 
 
     $("upload-status").textContent =
-      `등록 완료. ORDER ${sort} 위치에 추가했습니다.`;
+      "업로드 중...";
 
 
-    $("title").value = "";
-    $("type").value = "";
-    $("video").value = "";
-    $("thumb").value = "";
-    $("sort").value = "0";
-    $("featured").value = "true";
+    try {
 
 
-    await loadList();
+      /* ORDER 자동 밀기 */
 
-  }
+      await shiftOrdersFrom(sort);
 
-  catch (error) {
 
-    console.error(error);
+      /* 파일명 생성 */
 
-    $("upload-status").textContent =
-      error.message ||
-      "등록 중 오류가 발생했습니다.";
-  }
-};
+      const safeName =
+        `${Date.now()}-${file.name.replace(
+          /[^a-zA-Z0-9._-]/g,
+          "_"
+        )}`;
+
+
+      /* 썸네일 업로드 */
+
+      const {
+        error: uploadError
+      } =
+        await supabase.storage
+          .from("thumbnails")
+          .upload(
+            safeName,
+            file,
+            {
+              upsert: false
+            }
+          );
+
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+
+      /* 이미지 URL */
+
+      const {
+        data: publicData
+      } =
+        supabase.storage
+          .from("thumbnails")
+          .getPublicUrl(
+            safeName
+          );
+
+
+      const thumbnail_url =
+        publicData.publicUrl;
+
+
+      /* DB 등록 */
+
+      const {
+        error: insertError
+      } =
+        await supabase
+          .from("projects")
+          .insert({
+
+            title,
+
+            type,
+
+            video_url:
+              video,
+
+            thumbnail_url,
+
+            featured,
+
+            sort_order:
+              sort,
+
+            storage_path:
+              safeName
+
+          });
+
+
+      if (insertError) {
+
+
+        await supabase.storage
+          .from("thumbnails")
+          .remove([
+            safeName
+          ]);
+
+
+        throw insertError;
+
+      }
+
+
+      $("upload-status").textContent =
+        `등록 완료. ORDER ${sort} 위치에 추가했습니다.`;
+
+
+      /* 입력창 초기화 */
+
+      $("title").value =
+        "";
+
+      $("type").value =
+        "Brand Film";
+
+      $("video").value =
+        "";
+
+      $("thumb").value =
+        "";
+
+      $("sort").value =
+        "0";
+
+      $("featured").value =
+        "true";
+
+
+      await loadList();
+
+    }
+
+    catch (error) {
+
+
+      console.error(error);
+
+
+      $("upload-status").textContent =
+        error.message ||
+        "등록 중 오류가 발생했습니다.";
+
+    }
+
+  };
 
 
 /* =========================
@@ -259,23 +422,34 @@ $("upload-btn").onclick = async () => {
 
 async function loadList() {
 
-  const { data, error } =
+
+  const {
+    data,
+    error
+  } =
     await supabase
       .from("projects")
       .select("*")
       .order(
         "sort_order",
-        { ascending: true }
+        {
+          ascending: true
+        }
       )
       .order(
         "created_at",
-        { ascending: false }
+        {
+          ascending: false
+        }
       );
 
 
-  const wrap = $("admin-list");
+  const wrap =
+    $("admin-list");
 
-  wrap.innerHTML = "";
+
+  wrap.innerHTML =
+    "";
 
 
   if (error) {
@@ -284,206 +458,264 @@ async function loadList() {
       error.message;
 
     return;
+
   }
 
 
-  (data || []).forEach((p) => {
-
-    const item =
-      document.createElement("div");
-
-    item.className =
-      "admin-item";
+  (data || [])
+    .forEach(
+      (p) => {
 
 
-    item.innerHTML = `
-
-      <img
-        src="${p.thumbnail_url || ""}"
-        alt=""
-      >
-
-      <div>
-
-        <h3>
-          ${p.title || ""}
-        </h3>
-
-        <p>
-          ORDER ${p.sort_order ?? 0}
-          · ${p.type || ""}
-          · ${
-            p.featured
-              ? "HOME + WORK"
-              : "WORK ONLY"
-          }
-        </p>
-
-      </div>
-
-      <div style="
-        display:flex;
-        gap:8px;
-      ">
-
-        <button
-          type="button"
-          class="edit-btn"
-        >
-          EDIT
-        </button>
-
-        <button
-          type="button"
-          class="delete-btn"
-        >
-          DELETE
-        </button>
-
-      </div>
-
-    `;
-
-
-    /* =========================
-       EDIT
-    ========================= */
-
-    item
-      .querySelector(".edit-btn")
-      .onclick = () => {
-
-        openEditor(p, item);
-
-      };
-
-
-    /* =========================
-       DELETE
-    ========================= */
-
-    item
-      .querySelector(".delete-btn")
-      .onclick = async () => {
-
-        if (
-          !confirm(
-            `"${p.title}" 프로젝트를 삭제할까요?`
-          )
-        ) {
-          return;
-        }
-
-
-        const deletedOrder =
-          Number(p.sort_order || 0);
-
-
-        const { error: delError } =
-          await supabase
-            .from("projects")
-            .delete()
-            .eq("id", p.id);
-
-
-        if (delError) {
-
-          alert(delError.message);
-
-          return;
-        }
-
-
-        if (p.storage_path) {
-
-          await supabase.storage
-            .from("thumbnails")
-            .remove([
-              p.storage_path
-            ]);
-
-        }
-
-
-        const {
-          data: laterProjects,
-          error: orderError
-        } =
-          await supabase
-            .from("projects")
-            .select(
-              "id, sort_order"
-            )
-            .gt(
-              "sort_order",
-              deletedOrder
-            )
-            .order(
-              "sort_order",
-              {
-                ascending: true
-              }
-            );
-
-
-        if (orderError) {
-
-          alert(
-            orderError.message
+        const item =
+          document.createElement(
+            "div"
           );
 
-          await loadList();
 
-          return;
-        }
-
-
-        for (
-          const project
-          of laterProjects || []
-        ) {
-
-          const currentOrder =
-            Number(
-              project.sort_order || 0
-            );
+        item.className =
+          "admin-item";
 
 
-          const {
-            error: updateError
-          } =
-            await supabase
-              .from("projects")
-              .update({
-                sort_order:
-                  currentOrder - 1
-              })
-              .eq(
-                "id",
-                project.id
+        item.innerHTML = `
+
+          <img
+            src="${p.thumbnail_url || ""}"
+            alt=""
+          >
+
+          <div>
+
+            <h3>
+              ${escapeHTML(p.title || "")}
+            </h3>
+
+            <p>
+
+              ORDER ${p.sort_order ?? 0}
+
+              · ${escapeHTML(p.type || "")}
+
+              · ${
+                p.featured
+                  ? "HOME + WORK"
+                  : "WORK ONLY"
+              }
+
+            </p>
+
+          </div>
+
+
+          <div style="
+            display:flex;
+            gap:8px;
+          ">
+
+            <button
+              type="button"
+              class="edit-btn"
+            >
+              EDIT
+            </button>
+
+            <button
+              type="button"
+              class="delete-btn"
+            >
+              DELETE
+            </button>
+
+          </div>
+
+        `;
+
+
+        /* EDIT */
+
+        item
+          .querySelector(
+            ".edit-btn"
+          )
+          .onclick =
+            () => {
+
+              openEditor(
+                p,
+                item
               );
 
-
-          if (updateError) {
-
-            alert(
-              updateError.message
-            );
-
-            break;
-          }
-
-        }
+            };
 
 
-        await loadList();
+        /* DELETE */
 
-      };
+        item
+          .querySelector(
+            ".delete-btn"
+          )
+          .onclick =
+            async () => {
 
 
-    wrap.appendChild(item);
+              if (
+                !confirm(
+                  `"${p.title}" 프로젝트를 삭제할까요?`
+                )
+              ) {
+                return;
+              }
 
-  });
+
+              const deletedOrder =
+                Number(
+                  p.sort_order || 0
+                );
+
+
+              const {
+                error: delError
+              } =
+                await supabase
+                  .from("projects")
+                  .delete()
+                  .eq(
+                    "id",
+                    p.id
+                  );
+
+
+              if (delError) {
+
+                alert(
+                  delError.message
+                );
+
+                return;
+
+              }
+
+
+              /* 썸네일 삭제 */
+
+              if (
+                p.storage_path
+              ) {
+
+                await supabase.storage
+                  .from(
+                    "thumbnails"
+                  )
+                  .remove([
+                    p.storage_path
+                  ]);
+
+              }
+
+
+              /* 뒤 ORDER 조회 */
+
+              const {
+                data:
+                  laterProjects,
+
+                error:
+                  orderError
+
+              } =
+                await supabase
+                  .from(
+                    "projects"
+                  )
+                  .select(
+                    "id, sort_order"
+                  )
+                  .gt(
+                    "sort_order",
+                    deletedOrder
+                  )
+                  .order(
+                    "sort_order",
+                    {
+                      ascending:
+                        true
+                    }
+                  );
+
+
+              if (orderError) {
+
+                alert(
+                  orderError.message
+                );
+
+                await loadList();
+
+                return;
+
+              }
+
+
+              /* ORDER 앞으로 당기기 */
+
+              for (
+                const project
+                of laterProjects || []
+              ) {
+
+
+                const currentOrder =
+                  Number(
+                    project.sort_order ||
+                    0
+                  );
+
+
+                const {
+                  error:
+                    updateError
+                } =
+                  await supabase
+                    .from(
+                      "projects"
+                    )
+                    .update({
+                      sort_order:
+                        currentOrder -
+                        1
+                    })
+                    .eq(
+                      "id",
+                      project.id
+                    );
+
+
+                if (
+                  updateError
+                ) {
+
+                  alert(
+                    updateError.message
+                  );
+
+                  break;
+
+                }
+
+              }
+
+
+              await loadList();
+
+            };
+
+
+        wrap.appendChild(
+          item
+        );
+
+      }
+    );
 
 }
 
@@ -492,7 +724,11 @@ async function loadList() {
    EDIT WINDOW
 ========================= */
 
-function openEditor(p, item) {
+function openEditor(
+  p,
+  item
+) {
+
 
   item.innerHTML = `
 
@@ -505,7 +741,9 @@ function openEditor(p, item) {
       "
     >
 
+
       <label>
+
         PROJECT TITLE
 
         <input
@@ -513,21 +751,50 @@ function openEditor(p, item) {
           type="text"
           value="${escapeHTML(p.title || "")}"
         >
+
       </label>
 
 
       <label>
+
         TYPE
 
-        <input
+        <select
           class="edit-type"
-          type="text"
-          value="${escapeHTML(p.type || "")}"
         >
+
+          <option
+            value="Brand Film"
+            ${
+              p.type ===
+              "Brand Film"
+                ? "selected"
+                : ""
+            }
+          >
+            Brand Film
+          </option>
+
+
+          <option
+            value="Commercial Film"
+            ${
+              p.type ===
+              "Commercial Film"
+                ? "selected"
+                : ""
+            }
+          >
+            Commercial Film
+          </option>
+
+        </select>
+
       </label>
 
 
       <label>
+
         VIDEO URL
 
         <input
@@ -535,10 +802,12 @@ function openEditor(p, item) {
           type="text"
           value="${escapeHTML(p.video_url || "")}"
         >
+
       </label>
 
 
       <label>
+
         ORDER
 
         <input
@@ -547,38 +816,56 @@ function openEditor(p, item) {
           min="0"
           value="${p.sort_order ?? 0}"
         >
+
       </label>
 
 
       <label>
+
         HOME
 
-        <select class="edit-featured">
+        <select
+          class="edit-featured"
+        >
 
           <option
             value="true"
-            ${p.featured ? "selected" : ""}
+            ${
+              p.featured
+                ? "selected"
+                : ""
+            }
           >
             HOME + WORK
           </option>
 
+
           <option
             value="false"
-            ${!p.featured ? "selected" : ""}
+            ${
+              !p.featured
+                ? "selected"
+                : ""
+            }
           >
             WORK ONLY
           </option>
 
         </select>
+
       </label>
 
 
       <label>
+
         NEW THUMBNAIL
-        <span style="
-          font-size:10px;
-          opacity:.6;
-        ">
+
+        <span
+          style="
+            font-size:10px;
+            opacity:.6;
+          "
+        >
           선택하지 않으면 기존 이미지 유지
         </span>
 
@@ -587,6 +874,7 @@ function openEditor(p, item) {
           type="file"
           accept="image/*"
         >
+
       </label>
 
 
@@ -603,6 +891,7 @@ function openEditor(p, item) {
         >
           SAVE
         </button>
+
 
         <button
           type="button"
@@ -622,230 +911,281 @@ function openEditor(p, item) {
         "
       ></p>
 
+
     </div>
 
   `;
 
 
-  item
-    .querySelector(".cancel-btn")
-    .onclick = () => {
-
-      loadList();
-
-    };
-
+  /* CANCEL */
 
   item
-    .querySelector(".save-btn")
-    .onclick = async () => {
+    .querySelector(
+      ".cancel-btn"
+    )
+    .onclick =
+      () => {
 
-      const status =
-        item.querySelector(
-          ".edit-status"
-        );
+        loadList();
 
-
-      const title =
-        item
-          .querySelector(
-            ".edit-title"
-          )
-          .value
-          .trim();
+      };
 
 
-      const type =
-        item
-          .querySelector(
-            ".edit-type"
-          )
-          .value
-          .trim();
+  /* SAVE */
+
+  item
+    .querySelector(
+      ".save-btn"
+    )
+    .onclick =
+      async () => {
 
 
-      const video =
-        item
-          .querySelector(
-            ".edit-video"
-          )
-          .value
-          .trim();
+        const status =
+          item.querySelector(
+            ".edit-status"
+          );
 
 
-      const rawOrder =
-        Number(
+        const title =
           item
             .querySelector(
-              ".edit-order"
+              ".edit-title"
             )
             .value
-        );
+            .trim();
 
 
-      const order =
-        Number.isFinite(rawOrder) &&
-        rawOrder >= 0
-          ? Math.floor(rawOrder)
-          : 0;
+        const type =
+          item
+            .querySelector(
+              ".edit-type"
+            )
+            .value;
 
 
-      const featured =
-        item
-          .querySelector(
-            ".edit-featured"
-          )
-          .value === "true";
+        const video =
+          item
+            .querySelector(
+              ".edit-video"
+            )
+            .value
+            .trim();
 
 
-      const file =
-        item
-          .querySelector(
-            ".edit-thumb"
-          )
-          .files[0];
+        const rawOrder =
+          Number(
+            item
+              .querySelector(
+                ".edit-order"
+              )
+              .value
+          );
 
 
-      if (!title) {
+        const order =
+          Number.isFinite(
+            rawOrder
+          ) &&
+          rawOrder >= 0
+            ? Math.floor(
+                rawOrder
+              )
+            : 0;
+
+
+        const featured =
+          item
+            .querySelector(
+              ".edit-featured"
+            )
+            .value ===
+            "true";
+
+
+        const file =
+          item
+            .querySelector(
+              ".edit-thumb"
+            )
+            .files[0];
+
+
+        if (!title) {
+
+          status.textContent =
+            "프로젝트 제목을 입력해주세요.";
+
+          return;
+
+        }
+
 
         status.textContent =
-          "프로젝트 제목을 입력해주세요.";
-
-        return;
-      }
+          "저장 중...";
 
 
-      status.textContent =
-        "저장 중...";
+        try {
 
 
-      try {
-
-        let thumbnailURL =
-          p.thumbnail_url;
-
-        let storagePath =
-          p.storage_path;
+          let thumbnailURL =
+            p.thumbnail_url;
 
 
-        /* 새 썸네일이 있을 경우 */
-
-        if (file) {
-
-          const safeName =
-            `${Date.now()}-${file.name.replace(
-              /[^a-zA-Z0-9._-]/g,
-              "_"
-            )}`;
+          let storagePath =
+            p.storage_path;
 
 
-          const {
-            error: uploadError
-          } =
-            await supabase.storage
-              .from("thumbnails")
-              .upload(
-                safeName,
-                file,
-                {
-                  upsert: false
-                }
-              );
+          /* 썸네일 교체 */
+
+          if (file) {
 
 
-          if (uploadError) {
-            throw uploadError;
+            const safeName =
+              `${Date.now()}-${file.name.replace(
+                /[^a-zA-Z0-9._-]/g,
+                "_"
+              )}`;
+
+
+            const {
+              error:
+                uploadError
+            } =
+              await supabase.storage
+                .from(
+                  "thumbnails"
+                )
+                .upload(
+                  safeName,
+                  file,
+                  {
+                    upsert:
+                      false
+                  }
+                );
+
+
+            if (
+              uploadError
+            ) {
+              throw uploadError;
+            }
+
+
+            const {
+              data:
+                publicData
+            } =
+              supabase.storage
+                .from(
+                  "thumbnails"
+                )
+                .getPublicUrl(
+                  safeName
+                );
+
+
+            thumbnailURL =
+              publicData.publicUrl;
+
+
+            storagePath =
+              safeName;
+
           }
 
 
+          /* DB 수정 */
+
           const {
-            data: publicData
+            error:
+              updateError
           } =
-            supabase.storage
-              .from("thumbnails")
-              .getPublicUrl(
-                safeName
+            await supabase
+              .from(
+                "projects"
+              )
+              .update({
+
+                title,
+
+                type,
+
+                video_url:
+                  video,
+
+                featured,
+
+                sort_order:
+                  order,
+
+                thumbnail_url:
+                  thumbnailURL,
+
+                storage_path:
+                  storagePath
+
+              })
+              .eq(
+                "id",
+                p.id
               );
 
 
-          thumbnailURL =
-            publicData.publicUrl;
-
-          storagePath =
-            safeName;
-        }
-
-
-        /* DB 수정 */
-
-        const {
-          error: updateError
-        } =
-          await supabase
-            .from("projects")
-            .update({
-              title,
-              type,
-              video_url: video,
-              featured,
-              sort_order: order,
-              thumbnail_url:
-                thumbnailURL,
-              storage_path:
-                storagePath
-            })
-            .eq(
-              "id",
-              p.id
-            );
+          if (
+            updateError
+          ) {
+            throw updateError;
+          }
 
 
-        if (updateError) {
-          throw updateError;
-        }
+          /* 이전 썸네일 삭제 */
+
+          if (
+            file &&
+            p.storage_path &&
+            p.storage_path !==
+              storagePath
+          ) {
+
+            await supabase.storage
+              .from(
+                "thumbnails"
+              )
+              .remove([
+                p.storage_path
+              ]);
+
+          }
 
 
-        /* 새 썸네일 저장 성공 후
-           기존 썸네일 삭제 */
+          status.textContent =
+            "수정 완료";
 
-        if (
-          file &&
-          p.storage_path &&
-          p.storage_path !==
-            storagePath
-        ) {
 
-          await supabase.storage
-            .from("thumbnails")
-            .remove([
-              p.storage_path
-            ]);
+          await loadList();
 
         }
 
-
-        status.textContent =
-          "수정 완료";
+        catch (error) {
 
 
-        await loadList();
-
-      }
-
-      catch (error) {
-
-        console.error(error);
-
-        status.textContent =
-          "수정 실패: " +
-          (
-            error.message ||
-            "오류가 발생했습니다."
+          console.error(
+            error
           );
 
-      }
 
-    };
+          status.textContent =
+            "수정 실패: " +
+            (
+              error.message ||
+              "오류가 발생했습니다."
+            );
+
+        }
+
+      };
 
 }
 
@@ -854,13 +1194,32 @@ function openEditor(p, item) {
    HTML ESCAPE
 ========================= */
 
-function escapeHTML(value) {
+function escapeHTML(
+  value
+) {
 
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
+
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    );
+
 }
 
 
@@ -868,13 +1227,14 @@ function escapeHTML(value) {
    AUTH CHANGE
 ========================= */
 
-supabase.auth.onAuthStateChange(
-  () => {
+supabase.auth
+  .onAuthStateChange(
+    () => {
 
-    refreshUI();
+      refreshUI();
 
-  }
-);
+    }
+  );
 
 
 /* =========================
