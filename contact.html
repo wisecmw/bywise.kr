@@ -1,42 +1,301 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CONTACT — WISE</title><link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CONTACT — WISE</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body class="contact-page">
 
+
 <header class="site-header">
-  <a class="logo" href="index.html"><img src="wise-logo.png" alt="WISE"></a>
+
+  <a class="logo" href="index.html">
+    <img src="wise-logo.png" alt="WISE">
+  </a>
+
   <nav>
     <a href="index.html">HOME</a>
     <a href="work.html">WORK</a>
     <a href="contact.html">CONTACT</a>
   </nav>
+
 </header>
 
+
+
 <main class="contact-main">
+
+
+  <!-- LEFT -->
+
   <section class="contact-copy">
+
     <p>HAVE A PROJECT?</p>
-    <h1>LET'S WORK<br>TOGETHER</h1>
-    <a href="mailto:wise@bywise.kr">wise@bywise.kr</a>
+
+    <h1>
+      LET'S WORK<br>
+      TOGETHER
+    </h1>
+
+    <a href="mailto:wise@bywise.kr">
+      wise@bywise.kr
+    </a>
+
   </section>
-  <form action="https://formsubmit.co/wise@bywise.kr" method="POST">
-    <input type="hidden" name="_subject" value="[WISE] 홈페이지 문의">
-    <input type="hidden" name="_captcha" value="true">
-    <label>NAME / COMPANY<input name="name" required></label>
-    <label>EMAIL<input type="email" name="email" required></label>
-    <label>PHONE<input name="phone"></label>
-    <label>PROJECT
-      <select name="project">
-        <option>Commercial / Brand Film</option><option>Digital Content</option>
-        <option>Music / Performance</option><option>Other</option>
-      </select>
+
+
+
+  <!-- CONTACT FORM -->
+
+  <form
+    action="https://formsubmit.co/wise@bywise.kr"
+    method="POST"
+  >
+
+
+    <!-- 이메일 제목 -->
+
+    <input
+      type="hidden"
+      name="_subject"
+      value="[WISE] 홈페이지 신규 문의"
+    >
+
+
+    <!-- 메일 디자인 -->
+
+    <input
+      type="hidden"
+      name="_template"
+      value="table"
+    >
+
+
+    <!-- 전송 완료 후 CONTACT 페이지로 복귀 -->
+
+    <input
+      type="hidden"
+      name="_next"
+      value="https://bywise.kr/contact.html?sent=true"
+    >
+
+
+    <!-- 스팸 방지 -->
+
+    <input
+      type="text"
+      name="_honey"
+      style="display:none"
+    >
+
+
+    <!-- NAME -->
+
+    <label>
+
+      NAME / COMPANY
+
+      <input
+        type="text"
+        name="NAME / COMPANY"
+        placeholder="Name or Company"
+        required
+      >
+
     </label>
-    <label>BUDGET<input name="budget" placeholder="예: 3,000만원"></label>
-    <label>SCHEDULE<input name="schedule" placeholder="예: 2026년 10월 촬영"></label>
-    <label class="wide">MESSAGE<textarea name="message" rows="5" required></textarea></label>
-    <button class="wide" type="submit">SEND <span>↗</span></button>
+
+
+
+    <!-- EMAIL -->
+
+    <label>
+
+      EMAIL
+
+      <input
+        type="email"
+        name="EMAIL"
+        placeholder="your@email.com"
+        required
+      >
+
+    </label>
+
+
+
+    <!-- PHONE -->
+
+    <label>
+
+      PHONE
+
+      <input
+        type="text"
+        name="PHONE"
+        placeholder="010-0000-0000"
+      >
+
+    </label>
+
+
+
+    <!-- PROJECT -->
+
+    <label>
+
+      PROJECT
+
+      <select name="PROJECT">
+
+        <option value="">
+          Select Project
+        </option>
+
+        <option value="Commercial / Brand Film">
+          Commercial / Brand Film
+        </option>
+
+        <option value="Digital Content">
+          Digital Content
+        </option>
+
+        <option value="Music / Performance">
+          Music / Performance
+        </option>
+
+        <option value="Other">
+          Other
+        </option>
+
+      </select>
+
+    </label>
+
+
+
+    <!-- BUDGET -->
+
+    <label>
+
+      BUDGET
+
+      <input
+        type="text"
+        name="BUDGET"
+        placeholder="예: 3,000만원"
+      >
+
+    </label>
+
+
+
+    <!-- SCHEDULE -->
+
+    <label>
+
+      SCHEDULE
+
+      <input
+        type="text"
+        name="SCHEDULE"
+        placeholder="예: 2026년 10월 촬영"
+      >
+
+    </label>
+
+
+
+    <!-- MESSAGE -->
+
+    <label class="wide">
+
+      MESSAGE
+
+      <textarea
+        name="MESSAGE"
+        placeholder="프로젝트에 대해 간단히 알려주세요."
+        required
+      ></textarea>
+
+    </label>
+
+
+
+    <!-- SEND -->
+
+    <button
+      class="wide"
+      type="submit"
+    >
+
+      <span>SEND INQUIRY</span>
+
+      <span>↗</span>
+
+    </button>
+
+
   </form>
+
+
 </main>
-</body></html>
+
+
+
+<script>
+
+  const params =
+    new URLSearchParams(window.location.search);
+
+  if (params.get("sent") === "true") {
+
+    const form =
+      document.querySelector(".contact-main form");
+
+    form.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        min-height:420px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        border-top:1px solid rgba(255,255,255,.5);
+        border-bottom:1px solid rgba(255,255,255,.5);
+      ">
+
+        <p style="
+          font-size:16px;
+          letter-spacing:.1em;
+          margin:0 0 20px;
+        ">
+          INQUIRY SENT
+        </p>
+
+        <h2 style="
+          font-size:clamp(38px,5vw,80px);
+          line-height:.95;
+          letter-spacing:-.03em;
+          margin:0;
+        ">
+          THANK YOU.<br>
+          WE'LL GET BACK<br>
+          TO YOU SOON.
+        </h2>
+
+      </div>
+    `;
+
+  }
+
+</script>
+
+
+</body>
+</html>
