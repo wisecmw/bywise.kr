@@ -38,7 +38,7 @@ a {
 .site-header nav {
   display: flex;
   gap: 34px;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: .08em;
 }
