@@ -882,5 +882,3 @@ supabase.auth.onAuthStateChange(
 ========================= */
 
 refreshUI();
-
-<script type="module" src="admin.js?v=10"></script>
