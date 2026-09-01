@@ -1,1 +1,39 @@
 *{box-sizing:border-box}html,body{margin:0;background:#f4f3ef;color:#111;font-family:Arial,"Noto Sans KR",sans-serif}a{text-decoration:none;color:inherit}.site-header{height:88px;padding:0 3.2vw;display:flex;align-items:center;justify-content:space-between;background:#f4f3ef;position:relative;z-index:20}.logo img{display:block;width:126px}.site-header nav{display:flex;gap:34px;font-size:12px;font-weight:700;letter-spacing:.08em}.home-main{padding:0 3.2vw 30px}.home-slider{height:calc(100vh - 145px);min-height:520px;position:relative;overflow:hidden;background:#111}.slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;cursor:pointer}.slide.active{opacity:1;z-index:2}.slide img{width:100%;height:100%;object-fit:cover}.slide.empty{display:flex;align-items:center;justify-content:center;color:#777}.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.65))}.slide-info{position:absolute;left:3vw;bottom:3vw;color:#fff;z-index:3}.slide-info h2{font-size:clamp(30px,4.5vw,72px);margin:0 0 6px;letter-spacing:-.05em}.slide-info p{font-size:11px;letter-spacing:.12em;margin:0}.home-bottom{display:flex;justify-content:space-between;padding-top:16px;font-size:11px;letter-spacing:.1em}.work-page{padding-bottom:0}.page-title{padding:5vw 3.2vw 2vw;display:flex;align-items:end;justify-content:space-between}.page-title h1{font-size:clamp(54px,9vw,140px);line-height:.8;letter-spacing:-.07em;margin:0}.page-title span{font-size:10px;letter-spacing:.14em}.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0}.work-card{aspect-ratio:16/9;position:relative;overflow:hidden;background:#191919;cursor:pointer}.work-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}.work-card:hover img{transform:scale(1.025)}.work-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.7))}.work-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#555;font-size:11px;letter-spacing:.15em}.work-meta{position:absolute;left:24px;bottom:22px;color:white;z-index:3}.work-meta h2{font-size:clamp(18px,2vw,31px);letter-spacing:-.04em;margin:0 0 5px}.work-meta p{font-size:10px;letter-spacing:.1em;margin:0}.contact-page{background:#00743f;color:#fff;min-height:100vh}.contact-page .site-header{background:#00743f}.contact-page .logo img{filter:brightness(0) invert(1)}.contact-main{padding:8vw 5vw;display:grid;grid-template-columns:1fr 1fr;gap:9vw}.contact-copy>p{font-size:10px;letter-spacing:.16em}.contact-copy h1{font-size:clamp(54px,7vw,110px);line-height:.87;letter-spacing:-.065em;margin:30px 0 45px}.contact-copy>a{border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:5px}.contact-main form{display:grid;grid-template-columns:1fr 1fr;gap:0 25px}.contact-main label{font-size:9px;letter-spacing:.12em;margin-bottom:26px}.contact-main input,.contact-main select,.contact-main textarea{display:block;width:100%;border:0;border-bottom:1px solid rgba(255,255,255,.45);background:transparent;color:#fff;padding:13px 0;outline:none;border-radius:0;font:inherit}.contact-main select option{color:#111}.contact-main input::placeholder{color:rgba(255,255,255,.5)}.wide{grid-column:1/-1}.contact-main button{border:0;background:#fff;color:#00743f;padding:19px 20px;font-weight:800;display:flex;justify-content:space-between;cursor:pointer}@media(max-width:760px){.site-header{height:70px;padding:0 16px}.logo img{width:98px}.site-header nav{gap:16px;font-size:10px}.home-main{padding:0 16px 20px}.home-slider{height:70vh;min-height:430px}.slide-info{left:20px;bottom:22px}.work-grid{grid-template-columns:1fr}.page-title{padding:55px 16px 25px}.work-meta{left:16px;bottom:15px}.contact-main{padding:60px 20px;grid-template-columns:1fr;gap:60px}.contact-main form{grid-template-columns:1fr}.contact-main form>*{grid-column:1}.home-bottom{font-size:9px}}
+/* V3: WISE green theme across all pages */
+html,body{
+  background:#147a43;
+  color:#fff;
+}
+.site-header{
+  background:#147a43 !important;
+}
+.logo img{
+  filter:brightness(0) invert(1);
+}
+.site-header nav,
+.site-header nav a,
+.home-bottom,
+.home-bottom a,
+.page-title,
+.page-title h1,
+.page-title span{
+  color:#fff;
+}
+.home-main{
+  background:#147a43;
+}
+.work-page{
+  background:#147a43;
+  min-height:100vh;
+}
+.page-title{
+  background:#147a43;
+}
+.work-grid{
+  background:#147a43;
+}
+.contact-page,
+.contact-page .site-header,
+.contact-main{
+  background:#147a43 !important;
+}
