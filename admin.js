@@ -2,6 +2,13 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./config.js?v=10";
 
 const $ = (id) => document.getElementById(id);
+console.log("WISE ADMIN JS LOADED");
+
+const loginStatus = document.getElementById("login-status");
+
+if (loginStatus) {
+  loginStatus.textContent = "ADMIN READY";
+}
 
 const supabase = createClient(
   SUPABASE_URL,
