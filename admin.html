@@ -1,85 +1,381 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>WISE ADMIN</title>
-<link rel="stylesheet" href="style.css">
-<style>
-.admin-wrap{max-width:980px;margin:0 auto;padding:60px 20px 120px}
-.admin-title{font-size:clamp(46px,8vw,96px);letter-spacing:-.06em;margin:0 0 40px}
-.admin-card{border:1px solid rgba(255,255,255,.35);padding:28px;margin-bottom:24px}
-.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.admin-card label{display:block;font-size:10px;letter-spacing:.1em;margin-bottom:16px}
-.admin-card input,.admin-card select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.5);color:#fff;padding:12px 0}
-.admin-card select option{color:#111}
-.admin-card button{width:100%;border:0;background:#fff;color:#147a43;padding:16px;font-weight:800;cursor:pointer}
-.admin-note{font-size:12px;line-height:1.6;opacity:.75}
-.admin-list{display:grid;gap:10px}
-.admin-item{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:16px;border-top:1px solid rgba(255,255,255,.25);padding:14px 0}
-.admin-item img{width:96px;aspect-ratio:16/9;object-fit:cover;background:#222}
-.admin-item h3{margin:0 0 4px;font-size:16px}.admin-item p{margin:0;font-size:11px;opacity:.75}
-.admin-item button{width:auto;padding:10px 14px}
-.hidden{display:none}
-.status{margin-top:12px;font-size:12px}
-@media(max-width:700px){.admin-grid{grid-template-columns:1fr}.admin-item{grid-template-columns:72px 1fr}.admin-item button{grid-column:1/-1}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>WISE ADMIN</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css?v=4">
+
+  <style>
+
+    .admin-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 60px 20px 120px;
+    }
+
+    .admin-title {
+      font-size: clamp(46px, 8vw, 96px);
+      letter-spacing: -.06em;
+      margin: 0 0 40px;
+    }
+
+    .admin-card {
+      border: 1px solid rgba(255,255,255,.35);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .admin-card label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: .1em;
+      margin-bottom: 16px;
+    }
+
+    .admin-card input,
+    .admin-card select {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid rgba(255,255,255,.5);
+      color: #fff;
+      padding: 12px 0;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .admin-card select option {
+      color: #111;
+    }
+
+    .admin-card button {
+      width: 100%;
+      border: 0;
+      background: #fff;
+      color: #147a43;
+      padding: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .admin-note {
+      font-size: 12px;
+      line-height: 1.6;
+      opacity: .75;
+    }
+
+    .admin-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .admin-item {
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      align-items: center;
+      gap: 16px;
+      border-top: 1px solid rgba(255,255,255,.25);
+      padding: 14px 0;
+    }
+
+    .admin-item img {
+      width: 96px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #222;
+    }
+
+    .admin-item h3 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+
+    .admin-item p {
+      margin: 0;
+      font-size: 11px;
+      opacity: .75;
+    }
+
+    .admin-item button {
+      width: auto;
+      padding: 10px 14px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .status {
+      margin-top: 12px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+
+      .admin-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .admin-item {
+        grid-template-columns: 72px 1fr;
+      }
+
+      .admin-item button {
+        grid-column: auto;
+      }
+
+    }
+
+  </style>
+
 </head>
+
+
 <body>
+
 <header class="site-header">
-  <a class="logo" href="index.html"><img src="wise-logo.png" alt="WISE"></a>
-  <nav><a href="index.html">HOME</a><a href="work.html">WORK</a><a href="contact.html">CONTACT</a></nav>
+
+  <a class="logo" href="index.html">
+    <img src="wise-logo.png" alt="WISE">
+  </a>
+
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="work.html">WORK</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
 </header>
 
+
 <main class="admin-wrap">
-<h1 class="admin-title">WISE ADMIN</h1>
 
-<section id="login-card" class="admin-card">
-  <h2>ADMIN LOGIN</h2>
-  <div class="admin-grid">
-    <label>EMAIL<input id="login-email" type="email" autocomplete="username"></label>
-    <label>PASSWORD<input id="login-password" type="password" autocomplete="current-password"></label>
-  </div>
-  <button id="login-btn">LOGIN</button>
-  <p id="login-status" class="status"></p>
-</section>
+  <h1 class="admin-title">
+    WISE ADMIN
+  </h1>
 
-<section id="editor-card" class="admin-card hidden">
-  <div style="display:flex;justify-content:space-between;gap:20px;align-items:center">
-    <h2>ADD PROJECT</h2>
-    <button id="logout-btn" style="width:auto">LOGOUT</button>
-  </div>
 
-  <div class="admin-grid">
-    <label>PROJECT TITLE<input id="title" placeholder="CERAGEM"></label>
-    <label>
-  TYPE
-  <select id="type">
-    <option value="Brand Film">Brand Film</option>
-    <option value="Commercial Film">Commercial Film</option>
-  </select>
-</label>
-    <label>VIDEO URL<input id="video" placeholder="https://..."></label>
-    <label>ORDER<input id="sort" type="number" value="0"></label>
-    <label>THUMBNAIL<input id="thumb" type="file" accept="image/*"></label>
-    <label>HOME
-      <select id="featured">
-        <option value="true">HOME + WORK</option>
-        <option value="false">WORK ONLY</option>
-      </select>
-    </label>
-  </div>
+  <!-- LOGIN -->
 
-  <button id="upload-btn">UPLOAD PROJECT</button>
-  <p id="upload-status" class="status"></p>
-</section>
+  <section
+    id="login-card"
+    class="admin-card"
+  >
 
-<section id="list-card" class="admin-card hidden">
-  <h2>PROJECTS</h2>
-  <div id="admin-list" class="admin-list"></div>
-</section>
+    <h2>ADMIN LOGIN</h2>
 
-<p class="admin-note">이 페이지 주소는 /admin.html 입니다. 일반 메뉴에는 노출되지 않습니다.</p>
+    <div class="admin-grid">
+
+      <label>
+        EMAIL
+
+        <input
+          id="login-email"
+          type="email"
+          autocomplete="username"
+        >
+      </label>
+
+
+      <label>
+        PASSWORD
+
+        <input
+          id="login-password"
+          type="password"
+          autocomplete="current-password"
+        >
+      </label>
+
+    </div>
+
+
+    <button
+      id="login-btn"
+      type="button"
+    >
+      LOGIN
+    </button>
+
+
+    <p
+      id="login-status"
+      class="status"
+    ></p>
+
+  </section>
+
+
+  <!-- ADD PROJECT -->
+
+  <section
+    id="editor-card"
+    class="admin-card hidden"
+  >
+
+    <div
+      style="
+        display:flex;
+        justify-content:space-between;
+        gap:20px;
+        align-items:center;
+      "
+    >
+
+      <h2>ADD PROJECT</h2>
+
+      <button
+        id="logout-btn"
+        type="button"
+        style="width:auto"
+      >
+        LOGOUT
+      </button>
+
+    </div>
+
+
+    <div class="admin-grid">
+
+
+      <label>
+        PROJECT TITLE
+
+        <input
+          id="title"
+          placeholder="PROJECT TITLE"
+        >
+      </label>
+
+
+      <label>
+        TYPE
+
+        <select id="type">
+
+          <option value="Brand Film">
+            Brand Film
+          </option>
+
+          <option value="Commercial Film">
+            Commercial Film
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+        VIDEO URL
+
+        <input
+          id="video"
+          placeholder="https://..."
+        >
+      </label>
+
+
+      <label>
+        ORDER
+
+        <input
+          id="sort"
+          type="number"
+          min="0"
+          value="0"
+        >
+      </label>
+
+
+      <label>
+        THUMBNAIL
+
+        <input
+          id="thumb"
+          type="file"
+          accept="image/*"
+        >
+      </label>
+
+
+      <label>
+        HOME
+
+        <select id="featured">
+
+          <option value="true">
+            HOME + WORK
+          </option>
+
+          <option value="false">
+            WORK ONLY
+          </option>
+
+        </select>
+
+      </label>
+
+    </div>
+
+
+    <button
+      id="upload-btn"
+      type="button"
+    >
+      UPLOAD PROJECT
+    </button>
+
+
+    <p
+      id="upload-status"
+      class="status"
+    ></p>
+
+  </section>
+
+
+  <!-- PROJECT LIST -->
+
+  <section
+    id="list-card"
+    class="admin-card hidden"
+  >
+
+    <h2>PROJECTS</h2>
+
+    <div
+      id="admin-list"
+      class="admin-list"
+    ></div>
+
+  </section>
+
+
+  <p class="admin-note">
+    이 페이지 주소는 /admin.html 입니다.
+    일반 메뉴에는 노출되지 않습니다.
+  </p>
+
 </main>
 
-<script type="module" src="admin.js?v=20"></script>
-</body></html>
+
+<script
+  type="module"
+  src="admin.js?v=21"
+></script>
+
+</body>
+
+</html>
