@@ -1,0 +1,16 @@
+# WISE 작품 목록
+# 형식:
+# 제목 | 작업유형 | 썸네일파일명 | 영상주소 | HOME표시
+#
+# HOME에도 보여주려면 마지막에 home
+# WORK에만 보여주려면 마지막 칸을 비워두세요.
+#
+# 예시:
+# CERAGEM | BRAND FILM | ceragem.jpg | https://youtu.be/영상주소 | home
+
+PROJECT 01 | BRAND FILM |  |  | home
+PROJECT 02 | CAMPAIGN FILM |  |  | home
+PROJECT 03 | PROMOTION FILM |  |  | home
+PROJECT 04 | BRANDED CONTENT |  |  | home
+PROJECT 05 | DIGITAL CAMPAIGN |  |  |
+PROJECT 06 | BRAND FILM |  |  |
