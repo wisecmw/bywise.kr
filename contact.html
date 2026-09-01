@@ -7,7 +7,7 @@
 
   <title>CONTACT — WISE</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 
 
@@ -29,11 +29,8 @@
 </header>
 
 
-
 <main class="contact-main">
 
-
-  <!-- LEFT -->
 
   <section class="contact-copy">
 
@@ -51,16 +48,10 @@
   </section>
 
 
-
-  <!-- CONTACT FORM -->
-
   <form
     action="https://formsubmit.co/wise@bywise.kr"
     method="POST"
   >
-
-
-    <!-- 이메일 제목 -->
 
     <input
       type="hidden"
@@ -68,17 +59,17 @@
       value="[WISE] 홈페이지 신규 문의"
     >
 
-
-    <!-- 메일 디자인 -->
-
     <input
       type="hidden"
       name="_template"
       value="table"
     >
 
-
-    <!-- 전송 완료 후 CONTACT 페이지로 복귀 -->
+    <input
+      type="hidden"
+      name="_captcha"
+      value="false"
+    >
 
     <input
       type="hidden"
@@ -86,17 +77,14 @@
       value="https://bywise.kr/contact.html?sent=true"
     >
 
-
-    <!-- 스팸 방지 -->
-
     <input
       type="text"
       name="_honey"
       style="display:none"
+      tabindex="-1"
+      autocomplete="off"
     >
 
-
-    <!-- NAME -->
 
     <label>
 
@@ -112,9 +100,6 @@
     </label>
 
 
-
-    <!-- EMAIL -->
-
     <label>
 
       EMAIL
@@ -129,9 +114,6 @@
     </label>
 
 
-
-    <!-- PHONE -->
-
     <label>
 
       PHONE
@@ -144,9 +126,6 @@
 
     </label>
 
-
-
-    <!-- PROJECT -->
 
     <label>
 
@@ -179,9 +158,6 @@
     </label>
 
 
-
-    <!-- BUDGET -->
-
     <label>
 
       BUDGET
@@ -194,9 +170,6 @@
 
     </label>
 
-
-
-    <!-- SCHEDULE -->
 
     <label>
 
@@ -211,9 +184,6 @@
     </label>
 
 
-
-    <!-- MESSAGE -->
-
     <label class="wide">
 
       MESSAGE
@@ -226,9 +196,6 @@
 
     </label>
 
-
-
-    <!-- SEND -->
 
     <button
       class="wide"
@@ -246,7 +213,6 @@
 
 
 </main>
-
 
 
 <script>
