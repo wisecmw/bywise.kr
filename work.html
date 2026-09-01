@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="ko">
 
 <head>
@@ -8,39 +9,69 @@
   <title>WORK — WISE</title>
 
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=10">
+
+  <style>
+    #work-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 0 !important;
+      width: 100% !important;
+    }
+
+    #work-grid > * {
+      width: 100% !important;
+      max-width: none !important;
+      min-width: 0 !important;
+    }
+
+    @media (max-width: 1024px) {
+      #work-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      #work-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
 
   <header class="site-header">
 
-    <a class="logo" href="index.html">
-      <img src="wise-logo.png" alt="WISE">
-    </a>
+```
+<a class="logo" href="index.html">
+  <img src="wise-logo.png" alt="WISE">
+</a>
 
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="work.html">WORK</a>
-      <a href="contact.html">CONTACT</a>
-    </nav>
+<nav>
+  <a href="index.html">HOME</a>
+  <a href="work.html">WORK</a>
+  <a href="contact.html">CONTACT</a>
+</nav>
+```
 
   </header>
 
-
   <main class="work-page">
 
-    <div class="page-title">
-      <h1>WORK</h1>
-      <span>SELECTED WORKS</span>
-    </div>
+```
+<div class="page-title">
+  <h1>WORK</h1>
+  <span>SELECTED WORKS</span>
+</div>
 
-    <div id="work-grid" class="work-grid"></div>
+<div id="work-grid" class="work-grid"></div>
+```
 
   </main>
 
-
-  <script type="module" src="works.js"></script>
+  <script type="module" src="works.js?v=10"></script>
 
 </body>
 
