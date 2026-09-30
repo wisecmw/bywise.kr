@@ -33,3 +33,34 @@
   .mobile-contact-bar a{display:flex;align-items:center;justify-content:center;color:#147a43;font-size:13px;font-weight:800;letter-spacing:-.02em}
   .mobile-contact-bar a+a{background:#147a43;color:#fff;border-left:1px solid rgba(255,255,255,.25)}
 }
+
+/* v4 typography + tighter portfolio layout */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:-.02em;word-break:keep-all}
+.eyebrow,.section-label,.category-head>div>p,.work-meta span,.header-actions,.hero-buttons a,.inquiry label,footer{letter-spacing:.08em}
+.hero h1{letter-spacing:-.055em;line-height:.94}
+.hero-bottom>p,.category-desc,.conversion-copy>p{letter-spacing:-.025em;line-height:1.55}
+.section-line{padding-top:3.2vw;padding-bottom:3.2vw}
+.portfolio>.section-label{margin-bottom:3.4vw}
+.portfolio-category{margin-bottom:5.5vw}
+.category-head{grid-template-columns:minmax(360px,.9fr) minmax(420px,1.1fr);gap:4vw;align-items:end;margin-bottom:1.6vw}
+.category-head h2{font-size:clamp(44px,4.4vw,72px);line-height:1;letter-spacing:-.045em}
+.category-head>div>p{margin-bottom:10px}
+.category-desc{justify-self:end;width:100%;max-width:680px;margin-bottom:3px}
+.work-grid{gap:10px}
+.work-meta h3{letter-spacing:-.02em}
+@media(max-width:1024px){
+  .section-line{padding-top:44px;padding-bottom:44px}
+  .portfolio>.section-label{margin-bottom:38px}
+  .portfolio-category{margin-bottom:64px}
+  .category-head{grid-template-columns:1fr;gap:12px;margin-bottom:20px}
+  .category-desc{justify-self:start;max-width:720px}
+}
+@media(max-width:760px){
+  .section-line{padding-top:48px;padding-bottom:48px}
+  .portfolio>.section-label{margin-bottom:38px}
+  .portfolio-category{margin-bottom:64px}
+  .category-head{gap:10px;margin-bottom:18px}
+  .category-head h2{font-size:clamp(40px,12vw,54px);line-height:1.02;letter-spacing:-.045em}
+  .category-desc{line-height:1.5}
+}
