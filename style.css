@@ -92,6 +92,7 @@ img {
 
 .home-main {
   padding: 0 3.2vw 30px;
+
   background: #147a43;
 }
 
@@ -164,7 +165,7 @@ img {
 .slide-info h2 {
   margin: 0 0 6px;
 
-  font-size: clamp(30px,4.5vw,72px);
+  font-size: clamp(30px, 4.5vw, 72px);
 
   letter-spacing: -.05em;
 }
@@ -195,6 +196,7 @@ img {
 
 .work-page {
   min-height: 100vh;
+
   background: #147a43;
 }
 
@@ -209,7 +211,7 @@ img {
 .page-title h1 {
   margin: 0;
 
-  font-size: clamp(54px,9vw,140px);
+  font-size: clamp(54px, 9vw, 140px);
 
   line-height: .8;
 
@@ -218,12 +220,14 @@ img {
 
 .page-title span {
   font-size: 10px;
+
   letter-spacing: .14em;
 }
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .work-card {
@@ -276,7 +280,7 @@ img {
 .work-meta h2 {
   margin: 0 0 5px;
 
-  font-size: clamp(18px,2vw,31px);
+  font-size: clamp(18px, 2vw, 31px);
 
   letter-spacing: -.04em;
 }
@@ -321,7 +325,7 @@ img {
 .contact-copy h1 {
   margin: 30px 0 48px;
 
-  font-size: clamp(64px,7.4vw,120px);
+  font-size: clamp(64px, 7.4vw, 120px);
 
   line-height: .9;
 
@@ -461,7 +465,7 @@ img {
 ================================================== */
 
 .about-overview {
-  width: min(1500px, 92vw);
+  width: min(1380px, 88vw);
 
   margin: 0 auto;
 
@@ -470,7 +474,7 @@ img {
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
-  column-gap: 28px;
+  column-gap: 18px;
 
   padding: 38px 0 55px;
 
@@ -485,14 +489,14 @@ img {
 .about-column {
   min-width: 0;
 
-  padding: 0 12px;
+  padding: 0 8px;
 
   text-align: center;
 }
 
 .about-column-inner {
   width: 100%;
-  max-width: 420px;
+  max-width: 400px;
 
   margin: 0 auto;
 
@@ -501,7 +505,7 @@ img {
 
 
 /* ==================================================
-   BIG TITLES
+   BIG TITLE
 ================================================== */
 
 .about-title {
@@ -509,7 +513,7 @@ img {
 
   padding: 0;
 
-  font-size: clamp(38px,2.7vw,52px);
+  font-size: clamp(38px, 2.7vw, 52px);
   font-weight: 800;
 
   line-height: 1;
@@ -534,23 +538,33 @@ img {
 
 
 /* ==================================================
-   SECOND LEVEL TYPE
+   MAIN COPY
 
-   아래 글씨들은 전부 같은 크기
+   아래 글씨 전부 같은 사이즈
 
-   길게 말하지 않고
+   길게 말하지 않고,
+   만들어서 보여줍니다.
+
+   01
    BRAND FILM
+
+   02
    COMMERCIAL FILM
+
+   03
    DIGITAL CONTENTS
-   사공이 많으면
+
+   사공이 많으면,
+   영상은 산으로 갑니다.
 ================================================== */
 
-.about-main-copy {
+.about-main-copy,
+.service-number {
   margin: 0;
 
   padding: 0;
 
-  font-size: clamp(23px,1.45vw,29px);
+  font-size: clamp(23px, 1.45vw, 29px);
   font-weight: 700;
 
   line-height: 1.35;
@@ -563,26 +577,24 @@ img {
 }
 
 
-/* ABOUT 첫 메인 카피 */
+/* ABOUT 메인 문구 */
 
-.about-column:first-child
-.about-main-copy {
+.about-column:first-child .about-main-copy {
   margin-bottom: 30px;
 }
 
 
-/* WHY 메인 카피 */
+/* WHY 메인 문구 */
 
-.about-column:last-child
-.about-main-copy {
+.about-column:last-child .about-main-copy {
   margin-bottom: 30px;
 }
 
 
 /* ==================================================
-   THIRD LEVEL TYPE
+   DESCRIPTION
 
-   아래 설명들은 전부 같은 크기
+   아래 작은 본문들은 모두 같은 크기
 ================================================== */
 
 .about-description {
@@ -590,7 +602,7 @@ img {
 
   padding: 0;
 
-  font-size: clamp(12px,.72vw,14px);
+  font-size: clamp(12px, .72vw, 14px);
   font-weight: 400;
 
   line-height: 1.7;
@@ -631,57 +643,51 @@ img {
 }
 
 
-/* NUMBER */
+/* ==================================================
+   01 / 02 / 03
+================================================== */
 
 .service-number {
   display: block;
 
-  margin: 0 0 6px;
+  margin: 0 0 2px;
 
-  font-size: 9px;
-  font-weight: 600;
-
-  line-height: 1;
-
-  letter-spacing: .14em;
-
-  opacity: .5;
-
-  text-align: center;
+  opacity: 1;
 }
 
 
-/* 서비스 제목 */
+/* ==================================================
+   BRAND FILM / COMMERCIAL FILM / DIGITAL CONTENTS
+================================================== */
 
 .service-title {
-  margin: 0 0 7px;
+  margin: 0 0 8px;
 
   white-space: nowrap;
 }
 
 
-/* 서비스 설명 */
+/* ==================================================
+   SERVICE DESCRIPTION
+================================================== */
 
 .service-item .about-description {
-  font-size: clamp(12px,.72vw,14px);
+  font-size: clamp(12px, .72vw, 14px);
+  font-weight: 400;
 }
 
 
 /* ==================================================
    WHY WISE
-================================================== */
 
-/*
-좋은 결과물에는...
-이 문장도 ABOUT 설명과
-완전히 동일한 크기로 사용
-*/
+   작은 본문은 전부 동일한 크기/굵기
+================================================== */
 
 .why-lead {
   margin-bottom: 27px;
 
-  font-size: clamp(12px,.72vw,14px);
-  font-weight: 700;
+  font-size: clamp(12px, .72vw, 14px);
+  font-weight: 400;
 
   line-height: 1.7;
 }
@@ -732,7 +738,7 @@ img {
 .about-result h2 {
   margin: 0 0 35px;
 
-  font-size: clamp(58px,5vw,94px);
+  font-size: clamp(58px, 5vw, 94px);
   font-weight: 800;
 
   line-height: .93;
@@ -762,31 +768,41 @@ img {
 @media (min-width: 761px) and (max-width: 1100px) {
 
   .about-overview {
-    width: 96vw;
+    width: 94vw;
 
-    column-gap: 10px;
+    column-gap: 8px;
 
     padding-top: 35px;
   }
 
   .about-column {
-    padding: 0 8px;
+    padding: 0 6px;
   }
 
   .about-title {
     margin-bottom: 32px;
 
     font-size:
-      clamp(29px,3.7vw,40px);
+      clamp(29px, 3.7vw, 40px);
   }
 
-  .about-main-copy {
+  .about-main-copy,
+  .service-number {
     font-size:
-      clamp(19px,2.25vw,25px);
+      clamp(19px, 2.25vw, 25px);
   }
 
   .about-description {
     font-size: 11px;
+  }
+
+  .service-item .about-description {
+    font-size: 11px;
+  }
+
+  .why-lead {
+    font-size: 11px;
+    font-weight: 400;
   }
 
   .service-list {
@@ -912,16 +928,32 @@ img {
     margin-bottom: 38px;
 
     font-size:
-      clamp(40px,11vw,54px);
+      clamp(40px, 11vw, 54px);
   }
 
-  .about-main-copy {
+
+  /* 모바일에서도
+     메인카피 / 01 02 03 / 서비스명
+     전부 같은 크기 */
+
+  .about-main-copy,
+  .service-number {
     font-size:
-      clamp(25px,6.7vw,32px);
+      clamp(25px, 6.7vw, 32px);
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    letter-spacing: -.04em;
   }
+
+
+  /* DESCRIPTION */
 
   .about-description {
     font-size: 14px;
+    font-weight: 400;
   }
 
 
@@ -941,16 +973,22 @@ img {
   }
 
   .service-title {
+    margin-bottom: 9px;
+
     font-size:
-      clamp(25px,6.7vw,32px);
+      clamp(25px, 6.7vw, 32px);
+  }
+
+  .service-number {
+    margin-bottom: 2px;
+
+    font-size:
+      clamp(25px, 6.7vw, 32px);
   }
 
   .service-item .about-description {
     font-size: 14px;
-  }
-
-  .service-number {
-    font-size: 9px;
+    font-weight: 400;
   }
 
 
@@ -958,6 +996,7 @@ img {
 
   .why-lead {
     font-size: 14px;
+    font-weight: 400;
   }
 
 
@@ -977,7 +1016,7 @@ img {
 
   .about-result h2 {
     font-size:
-      clamp(42px,12vw,60px);
+      clamp(42px, 12vw, 60px);
 
     line-height: .94;
   }
