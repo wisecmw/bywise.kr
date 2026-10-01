@@ -1,6 +1,5 @@
 /* ========================================
-   WISE
-   GLOBAL
+   RESET
 ======================================== */
 
 * {
@@ -16,8 +15,12 @@ body {
   color: #fff;
 
   font-family:
-    Arial,
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
     "Noto Sans KR",
+    Arial,
     sans-serif;
 }
 
@@ -60,10 +63,6 @@ img {
   z-index: 20;
 }
 
-.logo {
-  display: block;
-}
-
 .logo img {
   width: 126px;
   height: auto;
@@ -85,13 +84,12 @@ img {
   font-weight: 700;
 
   letter-spacing: .08em;
-  line-height: 1;
 
   transition: opacity .2s ease;
 }
 
 .site-header nav a:hover {
-  opacity: .6;
+  opacity: .65;
 }
 
 .site-header nav a.active {
@@ -103,19 +101,11 @@ img {
    HOME
 ======================================== */
 
-.home-page {
-  background: #147a43;
-}
-
 .home-main {
   padding: 0 3.2vw 30px;
-
-  background: #147a43;
 }
 
 .home-slider {
-  width: 100%;
-
   height: calc(100vh - 145px);
   min-height: 520px;
 
@@ -139,7 +129,6 @@ img {
 
 .slide.active {
   opacity: 1;
-
   z-index: 2;
 }
 
@@ -178,16 +167,13 @@ img {
   left: 3vw;
   bottom: 3vw;
 
-  color: #fff;
-
   z-index: 3;
 }
 
 .slide-info h2 {
   margin: 0 0 6px;
 
-  font-size:
-    clamp(30px, 4.5vw, 72px);
+  font-size: clamp(30px, 4.5vw, 72px);
 
   line-height: 1;
 
@@ -207,9 +193,6 @@ img {
 
   display: flex;
   justify-content: space-between;
-  align-items: center;
-
-  color: #fff;
 
   font-size: 11px;
 
@@ -223,10 +206,6 @@ img {
 
 .work-page {
   min-height: 100vh;
-
-  padding-bottom: 0;
-
-  background: #147a43;
 }
 
 .page-title {
@@ -235,17 +214,12 @@ img {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-
-  color: #fff;
-
-  background: #147a43;
 }
 
 .page-title h1 {
   margin: 0;
 
-  font-size:
-    clamp(54px, 9vw, 140px);
+  font-size: clamp(54px, 9vw, 140px);
 
   line-height: .8;
 
@@ -259,22 +233,15 @@ img {
 }
 
 .work-grid {
-  width: 100%;
-
   display: grid;
 
   grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+    repeat(3, 1fr);
 
   gap: 0;
-
-  background: #147a43;
 }
 
 .work-card {
-  width: 100%;
-  min-width: 0;
-
   aspect-ratio: 16 / 9;
 
   position: relative;
@@ -292,8 +259,7 @@ img {
 
   object-fit: cover;
 
-  transition:
-    transform .55s ease;
+  transition: transform .55s ease;
 }
 
 .work-card:hover img {
@@ -314,28 +280,11 @@ img {
     );
 }
 
-.work-empty {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #555;
-
-  font-size: 11px;
-
-  letter-spacing: .15em;
-}
-
 .work-meta {
   position: absolute;
 
   left: 24px;
   bottom: 22px;
-
-  color: #fff;
 
   z-index: 3;
 }
@@ -343,10 +292,7 @@ img {
 .work-meta h2 {
   margin: 0 0 5px;
 
-  font-size:
-    clamp(18px, 2vw, 31px);
-
-  line-height: 1;
+  font-size: clamp(18px, 2vw, 31px);
 
   letter-spacing: -.04em;
 }
@@ -366,10 +312,6 @@ img {
 
 .contact-page {
   min-height: 100vh;
-
-  background: #147a43;
-
-  color: #fff;
 }
 
 .contact-main {
@@ -394,8 +336,7 @@ img {
 .contact-copy h1 {
   margin: 30px 0 48px;
 
-  font-size:
-    clamp(64px, 7.4vw, 120px);
+  font-size: clamp(64px, 7.4vw, 120px);
 
   line-height: .9;
 
@@ -416,25 +357,22 @@ img {
 
   display: grid;
 
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   column-gap: 40px;
   row-gap: 36px;
 }
 
 .contact-main label {
-  margin: 0;
-
   display: flex;
   flex-direction: column;
 
   font-size: 16px;
   font-weight: 700;
 
-  line-height: 1.4;
-
   letter-spacing: .08em;
+
+  line-height: 1.4;
 }
 
 .contact-main input,
@@ -460,9 +398,7 @@ img {
   outline: none;
 
   font-family: inherit;
-
   font-size: 16px;
-  font-weight: 400;
 }
 
 .contact-main textarea {
@@ -489,23 +425,16 @@ img {
   resize: vertical;
 
   font-family: inherit;
-
   font-size: 16px;
-  font-weight: 400;
 }
 
 .contact-main input::placeholder,
 .contact-main textarea::placeholder {
-  color:
-    rgba(255,255,255,.5);
-
-  font-size: 16px;
+  color: rgba(255,255,255,.5);
 }
 
 .contact-main select option {
   color: #111;
-
-  font-size: 16px;
 }
 
 .contact-main .wide {
@@ -536,10 +465,6 @@ img {
   cursor: pointer;
 }
 
-.contact-main button:hover {
-  opacity: .92;
-}
-
 
 /* ========================================
    ABOUT
@@ -547,19 +472,6 @@ img {
 
 .about-page {
   min-height: 100vh;
-
-  background: #147a43;
-
-  color: #fff;
-
-  font-family:
-    Pretendard,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Apple SD Gothic Neo",
-    "Noto Sans KR",
-    Arial,
-    sans-serif;
 }
 
 .about-main {
@@ -574,84 +486,79 @@ img {
 @media (min-width: 761px) {
 
   /*
-     첫 화면:
-     ABOUT / WHAT WE DO / WHY WISE
+    첫 페이지 전체
   */
 
   .about-main {
     display: grid;
 
     grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+      repeat(3, 1fr);
   }
 
 
-  .about-section {
-    height:
-      calc(100vh - 88px);
+  /*
+    각 3개 칸
+  */
 
-    min-height: 620px;
+  .about-section {
+    height: calc(100vh - 88px);
+
+    min-height: 560px;
 
     padding:
       46px
-      3vw
-      55px;
+      3.2vw
+      50px;
 
     overflow: hidden;
   }
 
 
-  .about-section +
-  .about-section {
+  .about-section + .about-section {
     border-left:
-      1px solid
-      rgba(255,255,255,.22);
+      1px solid rgba(255,255,255,.2);
   }
 
 
-  /* ========================================
-     SECTION TITLE
-  ======================================== */
+  /*
+    ABOUT / WHAT WE DO / WHY WISE
+  */
 
   .about-section-title {
-    margin:
-      0 0 72px;
+    margin: 0 0 46px;
 
-    font-size:
-      clamp(42px, 3.5vw, 66px);
+    font-size: clamp(40px, 3vw, 58px);
 
-    font-weight: 700;
+    font-weight: 800;
 
-    line-height: .95;
+    line-height: 1;
 
-    letter-spacing: -.055em;
+    letter-spacing: -.05em;
 
     white-space: nowrap;
   }
 
 
-  /* ========================================
-     ABOUT TEXT
-  ======================================== */
+  /*
+    일반 본문
+  */
 
   .about-content {
     margin: 0;
-    padding: 0;
   }
 
 
   .about-content h2 {
-    margin:
-      0 0 26px;
+    margin: 0 0 25px;
 
-    font-size:
-      clamp(28px, 2.1vw, 40px);
+    font-size: clamp(27px, 1.8vw, 35px);
 
     font-weight: 700;
 
-    line-height: 1.24;
+    line-height: 1.28;
 
-    letter-spacing: -.04em;
+    letter-spacing: -.045em;
 
     word-break: keep-all;
   }
@@ -660,12 +567,11 @@ img {
   .about-content p {
     margin: 0;
 
-    font-size:
-      clamp(13px, .9vw, 17px);
+    font-size: clamp(13px, .78vw, 15px);
 
     font-weight: 400;
 
-    line-height: 1.75;
+    line-height: 1.7;
 
     letter-spacing: -.02em;
 
@@ -673,9 +579,9 @@ img {
   }
 
 
-  /* ========================================
-     WHAT WE DO
-  ======================================== */
+  /*
+    WHAT WE DO
+  */
 
   .service-list {
     margin: 0;
@@ -684,205 +590,160 @@ img {
 
 
   .service-item {
-    padding:
-      18px 0;
+    padding: 16px 0;
 
     border-top:
-      1px solid
-      rgba(255,255,255,.3);
+      1px solid rgba(255,255,255,.28);
   }
 
 
   .service-item:last-child {
     border-bottom:
-      1px solid
-      rgba(255,255,255,.3);
+      1px solid rgba(255,255,255,.28);
   }
 
 
   .service-item span {
     display: block;
 
-    margin:
-      0 0 8px;
+    margin: 0 0 7px;
 
-    font-size: 9px;
+    font-size: 8px;
 
-    font-weight: 500;
+    font-weight: 600;
 
-    letter-spacing: .13em;
+    letter-spacing: .14em;
 
-    opacity: .55;
+    opacity: .5;
   }
 
 
   .service-item h3 {
-    margin:
-      0 0 7px;
+    margin: 0 0 6px;
 
-    font-size:
-      clamp(19px, 1.4vw, 26px);
+    font-size: clamp(18px, 1.25vw, 23px);
 
     font-weight: 700;
 
     line-height: 1.1;
 
-    letter-spacing: -.03em;
+    letter-spacing: -.035em;
   }
 
 
   .service-item p {
     margin: 0;
 
-    font-size:
-      clamp(11px, .75vw, 14px);
+    font-size: clamp(10px, .67vw, 13px);
 
-    line-height: 1.6;
+    line-height: 1.55;
 
-    letter-spacing: -.015em;
-
-    opacity: .82;
+    opacity: .8;
 
     word-break: keep-all;
   }
 
 
-  /* ========================================
-     WHY WISE
-  ======================================== */
+  /*
+    WHY WISE
+  */
 
   .about-why .about-content h2 {
-    margin:
-      0 0 28px;
+    margin-bottom: 28px;
 
-    font-size:
-      clamp(29px, 2.2vw, 42px);
+    font-size: clamp(27px, 1.9vw, 37px);
 
-    line-height: 1.22;
-
-    letter-spacing: -.045em;
+    line-height: 1.25;
   }
 
 
   .about-why .why-lead {
-    margin:
-      0 0 25px;
+    margin: 0 0 24px;
 
-    font-size:
-      clamp(18px, 1.3vw, 24px);
+    font-size: clamp(17px, 1.15vw, 22px);
 
     font-weight: 600;
 
     line-height: 1.5;
 
-    letter-spacing: -.035em;
+    letter-spacing: -.03em;
   }
 
 
-  /* ========================================
-     RESULT
-  ======================================== */
+  /*
+    RESULT PAGE
+  */
 
   .about-result {
-    grid-column:
-      1 / -1;
+    grid-column: 1 / -1;
 
-    min-height:
-      calc(100vh - 88px);
+    width: 100%;
 
-    padding:
-      7vw 4.5vw;
+    min-height: calc(100vh - 88px);
+
+    padding: 70px 4vw;
+
+    border-top:
+      1px solid rgba(255,255,255,.2);
 
     display: flex;
 
-    flex-direction: column;
-
+    align-items: center;
     justify-content: center;
 
-    border-top:
-      1px solid
-      rgba(255,255,255,.25);
+    text-align: center;
+  }
 
-    background: #147a43;
+
+  .result-inner {
+    width: 100%;
+    max-width: 1500px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
   }
 
 
   .result-small {
-    margin:
-      0 0 38px;
+    margin: 0 0 38px;
 
-    font-size: 11px;
+    font-size: 12px;
 
     font-weight: 700;
 
-    letter-spacing: .16em;
+    letter-spacing: .22em;
   }
 
 
   .about-result h2 {
-    margin:
-      0 0 65px;
+    margin: 0 0 50px;
 
-    font-size:
-      clamp(70px, 9vw, 160px);
+    font-size: clamp(58px, 6vw, 112px);
 
-    font-weight: 700;
+    font-weight: 800;
 
-    line-height: .83;
+    line-height: .9;
 
-    letter-spacing: -.065em;
+    letter-spacing: -.06em;
   }
 
 
   .about-result a {
-    width: fit-content;
+    display: inline-block;
 
     padding-bottom: 7px;
 
     border-bottom:
-      1px solid
-      rgba(255,255,255,.65);
+      1px solid rgba(255,255,255,.7);
 
     font-size: 14px;
 
     font-weight: 700;
 
-    letter-spacing: .09em;
-  }
-
-}
-
-
-/* ========================================
-   TABLET
-======================================== */
-
-@media
-(min-width: 761px)
-and
-(max-width: 1100px) {
-
-  .about-section {
-    padding-left: 26px;
-    padding-right: 26px;
-  }
-
-  .about-section-title {
-    margin-bottom: 60px;
-
-    font-size:
-      clamp(32px, 4vw, 46px);
-  }
-
-  .about-content h2 {
-    font-size:
-      clamp(23px, 2.7vw, 32px);
-  }
-
-  .about-why
-  .about-content h2 {
-    font-size:
-      clamp(24px, 2.8vw, 34px);
+    letter-spacing: .1em;
   }
 
 }
@@ -894,16 +755,14 @@ and
 
 @media (max-width: 760px) {
 
-
-  /* ========================================
-     HEADER
-  ======================================== */
+  /*
+    HEADER
+  */
 
   .site-header {
     height: 70px;
 
-    padding:
-      0 16px;
+    padding: 0 16px;
   }
 
   .logo img {
@@ -911,26 +770,24 @@ and
   }
 
   .site-header nav {
-    gap: 14px;
+    gap: 13px;
   }
 
   .site-header nav a {
-    font-size: 10px;
+    font-size: 9px;
   }
 
 
-  /* ========================================
-     HOME
-  ======================================== */
+  /*
+    HOME
+  */
 
   .home-main {
-    padding:
-      0 16px 20px;
+    padding: 0 16px 20px;
   }
 
   .home-slider {
     height: 70vh;
-
     min-height: 430px;
   }
 
@@ -939,32 +796,21 @@ and
     bottom: 22px;
   }
 
-  .slide-info h2 {
-    font-size:
-      clamp(30px, 10vw, 50px);
-  }
-
   .home-bottom {
     font-size: 9px;
   }
 
 
-  /* ========================================
-     WORK
-  ======================================== */
+  /*
+    WORK
+  */
 
   .work-grid {
     grid-template-columns: 1fr;
   }
 
   .page-title {
-    padding:
-      55px 16px 25px;
-  }
-
-  .page-title h1 {
-    font-size:
-      clamp(54px, 20vw, 90px);
+    padding: 55px 16px 25px;
   }
 
   .work-meta {
@@ -973,13 +819,12 @@ and
   }
 
 
-  /* ========================================
-     CONTACT
-  ======================================== */
+  /*
+    CONTACT
+  */
 
   .contact-main {
-    padding:
-      60px 20px;
+    padding: 60px 20px;
 
     grid-template-columns: 1fr;
 
@@ -987,12 +832,9 @@ and
   }
 
   .contact-copy h1 {
-    font-size:
-      clamp(52px, 15vw, 78px);
+    font-size: clamp(52px, 15vw, 78px);
 
     line-height: .92;
-
-    letter-spacing: -.02em;
   }
 
   .contact-main form {
@@ -1005,21 +847,13 @@ and
     grid-column: 1;
   }
 
-  .contact-main label {
-    font-size: 16px;
-  }
-
   .contact-main input,
   .contact-main select {
     height: 74px;
-
-    font-size: 16px;
   }
 
   .contact-main textarea {
     height: 190px;
-
-    font-size: 16px;
   }
 
   .contact-main button {
@@ -1029,244 +863,187 @@ and
   }
 
 
-  /* ========================================
-     ABOUT
-  ======================================== */
+  /*
+    ABOUT
+  */
 
   .about-main {
     display: block;
   }
 
 
-  /*
-     ABOUT / WHAT WE DO / WHY WISE
-     각각 한 화면
-  */
-
   .about-section {
-    min-height:
-      calc(100svh - 70px);
+    min-height: calc(100svh - 70px);
 
-    padding:
-      42px
-      20px
-      45px;
-
-    display: block;
+    padding: 36px 20px 50px;
 
     border-bottom:
-      1px solid
-      rgba(255,255,255,.27);
+      1px solid rgba(255,255,255,.25);
   }
 
 
   .about-section-title {
-    margin:
-      0 0 60px;
+    margin: 0 0 42px;
 
-    font-size:
-      clamp(42px, 12vw, 62px);
+    font-size: clamp(40px, 11vw, 54px);
 
-    font-weight: 700;
+    font-weight: 800;
 
-    line-height: .92;
+    line-height: 1;
 
-    letter-spacing: -.055em;
-  }
-
-
-  /* ABOUT */
-
-  .about-content {
-    margin: 0;
-    padding: 0;
+    letter-spacing: -.05em;
   }
 
 
   .about-content h2 {
-    margin:
-      0 0 28px;
+    margin: 0 0 25px;
 
-    font-size:
-      clamp(28px, 8vw, 39px);
+    font-size: clamp(27px, 7.6vw, 36px);
 
-    line-height: 1.25;
+    line-height: 1.27;
 
     letter-spacing: -.04em;
-
-    word-break: keep-all;
   }
 
 
   .about-content p {
     margin: 0;
 
-    font-size: 15px;
+    font-size: 14px;
 
-    line-height: 1.75;
-
-    letter-spacing: -.02em;
-
-    word-break: keep-all;
+    line-height: 1.7;
   }
 
 
-  /* WHAT WE DO */
-
-  .service-list {
-    margin: 0;
-    padding: 0;
-  }
-
+  /*
+    SERVICES
+  */
 
   .service-item {
-    padding:
-      20px 0;
+    padding: 18px 0;
 
     border-top:
-      1px solid
-      rgba(255,255,255,.3);
+      1px solid rgba(255,255,255,.28);
   }
-
 
   .service-item:last-child {
     border-bottom:
-      1px solid
-      rgba(255,255,255,.3);
+      1px solid rgba(255,255,255,.28);
   }
-
 
   .service-item span {
     display: block;
 
-    margin:
-      0 0 10px;
+    margin-bottom: 7px;
 
-    font-size: 9px;
+    font-size: 8px;
 
     letter-spacing: .14em;
 
-    opacity: .55;
+    opacity: .5;
   }
-
 
   .service-item h3 {
-    margin:
-      0 0 7px;
+    margin: 0 0 6px;
 
-    font-size: 23px;
+    font-size: 21px;
 
     line-height: 1.1;
-
-    letter-spacing: -.03em;
   }
-
 
   .service-item p {
     margin: 0;
 
-    font-size: 13px;
+    font-size: 12px;
 
-    line-height: 1.65;
+    line-height: 1.6;
 
-    opacity: .82;
-
-    word-break: keep-all;
+    opacity: .8;
   }
 
 
-  /* WHY */
+  /*
+    WHY
+  */
 
-  .about-why
-  .about-content h2 {
-    margin:
-      0 0 30px;
-
-    font-size:
-      clamp(29px, 8.3vw, 41px);
-
-    line-height: 1.23;
-
-    letter-spacing: -.045em;
+  .about-why .about-content h2 {
+    font-size: clamp(27px, 7.7vw, 37px);
   }
 
+  .about-why .why-lead {
+    margin: 0 0 25px;
 
-  .about-why
-  .why-lead {
-    margin:
-      0 0 27px;
-
-    font-size:
-      clamp(19px, 5.6vw, 25px);
+    font-size: clamp(18px, 5vw, 23px);
 
     font-weight: 600;
 
     line-height: 1.5;
-
-    letter-spacing: -.035em;
   }
 
 
-  /* ========================================
-     RESULT
-  ======================================== */
+  /*
+    RESULT
+  */
 
   .about-result {
-    min-height:
-      calc(100svh - 70px);
+    min-height: calc(100svh - 70px);
 
-    padding:
-      60px 20px;
+    padding: 50px 20px;
 
     display: flex;
 
-    flex-direction: column;
-
+    align-items: center;
     justify-content: center;
 
-    background: #147a43;
+    text-align: center;
+  }
+
+
+  .result-inner {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
   }
 
 
   .result-small {
-    margin:
-      0 0 30px;
+    margin: 0 0 30px;
 
-    font-size: 10px;
+    font-size: 9px;
 
     font-weight: 700;
 
-    letter-spacing: .15em;
+    letter-spacing: .2em;
   }
 
 
   .about-result h2 {
-    margin:
-      0 0 50px;
+    margin: 0 0 42px;
 
-    font-size:
-      clamp(52px, 17vw, 84px);
+    font-size: clamp(43px, 13vw, 68px);
 
-    line-height: .85;
+    font-weight: 800;
 
-    letter-spacing: -.06em;
+    line-height: .9;
+
+    letter-spacing: -.055em;
   }
 
 
   .about-result a {
-    width: fit-content;
-
     padding-bottom: 6px;
 
     border-bottom:
-      1px solid
-      rgba(255,255,255,.65);
+      1px solid rgba(255,255,255,.7);
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 700;
 
-    letter-spacing: .08em;
+    letter-spacing: .09em;
   }
 
 }
