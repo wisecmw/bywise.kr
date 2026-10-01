@@ -480,36 +480,37 @@ img {
 
 
 /* ========================================
-   ABOUT PC
+   ABOUT DESKTOP
 ======================================== */
 
 @media (min-width: 761px) {
-
-  /*
-    첫 페이지 전체
-  */
 
   .about-main {
     display: grid;
 
     grid-template-columns:
-      repeat(3, 1fr);
+      repeat(3, minmax(0, 1fr));
   }
 
 
-  /*
-    각 3개 칸
-  */
+  /* ========================================
+     3 COLUMNS
+  ======================================== */
 
   .about-section {
     height: calc(100vh - 88px);
 
-    min-height: 560px;
+    min-height: 600px;
 
     padding:
       46px
       3.2vw
-      50px;
+      52px;
+
+    display: grid;
+
+    grid-template-rows:
+      auto 1fr;
 
     overflow: hidden;
   }
@@ -521,14 +522,15 @@ img {
   }
 
 
-  /*
-    ABOUT / WHAT WE DO / WHY WISE
-  */
+  /* ========================================
+     TITLES
+  ======================================== */
 
   .about-section-title {
-    margin: 0 0 46px;
+    margin: 0;
 
-    font-size: clamp(40px, 3vw, 58px);
+    font-size:
+      clamp(40px, 3vw, 58px);
 
     font-weight: 800;
 
@@ -540,23 +542,41 @@ img {
   }
 
 
-  /*
-    일반 본문
-  */
+  /* ========================================
+     SAME BODY POSITION
+  ======================================== */
+
+  .about-body {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    padding-top: 58px;
+  }
+
+
+  /* ========================================
+     ABOUT
+  ======================================== */
 
   .about-content {
     margin: 0;
+    padding: 0;
   }
 
 
   .about-content h2 {
-    margin: 0 0 25px;
+    margin:
+      0 0 28px;
 
-    font-size: clamp(27px, 1.8vw, 35px);
+    font-size:
+      clamp(27px, 1.8vw, 35px);
 
     font-weight: 700;
 
-    line-height: 1.28;
+    line-height: 1.27;
 
     letter-spacing: -.045em;
 
@@ -567,7 +587,8 @@ img {
   .about-content p {
     margin: 0;
 
-    font-size: clamp(13px, .78vw, 15px);
+    font-size:
+      clamp(13px, .78vw, 15px);
 
     font-weight: 400;
 
@@ -579,34 +600,40 @@ img {
   }
 
 
-  /*
-    WHAT WE DO
-  */
+  /* ========================================
+     SERVICES
+  ======================================== */
 
   .service-list {
+    width: 100%;
+
     margin: 0;
     padding: 0;
   }
 
 
   .service-item {
-    padding: 16px 0;
+    padding:
+      16px 0;
 
     border-top:
-      1px solid rgba(255,255,255,.28);
+      1px solid
+      rgba(255,255,255,.28);
   }
 
 
   .service-item:last-child {
     border-bottom:
-      1px solid rgba(255,255,255,.28);
+      1px solid
+      rgba(255,255,255,.28);
   }
 
 
   .service-item span {
     display: block;
 
-    margin: 0 0 7px;
+    margin:
+      0 0 7px;
 
     font-size: 8px;
 
@@ -619,9 +646,11 @@ img {
 
 
   .service-item h3 {
-    margin: 0 0 6px;
+    margin:
+      0 0 6px;
 
-    font-size: clamp(18px, 1.25vw, 23px);
+    font-size:
+      clamp(18px, 1.25vw, 23px);
 
     font-weight: 700;
 
@@ -634,7 +663,8 @@ img {
   .service-item p {
     margin: 0;
 
-    font-size: clamp(10px, .67vw, 13px);
+    font-size:
+      clamp(10px, .67vw, 13px);
 
     line-height: 1.55;
 
@@ -644,23 +674,27 @@ img {
   }
 
 
-  /*
-    WHY WISE
-  */
+  /* ========================================
+     WHY WISE
+  ======================================== */
 
   .about-why .about-content h2 {
-    margin-bottom: 28px;
+    margin:
+      0 0 28px;
 
-    font-size: clamp(27px, 1.9vw, 37px);
+    font-size:
+      clamp(27px, 1.9vw, 37px);
 
     line-height: 1.25;
   }
 
 
   .about-why .why-lead {
-    margin: 0 0 24px;
+    margin:
+      0 0 25px;
 
-    font-size: clamp(17px, 1.15vw, 22px);
+    font-size:
+      clamp(17px, 1.15vw, 22px);
 
     font-weight: 600;
 
@@ -670,21 +704,23 @@ img {
   }
 
 
-  /*
-    RESULT PAGE
-  */
+  /* ========================================
+     RESULT
+  ======================================== */
 
   .about-result {
-    grid-column: 1 / -1;
+    grid-column:
+      1 / -1;
 
     width: 100%;
 
-    min-height: calc(100vh - 88px);
+    height:
+      calc(100vh - 88px);
 
-    padding: 70px 4vw;
+    min-height: 600px;
 
-    border-top:
-      1px solid rgba(255,255,255,.2);
+    padding:
+      60px 4vw;
 
     display: flex;
 
@@ -692,12 +728,14 @@ img {
     justify-content: center;
 
     text-align: center;
+
+    border-top:
+      1px solid rgba(255,255,255,.2);
   }
 
 
   .result-inner {
     width: 100%;
-    max-width: 1500px;
 
     display: flex;
     flex-direction: column;
@@ -708,9 +746,10 @@ img {
 
 
   .result-small {
-    margin: 0 0 38px;
+    margin:
+      0 0 30px;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: 700;
 
@@ -719,15 +758,17 @@ img {
 
 
   .about-result h2 {
-    margin: 0 0 50px;
+    margin:
+      0 0 42px;
 
-    font-size: clamp(58px, 6vw, 112px);
+    font-size:
+      clamp(60px, 5.3vw, 100px);
 
     font-weight: 800;
 
-    line-height: .9;
+    line-height: .92;
 
-    letter-spacing: -.06em;
+    letter-spacing: -.055em;
   }
 
 
@@ -739,7 +780,7 @@ img {
     border-bottom:
       1px solid rgba(255,255,255,.7);
 
-    font-size: 14px;
+    font-size: 13px;
 
     font-weight: 700;
 
@@ -755,9 +796,7 @@ img {
 
 @media (max-width: 760px) {
 
-  /*
-    HEADER
-  */
+  /* HEADER */
 
   .site-header {
     height: 70px;
@@ -778,16 +817,16 @@ img {
   }
 
 
-  /*
-    HOME
-  */
+  /* HOME */
 
   .home-main {
-    padding: 0 16px 20px;
+    padding:
+      0 16px 20px;
   }
 
   .home-slider {
     height: 70vh;
+
     min-height: 430px;
   }
 
@@ -801,16 +840,15 @@ img {
   }
 
 
-  /*
-    WORK
-  */
+  /* WORK */
 
   .work-grid {
     grid-template-columns: 1fr;
   }
 
   .page-title {
-    padding: 55px 16px 25px;
+    padding:
+      55px 16px 25px;
   }
 
   .work-meta {
@@ -819,12 +857,11 @@ img {
   }
 
 
-  /*
-    CONTACT
-  */
+  /* CONTACT */
 
   .contact-main {
-    padding: 60px 20px;
+    padding:
+      60px 20px;
 
     grid-template-columns: 1fr;
 
@@ -832,7 +869,8 @@ img {
   }
 
   .contact-copy h1 {
-    font-size: clamp(52px, 15vw, 78px);
+    font-size:
+      clamp(52px, 15vw, 78px);
 
     line-height: .92;
   }
@@ -863,9 +901,7 @@ img {
   }
 
 
-  /*
-    ABOUT
-  */
+  /* ABOUT */
 
   .about-main {
     display: block;
@@ -873,9 +909,13 @@ img {
 
 
   .about-section {
-    min-height: calc(100svh - 70px);
+    min-height:
+      calc(100svh - 70px);
 
-    padding: 36px 20px 50px;
+    padding:
+      36px
+      20px
+      50px;
 
     border-bottom:
       1px solid rgba(255,255,255,.25);
@@ -883,9 +923,11 @@ img {
 
 
   .about-section-title {
-    margin: 0 0 42px;
+    margin:
+      0 0 42px;
 
-    font-size: clamp(40px, 11vw, 54px);
+    font-size:
+      clamp(40px, 11vw, 54px);
 
     font-weight: 800;
 
@@ -895,10 +937,17 @@ img {
   }
 
 
-  .about-content h2 {
-    margin: 0 0 25px;
+  .about-body {
+    padding: 0;
+  }
 
-    font-size: clamp(27px, 7.6vw, 36px);
+
+  .about-content h2 {
+    margin:
+      0 0 25px;
+
+    font-size:
+      clamp(27px, 7.6vw, 36px);
 
     line-height: 1.27;
 
@@ -915,21 +964,22 @@ img {
   }
 
 
-  /*
-    SERVICES
-  */
+  /* SERVICES */
 
   .service-item {
-    padding: 18px 0;
+    padding:
+      18px 0;
 
     border-top:
       1px solid rgba(255,255,255,.28);
   }
 
+
   .service-item:last-child {
     border-bottom:
       1px solid rgba(255,255,255,.28);
   }
+
 
   .service-item span {
     display: block;
@@ -943,13 +993,16 @@ img {
     opacity: .5;
   }
 
+
   .service-item h3 {
-    margin: 0 0 6px;
+    margin:
+      0 0 6px;
 
     font-size: 21px;
 
     line-height: 1.1;
   }
+
 
   .service-item p {
     margin: 0;
@@ -962,18 +1015,22 @@ img {
   }
 
 
-  /*
-    WHY
-  */
+  /* WHY */
 
-  .about-why .about-content h2 {
-    font-size: clamp(27px, 7.7vw, 37px);
+  .about-why
+  .about-content h2 {
+    font-size:
+      clamp(27px, 7.7vw, 37px);
   }
 
-  .about-why .why-lead {
-    margin: 0 0 25px;
 
-    font-size: clamp(18px, 5vw, 23px);
+  .about-why
+  .why-lead {
+    margin:
+      0 0 25px;
+
+    font-size:
+      clamp(18px, 5vw, 23px);
 
     font-weight: 600;
 
@@ -981,14 +1038,14 @@ img {
   }
 
 
-  /*
-    RESULT
-  */
+  /* RESULT */
 
   .about-result {
-    min-height: calc(100svh - 70px);
+    min-height:
+      calc(100svh - 70px);
 
-    padding: 50px 20px;
+    padding:
+      50px 20px;
 
     display: flex;
 
@@ -1006,11 +1063,13 @@ img {
     flex-direction: column;
 
     align-items: center;
+    justify-content: center;
   }
 
 
   .result-small {
-    margin: 0 0 30px;
+    margin:
+      0 0 28px;
 
     font-size: 9px;
 
@@ -1021,13 +1080,15 @@ img {
 
 
   .about-result h2 {
-    margin: 0 0 42px;
+    margin:
+      0 0 38px;
 
-    font-size: clamp(43px, 13vw, 68px);
+    font-size:
+      clamp(42px, 12vw, 62px);
 
     font-weight: 800;
 
-    line-height: .9;
+    line-height: .92;
 
     letter-spacing: -.055em;
   }
