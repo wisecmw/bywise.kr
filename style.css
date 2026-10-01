@@ -62,14 +62,12 @@ img {
 .logo img {
   width: 126px;
   height: auto;
-
   filter: brightness(0) invert(1);
 }
 
 .site-header nav {
   display: flex;
   align-items: center;
-
   gap: 34px;
 }
 
@@ -104,12 +102,8 @@ img {
 
 .home-main {
   padding: 0 3.2vw 30px;
-
   background: #147a43;
 }
-
-
-/* HOME SLIDER */
 
 .home-slider {
   width: 100%;
@@ -124,9 +118,6 @@ img {
   background: #111;
 }
 
-
-/* SLIDE */
-
 .slide {
   position: absolute;
   inset: 0;
@@ -140,14 +131,12 @@ img {
 
 .slide.active {
   opacity: 1;
-
   z-index: 2;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }
 
@@ -159,25 +148,18 @@ img {
   color: #777;
 }
 
-
-/* DARK GRADIENT */
-
 .slide::after {
   content: "";
 
   position: absolute;
   inset: 0;
 
-  background:
-    linear-gradient(
-      180deg,
-      transparent 55%,
-      rgba(0, 0, 0, .65)
-    );
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(0,0,0,.65)
+  );
 }
-
-
-/* SLIDE TEXT */
 
 .slide-info {
   position: absolute;
@@ -208,9 +190,6 @@ img {
   letter-spacing: .12em;
 }
 
-
-/* HOME BOTTOM */
-
 .home-bottom {
   padding-top: 16px;
 
@@ -237,9 +216,6 @@ img {
 
   background: #147a43;
 }
-
-
-/* WORK TITLE */
 
 .page-title {
   padding: 5vw 3.2vw 2vw;
@@ -269,24 +245,17 @@ img {
   letter-spacing: .14em;
 }
 
-
-/* WORK GRID */
-
 .work-grid {
   width: 100%;
 
   display: grid;
 
-  grid-template-columns:
-    repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   gap: 0;
 
   background: #147a43;
 }
-
-
-/* WORK CARD */
 
 .work-card {
   width: 100%;
@@ -316,25 +285,18 @@ img {
   transform: scale(1.025);
 }
 
-
-/* WORK CARD GRADIENT */
-
 .work-card::after {
   content: "";
 
   position: absolute;
   inset: 0;
 
-  background:
-    linear-gradient(
-      180deg,
-      transparent 50%,
-      rgba(0, 0, 0, .7)
-    );
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(0,0,0,.7)
+  );
 }
-
-
-/* EMPTY */
 
 .work-empty {
   position: absolute;
@@ -350,9 +312,6 @@ img {
 
   letter-spacing: .15em;
 }
-
-
-/* WORK TEXT */
 
 .work-meta {
   position: absolute;
@@ -401,14 +360,10 @@ img {
 
   display: grid;
 
-  grid-template-columns:
-    .95fr 1.45fr;
+  grid-template-columns: .95fr 1.45fr;
 
   gap: 6vw;
 }
-
-
-/* CONTACT LEFT */
 
 .contact-copy > p {
   margin: 0;
@@ -431,22 +386,17 @@ img {
 .contact-copy > a {
   padding-bottom: 5px;
 
-  border-bottom:
-    1px solid rgba(255,255,255,.6);
+  border-bottom: 1px solid rgba(255,255,255,.6);
 
   font-size: 18px;
 }
-
-
-/* CONTACT FORM */
 
 .contact-main form {
   width: 100%;
 
   display: grid;
 
-  grid-template-columns:
-    1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 
   column-gap: 40px;
   row-gap: 36px;
@@ -466,9 +416,6 @@ img {
   letter-spacing: .08em;
 }
 
-
-/* INPUT */
-
 .contact-main input,
 .contact-main select {
   width: 100%;
@@ -480,8 +427,7 @@ img {
 
   border: 0;
 
-  border-bottom:
-    1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(255,255,255,.5);
 
   border-radius: 0;
 
@@ -497,9 +443,6 @@ img {
   font-weight: 400;
 }
 
-
-/* TEXTAREA */
-
 .contact-main textarea {
   width: 100%;
   height: 210px;
@@ -510,8 +453,7 @@ img {
 
   border: 0;
 
-  border-bottom:
-    1px solid rgba(255,255,255,.5);
+  border-bottom: 1px solid rgba(255,255,255,.5);
 
   border-radius: 0;
 
@@ -529,19 +471,12 @@ img {
   font-weight: 400;
 }
 
-
-/* PLACEHOLDER */
-
 .contact-main input::placeholder,
 .contact-main textarea::placeholder {
-  color:
-    rgba(255,255,255,.5);
+  color: rgba(255,255,255,.5);
 
   font-size: 16px;
 }
-
-
-/* SELECT */
 
 .contact-main select option {
   color: #111;
@@ -549,15 +484,9 @@ img {
   font-size: 16px;
 }
 
-
-/* FULL WIDTH */
-
 .contact-main .wide {
   grid-column: 1 / -1;
 }
-
-
-/* SEND */
 
 .contact-main button {
   grid-column: 1 / -1;
@@ -617,54 +546,48 @@ img {
 
 
 /* ========================================
-   ABOUT — PC FIRST PAGE
+   ABOUT PC
 ======================================== */
 
 @media (min-width: 761px) {
 
-  /*
-    ABOUT / WHAT WE DO / WHY WISE
-    = PC 첫 화면
-  */
-
   .about-main {
     display: grid;
 
-    grid-template-columns:
-      1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
 
+  /* THREE COLUMNS */
+
   .about-section {
-    height:
-      calc(100vh - 88px);
+    height: calc(100vh - 88px);
 
     min-height: 650px;
 
     padding:
-      clamp(60px, 6vh, 90px)
+      clamp(45px, 5vh, 65px)
       clamp(30px, 3vw, 60px)
-      clamp(50px, 5vh, 80px);
+      55px;
 
     display: flex;
-
     flex-direction: column;
 
     overflow: hidden;
   }
 
 
-  /* SECTION DIVIDER */
+  /* COLUMN DIVIDER */
 
-  .about-section +
-  .about-section {
+  .about-section + .about-section {
     border-left:
-      1px solid
-      rgba(255,255,255,.24);
+      1px solid rgba(255,255,255,.22);
   }
 
 
-  /* MAIN SECTION TITLE */
+  /* ========================================
+     BIG SECTION TITLES
+  ======================================== */
 
   .about-section-title {
     margin: 0;
@@ -672,7 +595,7 @@ img {
     color: #fff;
 
     font-size:
-      clamp(42px, 3.7vw, 68px);
+      clamp(44px, 3.7vw, 68px);
 
     font-weight: 700;
 
@@ -688,24 +611,24 @@ img {
      ABOUT COLUMN
   ======================================== */
 
-  .about-intro
-  .about-content {
-    margin-top: auto;
+  .about-intro .about-content {
+    margin-top:
+      clamp(75px, 9vh, 105px);
 
-    padding-bottom: 4vh;
+    padding-bottom: 0;
   }
 
 
   .about-content h2 {
     margin:
-      0 0 32px;
+      0 0 28px;
 
     font-size:
-      clamp(27px, 2.15vw, 40px);
+      clamp(28px, 2.15vw, 40px);
 
     font-weight: 700;
 
-    line-height: 1.25;
+    line-height: 1.23;
 
     letter-spacing: -.04em;
 
@@ -721,7 +644,7 @@ img {
 
     font-weight: 400;
 
-    line-height: 1.8;
+    line-height: 1.75;
 
     letter-spacing: -.02em;
 
@@ -733,29 +656,27 @@ img {
      WHAT WE DO
   ======================================== */
 
-  .about-services
-  .service-list {
-    margin-top: auto;
+  .about-services .service-list {
+    margin-top:
+      clamp(55px, 7vh, 80px);
 
-    padding-bottom: 2vh;
+    padding-bottom: 0;
   }
 
 
   .service-item {
     padding:
-      clamp(17px, 2vh, 25px)
+      clamp(18px, 2vh, 24px)
       0;
 
     border-top:
-      1px solid
-      rgba(255,255,255,.3);
+      1px solid rgba(255,255,255,.3);
   }
 
 
   .service-item:last-child {
     border-bottom:
-      1px solid
-      rgba(255,255,255,.3);
+      1px solid rgba(255,255,255,.3);
   }
 
 
@@ -811,18 +732,17 @@ img {
      WHY WISE
   ======================================== */
 
-  .about-why
-  .about-content {
-    margin-top: auto;
+  .about-why .about-content {
+    margin-top:
+      clamp(75px, 9vh, 105px);
 
-    padding-bottom: 3vh;
+    padding-bottom: 0;
   }
 
 
-  .about-why
-  .about-content h2 {
+  .about-why .about-content h2 {
     margin:
-      0 0 34px;
+      0 0 30px;
 
     font-size:
       clamp(29px, 2.3vw, 43px);
@@ -833,10 +753,9 @@ img {
   }
 
 
-  .about-why
-  .why-lead {
+  .about-why .why-lead {
     margin:
-      0 0 28px;
+      0 0 26px;
 
     font-size:
       clamp(18px, 1.35vw, 25px);
@@ -850,28 +769,23 @@ img {
 
 
   /* ========================================
-     RESULT — PC SECOND PAGE
+     RESULT
+     SECOND SCREEN
   ======================================== */
 
   .about-result {
-    grid-column:
-      1 / -1;
+    grid-column: 1 / -1;
 
-    min-height:
-      calc(100vh - 88px);
+    min-height: calc(100vh - 88px);
 
-    padding:
-      7vw 4.5vw;
+    padding: 7vw 4.5vw;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
 
     border-top:
-      1px solid
-      rgba(255,255,255,.25);
+      1px solid rgba(255,255,255,.25);
 
     background: #147a43;
   }
@@ -910,8 +824,7 @@ img {
     padding-bottom: 7px;
 
     border-bottom:
-      1px solid
-      rgba(255,255,255,.65);
+      1px solid rgba(255,255,255,.65);
 
     font-size: 14px;
 
@@ -934,11 +847,7 @@ img {
    TABLET
 ======================================== */
 
-@media (
-  min-width: 761px
-) and (
-  max-width: 1100px
-) {
+@media (min-width: 761px) and (max-width: 1100px) {
 
   .about-section {
     padding-left: 28px;
@@ -955,8 +864,7 @@ img {
       clamp(23px, 2.7vw, 32px);
   }
 
-  .about-why
-  .about-content h2 {
+  .about-why .about-content h2 {
     font-size:
       clamp(25px, 2.8vw, 35px);
   }
@@ -971,13 +879,14 @@ img {
 @media (max-width: 760px) {
 
 
-  /* HEADER */
+  /* ========================================
+     HEADER
+  ======================================== */
 
   .site-header {
     height: 70px;
 
-    padding:
-      0 16px;
+    padding: 0 16px;
   }
 
   .logo img {
@@ -989,17 +898,16 @@ img {
   }
 
   .site-header nav a {
-    font-size: 13px;
+    font-size: 10px;
   }
 
 
   /* ========================================
-     HOME MOBILE
+     HOME
   ======================================== */
 
   .home-main {
-    padding:
-      0 16px 20px;
+    padding: 0 16px 20px;
   }
 
   .home-slider {
@@ -1024,17 +932,15 @@ img {
 
 
   /* ========================================
-     WORK MOBILE
+     WORK
   ======================================== */
 
   .work-grid {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
   }
 
   .page-title {
-    padding:
-      55px 16px 25px;
+    padding: 55px 16px 25px;
   }
 
   .page-title h1 {
@@ -1049,15 +955,13 @@ img {
 
 
   /* ========================================
-     CONTACT MOBILE
+     CONTACT
   ======================================== */
 
   .contact-main {
-    padding:
-      60px 20px;
+    padding: 60px 20px;
 
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
     gap: 60px;
   }
@@ -1072,8 +976,7 @@ img {
   }
 
   .contact-main form {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
     row-gap: 30px;
   }
@@ -1115,32 +1018,21 @@ img {
   }
 
 
-  /*
-    PAGE 1 ABOUT
-    PAGE 2 WHAT WE DO
-    PAGE 3 WHY WISE
-  */
-
   .about-section {
-    min-height:
-      calc(100svh - 70px);
+    min-height: calc(100svh - 70px);
 
     padding:
-      48px
+      42px
       20px
       42px;
 
     display: flex;
-
     flex-direction: column;
 
     border-bottom:
-      1px solid
-      rgba(255,255,255,.27);
+      1px solid rgba(255,255,255,.27);
   }
 
-
-  /* LARGE SECTION TITLE */
 
   .about-section-title {
     margin: 0;
@@ -1158,12 +1050,11 @@ img {
 
   /* ABOUT */
 
-  .about-intro
-  .about-content {
-    margin-top: auto;
-
-    padding-bottom: 25px;
+  .about-intro .about-content {
+    margin-top: 70px;
+    padding-bottom: 0;
   }
+
 
   .about-content h2 {
     margin:
@@ -1178,6 +1069,7 @@ img {
 
     word-break: keep-all;
   }
+
 
   .about-content p {
     margin: 0;
@@ -1194,27 +1086,26 @@ img {
 
   /* WHAT WE DO */
 
-  .about-services
-  .service-list {
-    margin-top: auto;
+  .about-services .service-list {
+    margin-top: 55px;
 
-    padding-bottom: 15px;
+    padding-bottom: 0;
   }
+
 
   .service-item {
-    padding:
-      20px 0;
+    padding: 20px 0;
 
     border-top:
-      1px solid
-      rgba(255,255,255,.3);
+      1px solid rgba(255,255,255,.3);
   }
+
 
   .service-item:last-child {
     border-bottom:
-      1px solid
-      rgba(255,255,255,.3);
+      1px solid rgba(255,255,255,.3);
   }
+
 
   .service-item span {
     display: block;
@@ -1228,6 +1119,7 @@ img {
     opacity: .55;
   }
 
+
   .service-item h3 {
     margin:
       0 0 7px;
@@ -1238,6 +1130,7 @@ img {
 
     letter-spacing: -.03em;
   }
+
 
   .service-item p {
     margin: 0;
@@ -1254,15 +1147,14 @@ img {
 
   /* WHY WISE */
 
-  .about-why
-  .about-content {
-    margin-top: auto;
+  .about-why .about-content {
+    margin-top: 70px;
 
-    padding-bottom: 25px;
+    padding-bottom: 0;
   }
 
-  .about-why
-  .about-content h2 {
+
+  .about-why .about-content h2 {
     margin:
       0 0 32px;
 
@@ -1274,8 +1166,8 @@ img {
     letter-spacing: -.045em;
   }
 
-  .about-why
-  .why-lead {
+
+  .about-why .why-lead {
     margin:
       0 0 27px;
 
@@ -1302,13 +1194,12 @@ img {
       60px 20px;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
 
     background: #147a43;
   }
+
 
   .result-small {
     margin:
@@ -1320,6 +1211,7 @@ img {
 
     letter-spacing: .15em;
   }
+
 
   .about-result h2 {
     margin:
@@ -1333,14 +1225,14 @@ img {
     letter-spacing: -.06em;
   }
 
+
   .about-result a {
     width: fit-content;
 
     padding-bottom: 6px;
 
     border-bottom:
-      1px solid
-      rgba(255,255,255,.65);
+      1px solid rgba(255,255,255,.65);
 
     font-size: 13px;
 
