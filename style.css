@@ -1,477 +1,10 @@
 /* ========================================
-   RESET
-======================================== */
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-
-  background: #147a43;
-  color: #fff;
-
-  font-family:
-    Pretendard,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Apple SD Gothic Neo",
-    "Noto Sans KR",
-    Arial,
-    sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-
-/* ========================================
-   HEADER
-======================================== */
-
-.site-header {
-  width: 100%;
-  height: 88px;
-
-  padding: 0 3.2vw;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: #147a43;
-
-  position: relative;
-  z-index: 20;
-}
-
-.logo img {
-  width: 126px;
-  height: auto;
-
-  filter: brightness(0) invert(1);
-}
-
-.site-header nav {
-  display: flex;
-  align-items: center;
-
-  gap: 34px;
-}
-
-.site-header nav a {
-  color: #fff;
-
-  font-size: 15px;
-  font-weight: 700;
-
-  letter-spacing: .08em;
-
-  transition: opacity .2s ease;
-}
-
-.site-header nav a:hover {
-  opacity: .65;
-}
-
-.site-header nav a.active {
-  opacity: .55;
-}
-
-
-/* ========================================
-   HOME
-======================================== */
-
-.home-main {
-  padding: 0 3.2vw 30px;
-}
-
-.home-slider {
-  height: calc(100vh - 145px);
-  min-height: 520px;
-
-  position: relative;
-
-  overflow: hidden;
-
-  background: #111;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-
-  opacity: 0;
-
-  transition: opacity .9s ease;
-
-  cursor: pointer;
-}
-
-.slide.active {
-  opacity: 1;
-  z-index: 2;
-}
-
-.slide img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-.slide.empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #777;
-}
-
-.slide::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent 55%,
-      rgba(0,0,0,.65)
-    );
-}
-
-.slide-info {
-  position: absolute;
-
-  left: 3vw;
-  bottom: 3vw;
-
-  z-index: 3;
-}
-
-.slide-info h2 {
-  margin: 0 0 6px;
-
-  font-size: clamp(30px, 4.5vw, 72px);
-
-  line-height: 1;
-
-  letter-spacing: -.05em;
-}
-
-.slide-info p {
-  margin: 0;
-
-  font-size: 11px;
-
-  letter-spacing: .12em;
-}
-
-.home-bottom {
-  padding-top: 16px;
-
-  display: flex;
-  justify-content: space-between;
-
-  font-size: 11px;
-
-  letter-spacing: .1em;
-}
-
-
-/* ========================================
-   WORK
-======================================== */
-
-.work-page {
-  min-height: 100vh;
-}
-
-.page-title {
-  padding: 5vw 3.2vw 2vw;
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-.page-title h1 {
-  margin: 0;
-
-  font-size: clamp(54px, 9vw, 140px);
-
-  line-height: .8;
-
-  letter-spacing: -.07em;
-}
-
-.page-title span {
-  font-size: 10px;
-
-  letter-spacing: .14em;
-}
-
-.work-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 0;
-}
-
-.work-card {
-  aspect-ratio: 16 / 9;
-
-  position: relative;
-
-  overflow: hidden;
-
-  background: #191919;
-
-  cursor: pointer;
-}
-
-.work-card img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  transition: transform .55s ease;
-}
-
-.work-card:hover img {
-  transform: scale(1.025);
-}
-
-.work-card::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent 50%,
-      rgba(0,0,0,.7)
-    );
-}
-
-.work-meta {
-  position: absolute;
-
-  left: 24px;
-  bottom: 22px;
-
-  z-index: 3;
-}
-
-.work-meta h2 {
-  margin: 0 0 5px;
-
-  font-size: clamp(18px, 2vw, 31px);
-
-  letter-spacing: -.04em;
-}
-
-.work-meta p {
-  margin: 0;
-
-  font-size: 10px;
-
-  letter-spacing: .1em;
-}
-
-
-/* ========================================
-   CONTACT
-======================================== */
-
-.contact-page {
-  min-height: 100vh;
-}
-
-.contact-main {
-  padding: 7vw 4.5vw 8vw;
-
-  display: grid;
-
-  grid-template-columns:
-    .95fr 1.45fr;
-
-  gap: 6vw;
-}
-
-.contact-copy > p {
-  margin: 0;
-
-  font-size: 11px;
-
-  letter-spacing: .16em;
-}
-
-.contact-copy h1 {
-  margin: 30px 0 48px;
-
-  font-size: clamp(64px, 7.4vw, 120px);
-
-  line-height: .9;
-
-  letter-spacing: -.03em;
-}
-
-.contact-copy > a {
-  padding-bottom: 5px;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.6);
-
-  font-size: 18px;
-}
-
-.contact-main form {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  column-gap: 40px;
-  row-gap: 36px;
-}
-
-.contact-main label {
-  display: flex;
-  flex-direction: column;
-
-  font-size: 16px;
-  font-weight: 700;
-
-  letter-spacing: .08em;
-
-  line-height: 1.4;
-}
-
-.contact-main input,
-.contact-main select {
-  width: 100%;
-  height: 82px;
-
-  margin-top: 10px;
-
-  padding: 20px 4px;
-
-  border: 0;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.5);
-
-  border-radius: 0;
-
-  background: transparent;
-
-  color: #fff;
-
-  outline: none;
-
-  font-family: inherit;
-  font-size: 16px;
-}
-
-.contact-main textarea {
-  width: 100%;
-  height: 210px;
-
-  margin-top: 10px;
-
-  padding: 20px 4px;
-
-  border: 0;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.5);
-
-  border-radius: 0;
-
-  background: transparent;
-
-  color: #fff;
-
-  outline: none;
-
-  resize: vertical;
-
-  font-family: inherit;
-  font-size: 16px;
-}
-
-.contact-main input::placeholder,
-.contact-main textarea::placeholder {
-  color: rgba(255,255,255,.5);
-}
-
-.contact-main select option {
-  color: #111;
-}
-
-.contact-main .wide {
-  grid-column: 1 / -1;
-}
-
-.contact-main button {
-  grid-column: 1 / -1;
-
-  width: 100%;
-  height: 96px;
-
-  padding: 0 30px;
-
-  border: 0;
-
-  background: #fff;
-
-  color: #147a43;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  font-size: 18px;
-  font-weight: 800;
-
-  cursor: pointer;
-}
-
-
-/* ========================================
    ABOUT
 ======================================== */
 
 .about-page {
-  min-height: 100vh;
+  background: #147a43;
+  color: #fff;
 }
 
 .about-main {
@@ -480,311 +13,326 @@ img {
 
 
 /* ========================================
-   ABOUT DESKTOP
+   PAGE 1 — DESKTOP
 ======================================== */
 
-@media (min-width: 761px) {
+.about-overview {
+  width: 100%;
+  height: calc(100vh - 88px);
+  min-height: 620px;
 
-  .about-main {
-    display: grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+  padding: 0 2.2vw;
+}
+
+
+/* COLUMN */
+
+.about-column {
+  min-width: 0;
+
+  padding: 48px 2.2vw 55px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* COLUMN DIVIDER */
+
+.about-column + .about-column {
+  border-left: 1px solid rgba(255,255,255,.18);
+}
+
+
+/* ========================================
+   COLUMN TITLE
+======================================== */
+
+.about-title {
+  margin: 0;
+
+  font-size: clamp(40px, 3vw, 58px);
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -.055em;
+
+  white-space: nowrap;
+}
+
+
+/* ========================================
+   CONTENT POSITION
+
+   핵심:
+   3개 칼럼의 본문 시작 위치를
+   동일하게 맞춤
+======================================== */
+
+.about-column-content {
+  margin-top: 70px;
+}
+
+
+/* ========================================
+   ABOUT TEXT
+======================================== */
+
+.about-column-content h2 {
+  margin: 0 0 28px;
+
+  font-size: clamp(27px, 1.7vw, 34px);
+  font-weight: 700;
+
+  line-height: 1.3;
+
+  letter-spacing: -.045em;
+
+  word-break: keep-all;
+}
+
+
+.about-column-content > p {
+  margin: 0;
+
+  font-size: clamp(13px, .76vw, 15px);
+  font-weight: 400;
+
+  line-height: 1.7;
+
+  letter-spacing: -.02em;
+
+  word-break: keep-all;
+}
+
+
+/* ========================================
+   WHAT WE DO
+======================================== */
+
+.service-list {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.service-item {
+  width: 100%;
+
+  padding: 16px 0 17px;
+
+  border-top: 1px solid rgba(255,255,255,.28);
+}
+
+
+.service-item:last-child {
+  border-bottom: 1px solid rgba(255,255,255,.28);
+}
+
+
+.service-item span {
+  display: block;
+
+  margin: 0 0 7px;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: .14em;
+
+  opacity: .55;
+}
+
+
+.service-item h3 {
+  margin: 0 0 6px;
+
+  font-size: clamp(18px, 1.2vw, 23px);
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  letter-spacing: -.035em;
+}
+
+
+.service-item p {
+  margin: 0;
+
+  font-size: clamp(10px, .65vw, 12px);
+
+  line-height: 1.55;
+
+  letter-spacing: -.02em;
+
+  opacity: .82;
+
+  word-break: keep-all;
+}
+
+
+/* ========================================
+   WHY WISE
+======================================== */
+
+.about-why h2 {
+  margin-bottom: 28px;
+}
+
+
+.about-why .why-lead {
+  margin: 0 0 25px;
+
+  font-size: clamp(17px, 1.05vw, 21px);
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  letter-spacing: -.03em;
+}
+
+
+.about-why .why-lead + p {
+  font-size: clamp(12px, .75vw, 15px);
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   PAGE 2 — RESULT
+======================================== */
+
+.about-result {
+  width: 100%;
+
+  height: calc(100vh - 88px);
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 60px 5vw;
+
+  border-top: 1px solid rgba(255,255,255,.18);
+
+  text-align: center;
+}
+
+
+.result-inner {
+  width: 100%;
+  max-width: 1200px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* SMALL TITLE */
+
+.result-small {
+  margin: 0 0 32px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: .22em;
+}
+
+
+/* MAIN RESULT */
+
+.about-result h2 {
+  margin: 0 0 42px;
+
+  font-size: clamp(64px, 6vw, 110px);
+  font-weight: 800;
+
+  line-height: .9;
+
+  letter-spacing: -.055em;
+
+  text-align: center;
+}
+
+
+/* BUTTON */
+
+.about-result a {
+  display: inline-block;
+
+  padding-bottom: 7px;
+
+  border-bottom: 1px solid rgba(255,255,255,.7);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: .1em;
+}
+
+
+/* ========================================
+   LARGE DESKTOP
+======================================== */
+
+@media (min-width: 1500px) {
+
+  .about-overview {
+    padding-left: 3vw;
+    padding-right: 3vw;
   }
 
-
-  /* ========================================
-     3 COLUMNS
-  ======================================== */
-
-  .about-section {
-    height: calc(100vh - 88px);
-
-    min-height: 600px;
-
-    padding:
-      46px
-      3.2vw
-      52px;
-
-    display: grid;
-
-    grid-template-rows:
-      auto 1fr;
-
-    overflow: hidden;
+  .about-column {
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
   }
 
-
-  .about-section + .about-section {
-    border-left:
-      1px solid rgba(255,255,255,.2);
-  }
+}
 
 
-  /* ========================================
-     TITLES
-  ======================================== */
+/* ========================================
+   TABLET
+======================================== */
 
-  .about-section-title {
-    margin: 0;
+@media (min-width: 761px) and (max-width: 1100px) {
 
-    font-size:
-      clamp(40px, 3vw, 58px);
-
-    font-weight: 800;
-
-    line-height: 1;
-
-    letter-spacing: -.05em;
-
-    white-space: nowrap;
-  }
-
-
-  /* ========================================
-     SAME BODY POSITION
-  ======================================== */
-
-  .about-body {
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: flex-start;
-
-    padding-top: 58px;
-  }
-
-
-  /* ========================================
-     ABOUT
-  ======================================== */
-
-  .about-content {
-    margin: 0;
+  .about-overview {
     padding: 0;
   }
 
-
-  .about-content h2 {
-    margin:
-      0 0 28px;
-
-    font-size:
-      clamp(27px, 1.8vw, 35px);
-
-    font-weight: 700;
-
-    line-height: 1.27;
-
-    letter-spacing: -.045em;
-
-    word-break: keep-all;
-  }
-
-
-  .about-content p {
-    margin: 0;
-
-    font-size:
-      clamp(13px, .78vw, 15px);
-
-    font-weight: 400;
-
-    line-height: 1.7;
-
-    letter-spacing: -.02em;
-
-    word-break: keep-all;
-  }
-
-
-  /* ========================================
-     SERVICES
-  ======================================== */
-
-  .service-list {
-    width: 100%;
-
-    margin: 0;
-    padding: 0;
-  }
-
-
-  .service-item {
+  .about-column {
     padding:
-      16px 0;
-
-    border-top:
-      1px solid
-      rgba(255,255,255,.28);
+      42px
+      24px
+      50px;
   }
 
-
-  .service-item:last-child {
-    border-bottom:
-      1px solid
-      rgba(255,255,255,.28);
+  .about-title {
+    font-size: clamp(34px, 4vw, 44px);
   }
 
-
-  .service-item span {
-    display: block;
-
-    margin:
-      0 0 7px;
-
-    font-size: 8px;
-
-    font-weight: 600;
-
-    letter-spacing: .14em;
-
-    opacity: .5;
+  .about-column-content {
+    margin-top: 55px;
   }
 
-
-  .service-item h3 {
-    margin:
-      0 0 6px;
-
-    font-size:
-      clamp(18px, 1.25vw, 23px);
-
-    font-weight: 700;
-
-    line-height: 1.1;
-
-    letter-spacing: -.035em;
+  .about-column-content h2 {
+    font-size: clamp(23px, 2.6vw, 30px);
   }
 
-
-  .service-item p {
-    margin: 0;
-
-    font-size:
-      clamp(10px, .67vw, 13px);
-
-    line-height: 1.55;
-
-    opacity: .8;
-
-    word-break: keep-all;
-  }
-
-
-  /* ========================================
-     WHY WISE
-  ======================================== */
-
-  .about-why .about-content h2 {
-    margin:
-      0 0 28px;
-
-    font-size:
-      clamp(27px, 1.9vw, 37px);
-
-    line-height: 1.25;
-  }
-
-
-  .about-why .why-lead {
-    margin:
-      0 0 25px;
-
-    font-size:
-      clamp(17px, 1.15vw, 22px);
-
-    font-weight: 600;
-
-    line-height: 1.5;
-
-    letter-spacing: -.03em;
-  }
-
-
-  /* ========================================
-     RESULT
-  ======================================== */
-
-  .about-result {
-    grid-column:
-      1 / -1;
-
-    width: 100%;
-
-    height:
-      calc(100vh - 88px);
-
-    min-height: 600px;
-
-    padding:
-      60px 4vw;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    border-top:
-      1px solid rgba(255,255,255,.2);
-  }
-
-
-  .result-inner {
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-  }
-
-
-  .result-small {
-    margin:
-      0 0 30px;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: .22em;
-  }
-
-
-  .about-result h2 {
-    margin:
-      0 0 42px;
-
-    font-size:
-      clamp(60px, 5.3vw, 100px);
-
-    font-weight: 800;
-
-    line-height: .92;
-
-    letter-spacing: -.055em;
-  }
-
-
-  .about-result a {
-    display: inline-block;
-
-    padding-bottom: 7px;
-
-    border-bottom:
-      1px solid rgba(255,255,255,.7);
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    letter-spacing: .1em;
+  .about-column-content > p {
+    font-size: 12px;
   }
 
 }
@@ -796,168 +344,74 @@ img {
 
 @media (max-width: 760px) {
 
-  /* HEADER */
+  /*
+    PC에서는 3개가 한 화면.
+    모바일에서는 각각 한 화면.
+  */
 
-  .site-header {
-    height: 70px;
+  .about-overview {
+    width: 100%;
+    height: auto;
+    min-height: 0;
 
-    padding: 0 16px;
-  }
-
-  .logo img {
-    width: 98px;
-  }
-
-  .site-header nav {
-    gap: 13px;
-  }
-
-  .site-header nav a {
-    font-size: 9px;
-  }
-
-
-  /* HOME */
-
-  .home-main {
-    padding:
-      0 16px 20px;
-  }
-
-  .home-slider {
-    height: 70vh;
-
-    min-height: 430px;
-  }
-
-  .slide-info {
-    left: 20px;
-    bottom: 22px;
-  }
-
-  .home-bottom {
-    font-size: 9px;
-  }
-
-
-  /* WORK */
-
-  .work-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .page-title {
-    padding:
-      55px 16px 25px;
-  }
-
-  .work-meta {
-    left: 16px;
-    bottom: 15px;
-  }
-
-
-  /* CONTACT */
-
-  .contact-main {
-    padding:
-      60px 20px;
-
-    grid-template-columns: 1fr;
-
-    gap: 60px;
-  }
-
-  .contact-copy h1 {
-    font-size:
-      clamp(52px, 15vw, 78px);
-
-    line-height: .92;
-  }
-
-  .contact-main form {
-    grid-template-columns: 1fr;
-
-    row-gap: 30px;
-  }
-
-  .contact-main form > * {
-    grid-column: 1;
-  }
-
-  .contact-main input,
-  .contact-main select {
-    height: 74px;
-  }
-
-  .contact-main textarea {
-    height: 190px;
-  }
-
-  .contact-main button {
-    height: 82px;
-
-    font-size: 16px;
-  }
-
-
-  /* ABOUT */
-
-  .about-main {
     display: block;
-  }
 
-
-  .about-section {
-    min-height:
-      calc(100svh - 70px);
-
-    padding:
-      36px
-      20px
-      50px;
-
-    border-bottom:
-      1px solid rgba(255,255,255,.25);
-  }
-
-
-  .about-section-title {
-    margin:
-      0 0 42px;
-
-    font-size:
-      clamp(40px, 11vw, 54px);
-
-    font-weight: 800;
-
-    line-height: 1;
-
-    letter-spacing: -.05em;
-  }
-
-
-  .about-body {
     padding: 0;
   }
 
 
-  .about-content h2 {
-    margin:
-      0 0 25px;
+  .about-column {
+    width: 100%;
 
-    font-size:
-      clamp(27px, 7.6vw, 36px);
+    min-height: calc(100svh - 70px);
 
-    line-height: 1.27;
+    padding:
+      38px
+      20px
+      50px;
 
-    letter-spacing: -.04em;
+    display: flex;
+    flex-direction: column;
+
+    border-bottom: 1px solid rgba(255,255,255,.2);
   }
 
 
-  .about-content p {
+  .about-column + .about-column {
+    border-left: 0;
+  }
+
+
+  /* TITLE */
+
+  .about-title {
     margin: 0;
 
+    font-size: clamp(42px, 12vw, 56px);
+
+    line-height: 1;
+
+    letter-spacing: -.055em;
+  }
+
+
+  /* CONTENT */
+
+  .about-column-content {
+    margin-top: 55px;
+  }
+
+
+  .about-column-content h2 {
+    margin: 0 0 28px;
+
+    font-size: clamp(28px, 7.8vw, 36px);
+
+    line-height: 1.28;
+  }
+
+
+  .about-column-content > p {
     font-size: 14px;
 
     line-height: 1.7;
@@ -967,85 +421,56 @@ img {
   /* SERVICES */
 
   .service-item {
-    padding:
-      18px 0;
-
-    border-top:
-      1px solid rgba(255,255,255,.28);
-  }
-
-
-  .service-item:last-child {
-    border-bottom:
-      1px solid rgba(255,255,255,.28);
+    padding: 19px 0;
   }
 
 
   .service-item span {
-    display: block;
-
-    margin-bottom: 7px;
-
     font-size: 8px;
 
-    letter-spacing: .14em;
-
-    opacity: .5;
+    margin-bottom: 8px;
   }
 
 
   .service-item h3 {
-    margin:
-      0 0 6px;
+    font-size: 22px;
 
-    font-size: 21px;
-
-    line-height: 1.1;
+    margin-bottom: 7px;
   }
 
 
   .service-item p {
-    margin: 0;
-
     font-size: 12px;
 
     line-height: 1.6;
-
-    opacity: .8;
   }
 
 
   /* WHY */
 
-  .about-why
-  .about-content h2 {
-    font-size:
-      clamp(27px, 7.7vw, 37px);
-  }
-
-
-  .about-why
-  .why-lead {
-    margin:
-      0 0 25px;
-
-    font-size:
-      clamp(18px, 5vw, 23px);
-
-    font-weight: 600;
+  .about-why .why-lead {
+    font-size: clamp(18px, 5.2vw, 23px);
 
     line-height: 1.5;
+
+    margin-bottom: 26px;
   }
 
 
-  /* RESULT */
+  /* ========================================
+     MOBILE RESULT
+  ======================================== */
 
   .about-result {
-    min-height:
-      calc(100svh - 70px);
+    width: 100%;
+
+    height: auto;
+
+    min-height: calc(100svh - 70px);
 
     padding:
-      50px 20px;
+      50px
+      20px;
 
     display: flex;
 
@@ -1060,6 +485,7 @@ img {
     width: 100%;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -1068,25 +494,18 @@ img {
 
 
   .result-small {
-    margin:
-      0 0 28px;
+    margin: 0 0 28px;
 
     font-size: 9px;
-
-    font-weight: 700;
 
     letter-spacing: .2em;
   }
 
 
   .about-result h2 {
-    margin:
-      0 0 38px;
+    margin: 0 0 38px;
 
-    font-size:
-      clamp(42px, 12vw, 62px);
-
-    font-weight: 800;
+    font-size: clamp(44px, 13vw, 66px);
 
     line-height: .92;
 
@@ -1095,14 +514,7 @@ img {
 
 
   .about-result a {
-    padding-bottom: 6px;
-
-    border-bottom:
-      1px solid rgba(255,255,255,.7);
-
     font-size: 12px;
-
-    font-weight: 700;
 
     letter-spacing: .09em;
   }
