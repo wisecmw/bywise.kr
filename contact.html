@@ -8,7 +8,7 @@
   <title>CONTACT — WISE</title>
 
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=41">
 </head>
 
 <body class="contact-page">
@@ -21,9 +21,9 @@
 
   <nav>
     <a href="index.html">HOME</a>
-      <a href="about.html">ABOUT</a>
-      <a href="work.html">WORK</a>
-      <a href="contact.html">CONTACT</a>
+    <a href="about.html">ABOUT</a>
+    <a href="work.html">WORK</a>
+    <a href="contact.html" class="active">CONTACT</a>
   </nav>
 
 </header>
@@ -31,214 +31,317 @@
 
 <main class="contact-main">
 
-  <section class="contact-copy">
 
-    <p>HAVE A PROJECT?</p>
+  <section class="contact-intro">
+
+    <p class="contact-eyebrow">
+      HAVE A PROJECT?
+    </p>
 
     <h1>
       LET'S WORK<br>
-      TOGETHER
+      TOGETHER.
     </h1>
 
-    <a href="mailto:wise@bywise.kr">
-      wise@bywise.kr
-    </a>
+
+    <p class="contact-guide">
+      프로젝트에 대해 간단히 남겨주시면<br>
+      확인 후 빠르게 연락드리겠습니다.
+    </p>
+
+
+    <div class="contact-info">
+
+      <a href="mailto:wise@bywise.kr">
+        <span>E.</span>
+        wise@bywise.kr
+      </a>
+
+      <a href="tel:01029372349">
+        <span>T.</span>
+        010-2937-2349
+      </a>
+
+      <a
+        href="https://open.kakao.com/o/swSuRfQi"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span>KAKAO.</span>
+        카카오톡 문의하기 ↗
+      </a>
+
+    </div>
 
   </section>
 
 
-  <form
-    action="https://formsubmit.co/wise@bywise.kr"
-    method="POST"
-  >
+  <section class="contact-form-section">
 
-    <input
-      type="hidden"
-      name="_subject"
-      value="[WISE] 홈페이지 신규 문의"
+    <p class="form-heading">
+      PROJECT INQUIRY
+    </p>
+
+
+    <form
+      action="https://formsubmit.co/wise@bywise.kr"
+      method="POST"
     >
 
-    <input
-      type="hidden"
-      name="_template"
-      value="table"
-    >
+      <input
+        type="hidden"
+        name="_subject"
+        value="[WISE] 홈페이지 신규 문의"
+      >
 
-    <input
-      type="hidden"
-      name="_captcha"
-      value="false"
-    >
+      <input
+        type="hidden"
+        name="_template"
+        value="table"
+      >
 
-    <input
-      type="hidden"
-      name="_next"
-      value="https://bywise.kr/contact.html?sent=true"
-    >
+      <input
+        type="hidden"
+        name="_captcha"
+        value="false"
+      >
 
-    <input
-      type="text"
-      name="_honey"
-      style="display:none"
-      tabindex="-1"
-      autocomplete="off"
-    >
-
-
-    <label>
-      NAME / COMPANY
+      <input
+        type="hidden"
+        name="_next"
+        value="https://bywise.kr/contact.html?sent=true"
+      >
 
       <input
         type="text"
-        name="NAME / COMPANY"
-        placeholder="Name or Company"
-        required
+        name="_honey"
+        class="form-honey"
+        tabindex="-1"
+        autocomplete="off"
       >
-    </label>
 
 
-    <label>
-      EMAIL
+      <label>
 
-      <input
-        type="email"
-        name="EMAIL"
-        placeholder="your@email.com"
-        required
+        <span class="field-title">
+          NAME / COMPANY
+        </span>
+
+        <input
+          type="text"
+          name="NAME / COMPANY"
+          placeholder="담당자명 또는 회사명"
+          required
+        >
+
+      </label>
+
+
+      <label>
+
+        <span class="field-title">
+          EMAIL
+        </span>
+
+        <input
+          type="email"
+          name="EMAIL"
+          placeholder="회신받을 이메일"
+          required
+        >
+
+      </label>
+
+
+      <label>
+
+        <span class="field-title">
+          PHONE
+        </span>
+
+        <input
+          type="text"
+          name="PHONE"
+          placeholder="연락처"
+        >
+
+      </label>
+
+
+      <label>
+
+        <span class="field-title">
+          PROJECT
+        </span>
+
+        <select
+          name="PROJECT"
+          required
+        >
+
+          <option value="" selected disabled>
+            프로젝트 유형 선택
+          </option>
+
+          <option value="BRAND FILM">
+            BRAND FILM
+          </option>
+
+          <option value="COMMERCIAL FILM">
+            COMMERCIAL FILM
+          </option>
+
+          <option value="DIGITAL CONTENTS">
+            DIGITAL CONTENTS
+          </option>
+
+          <option value="ETC.">
+            ETC.
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+
+        <span class="field-title">
+          BUDGET
+        </span>
+
+        <select
+          name="BUDGET"
+          required
+        >
+
+          <option value="" selected disabled>
+            예산 범위 선택
+          </option>
+
+          <option value="1,000만원 미만">
+            1,000만원 미만
+          </option>
+
+          <option value="1,000–2,000만원">
+            1,000–2,000만원
+          </option>
+
+          <option value="2,000–3,000만원">
+            2,000–3,000만원
+          </option>
+
+          <option value="3,000–5,000만원">
+            3,000–5,000만원
+          </option>
+
+          <option value="5,000만원 이상">
+            5,000만원 이상
+          </option>
+
+          <option value="협의 필요">
+            협의 필요
+          </option>
+
+        </select>
+
+      </label>
+
+
+      <label>
+
+        <span class="field-title">
+          SCHEDULE
+        </span>
+
+        <input
+          type="text"
+          name="SCHEDULE"
+          placeholder="예: 10월 촬영 / 11월 초 납품"
+        >
+
+      </label>
+
+
+      <label class="wide">
+
+        <span class="field-title">
+          MESSAGE
+        </span>
+
+        <textarea
+          name="MESSAGE"
+          placeholder="프로젝트 내용, 제작 목적, 참고 영상 등 자유롭게 작성해주세요."
+          required
+        ></textarea>
+
+      </label>
+
+
+      <button
+        class="wide"
+        type="submit"
       >
-    </label>
 
+        <span>SEND INQUIRY</span>
 
-    <label>
-      PHONE
+        <span>↗</span>
 
-      <input
-        type="text"
-        name="PHONE"
-        placeholder="010-0000-0000"
-      >
-    </label>
+      </button>
 
+    </form>
 
-    <label>
-      PROJECT
-
-      <select name="PROJECT">
-
-        <option value="">
-          Select Project
-        </option>
-
-        <option value="Commercial / Brand Film">
-          Commercial / Brand Film
-        </option>
-
-        <option value="Digital Content">
-          Digital Content
-        </option>
-
-        <option value="Music / Performance">
-          Music / Performance
-        </option>
-
-        <option value="Other">
-          Other
-        </option>
-
-      </select>
-    </label>
-
-
-    <label>
-      BUDGET
-
-      <input
-        type="text"
-        name="BUDGET"
-        placeholder="예: 3,000만원"
-      >
-    </label>
-
-
-    <label>
-      SCHEDULE
-
-      <input
-        type="text"
-        name="SCHEDULE"
-        placeholder="예: 2026년 10월 촬영"
-      >
-    </label>
-
-
-    <label class="wide">
-      MESSAGE
-
-      <textarea
-        name="MESSAGE"
-        placeholder="프로젝트에 대해 간단히 알려주세요."
-        required
-      ></textarea>
-    </label>
-
-
-    <button
-      class="wide"
-      type="submit"
-    >
-      <span>SEND INQUIRY</span>
-      <span>↗</span>
-    </button>
-
-  </form>
+  </section>
 
 </main>
 
 
+<a
+  class="kakao-floating"
+  href="https://open.kakao.com/o/swSuRfQi"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="카카오톡 문의하기"
+>
+  <span>KAKAO</span>
+</a>
+
+
 <script>
 
-  const params =
-    new URLSearchParams(window.location.search);
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
 
-  if (params.get("sent") === "true") {
+if (params.get("sent") === "true") {
 
-    const form =
-      document.querySelector(".contact-main form");
+  const formSection =
+    document.querySelector(
+      ".contact-form-section"
+    );
 
-    form.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        min-height:420px;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        border-top:1px solid rgba(255,255,255,.5);
-        border-bottom:1px solid rgba(255,255,255,.5);
-      ">
+  formSection.innerHTML = `
+    <div class="contact-success">
 
-        <p style="
-          font-size:16px;
-          letter-spacing:.1em;
-          margin:0 0 20px;
-        ">
-          INQUIRY SENT
-        </p>
+      <p>
+        INQUIRY SENT
+      </p>
 
-        <h2 style="
-          font-size:clamp(38px,5vw,80px);
-          line-height:.95;
-          letter-spacing:-.03em;
-          margin:0;
-        ">
-          THANK YOU.<br>
-          WE'LL GET BACK<br>
-          TO YOU SOON.
-        </h2>
+      <h2>
+        THANK YOU.<br>
+        WE'LL GET BACK<br>
+        TO YOU SOON.
+      </h2>
 
-      </div>
-    `;
+      <a href="contact.html">
+        SEND ANOTHER INQUIRY ↗
+      </a>
 
-  }
+    </div>
+  `;
+
+}
 
 </script>
 
