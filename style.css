@@ -11,9 +11,14 @@ html,
 body {
   margin: 0;
   padding: 0;
+
   background: #147a43;
   color: #fff;
-  font-family: Arial, "Noto Sans KR", sans-serif;
+
+  font-family:
+    Arial,
+    "Noto Sans KR",
+    sans-serif;
 }
 
 html {
@@ -62,12 +67,14 @@ img {
 .logo img {
   width: 126px;
   height: auto;
+
   filter: brightness(0) invert(1);
 }
 
 .site-header nav {
   display: flex;
   align-items: center;
+
   gap: 34px;
 }
 
@@ -102,6 +109,7 @@ img {
 
 .home-main {
   padding: 0 3.2vw 30px;
+
   background: #147a43;
 }
 
@@ -131,12 +139,14 @@ img {
 
 .slide.active {
   opacity: 1;
+
   z-index: 2;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 }
 
@@ -154,11 +164,12 @@ img {
   position: absolute;
   inset: 0;
 
-  background: linear-gradient(
-    180deg,
-    transparent 55%,
-    rgba(0,0,0,.65)
-  );
+  background:
+    linear-gradient(
+      180deg,
+      transparent 55%,
+      rgba(0,0,0,.65)
+    );
 }
 
 .slide-info {
@@ -175,7 +186,8 @@ img {
 .slide-info h2 {
   margin: 0 0 6px;
 
-  font-size: clamp(30px, 4.5vw, 72px);
+  font-size:
+    clamp(30px, 4.5vw, 72px);
 
   line-height: 1;
 
@@ -232,7 +244,8 @@ img {
 .page-title h1 {
   margin: 0;
 
-  font-size: clamp(54px, 9vw, 140px);
+  font-size:
+    clamp(54px, 9vw, 140px);
 
   line-height: .8;
 
@@ -250,7 +263,8 @@ img {
 
   display: grid;
 
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
 
   gap: 0;
 
@@ -278,7 +292,8 @@ img {
 
   object-fit: cover;
 
-  transition: transform .55s ease;
+  transition:
+    transform .55s ease;
 }
 
 .work-card:hover img {
@@ -291,11 +306,12 @@ img {
   position: absolute;
   inset: 0;
 
-  background: linear-gradient(
-    180deg,
-    transparent 50%,
-    rgba(0,0,0,.7)
-  );
+  background:
+    linear-gradient(
+      180deg,
+      transparent 50%,
+      rgba(0,0,0,.7)
+    );
 }
 
 .work-empty {
@@ -327,7 +343,8 @@ img {
 .work-meta h2 {
   margin: 0 0 5px;
 
-  font-size: clamp(18px, 2vw, 31px);
+  font-size:
+    clamp(18px, 2vw, 31px);
 
   line-height: 1;
 
@@ -360,7 +377,8 @@ img {
 
   display: grid;
 
-  grid-template-columns: .95fr 1.45fr;
+  grid-template-columns:
+    .95fr 1.45fr;
 
   gap: 6vw;
 }
@@ -376,7 +394,8 @@ img {
 .contact-copy h1 {
   margin: 30px 0 48px;
 
-  font-size: clamp(64px, 7.4vw, 120px);
+  font-size:
+    clamp(64px, 7.4vw, 120px);
 
   line-height: .9;
 
@@ -386,7 +405,8 @@ img {
 .contact-copy > a {
   padding-bottom: 5px;
 
-  border-bottom: 1px solid rgba(255,255,255,.6);
+  border-bottom:
+    1px solid rgba(255,255,255,.6);
 
   font-size: 18px;
 }
@@ -396,7 +416,8 @@ img {
 
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
 
   column-gap: 40px;
   row-gap: 36px;
@@ -427,7 +448,8 @@ img {
 
   border: 0;
 
-  border-bottom: 1px solid rgba(255,255,255,.5);
+  border-bottom:
+    1px solid rgba(255,255,255,.5);
 
   border-radius: 0;
 
@@ -453,7 +475,8 @@ img {
 
   border: 0;
 
-  border-bottom: 1px solid rgba(255,255,255,.5);
+  border-bottom:
+    1px solid rgba(255,255,255,.5);
 
   border-radius: 0;
 
@@ -473,7 +496,8 @@ img {
 
 .contact-main input::placeholder,
 .contact-main textarea::placeholder {
-  color: rgba(255,255,255,.5);
+  color:
+    rgba(255,255,255,.5);
 
   font-size: 16px;
 }
@@ -510,8 +534,6 @@ img {
   font-weight: 800;
 
   cursor: pointer;
-
-  transition: opacity .2s ease;
 }
 
 .contact-main button:hover {
@@ -551,51 +573,52 @@ img {
 
 @media (min-width: 761px) {
 
+  /*
+     첫 화면:
+     ABOUT / WHAT WE DO / WHY WISE
+  */
+
   .about-main {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
   }
 
 
-  /* THREE COLUMNS */
-
   .about-section {
-    height: calc(100vh - 88px);
+    height:
+      calc(100vh - 88px);
 
-    min-height: 650px;
+    min-height: 620px;
 
     padding:
-      clamp(45px, 5vh, 65px)
-      clamp(30px, 3vw, 60px)
+      46px
+      3vw
       55px;
-
-    display: flex;
-    flex-direction: column;
 
     overflow: hidden;
   }
 
 
-  /* COLUMN DIVIDER */
-
-  .about-section + .about-section {
+  .about-section +
+  .about-section {
     border-left:
-      1px solid rgba(255,255,255,.22);
+      1px solid
+      rgba(255,255,255,.22);
   }
 
 
   /* ========================================
-     BIG SECTION TITLES
+     SECTION TITLE
   ======================================== */
 
   .about-section-title {
-    margin: 0;
-
-    color: #fff;
+    margin:
+      0 0 72px;
 
     font-size:
-      clamp(44px, 3.7vw, 68px);
+      clamp(42px, 3.5vw, 66px);
 
     font-weight: 700;
 
@@ -608,27 +631,25 @@ img {
 
 
   /* ========================================
-     ABOUT COLUMN
+     ABOUT TEXT
   ======================================== */
 
-  .about-intro .about-content {
-    margin-top:
-      clamp(75px, 9vh, 105px);
-
-    padding-bottom: 0;
+  .about-content {
+    margin: 0;
+    padding: 0;
   }
 
 
   .about-content h2 {
     margin:
-      0 0 28px;
+      0 0 26px;
 
     font-size:
-      clamp(28px, 2.15vw, 40px);
+      clamp(28px, 2.1vw, 40px);
 
     font-weight: 700;
 
-    line-height: 1.23;
+    line-height: 1.24;
 
     letter-spacing: -.04em;
 
@@ -640,7 +661,7 @@ img {
     margin: 0;
 
     font-size:
-      clamp(13px, .95vw, 17px);
+      clamp(13px, .9vw, 17px);
 
     font-weight: 400;
 
@@ -656,34 +677,34 @@ img {
      WHAT WE DO
   ======================================== */
 
-  .about-services .service-list {
-    margin-top:
-      clamp(55px, 7vh, 80px);
-
-    padding-bottom: 0;
+  .service-list {
+    margin: 0;
+    padding: 0;
   }
 
 
   .service-item {
     padding:
-      clamp(18px, 2vh, 24px)
-      0;
+      18px 0;
 
     border-top:
-      1px solid rgba(255,255,255,.3);
+      1px solid
+      rgba(255,255,255,.3);
   }
 
 
   .service-item:last-child {
     border-bottom:
-      1px solid rgba(255,255,255,.3);
+      1px solid
+      rgba(255,255,255,.3);
   }
 
 
   .service-item span {
     display: block;
 
-    margin-bottom: 9px;
+    margin:
+      0 0 8px;
 
     font-size: 9px;
 
@@ -700,7 +721,7 @@ img {
       0 0 7px;
 
     font-size:
-      clamp(19px, 1.45vw, 27px);
+      clamp(19px, 1.4vw, 26px);
 
     font-weight: 700;
 
@@ -713,10 +734,8 @@ img {
   .service-item p {
     margin: 0;
 
-    max-width: 390px;
-
     font-size:
-      clamp(11px, .78vw, 14px);
+      clamp(11px, .75vw, 14px);
 
     line-height: 1.6;
 
@@ -732,20 +751,12 @@ img {
      WHY WISE
   ======================================== */
 
-  .about-why .about-content {
-    margin-top:
-      clamp(75px, 9vh, 105px);
-
-    padding-bottom: 0;
-  }
-
-
   .about-why .about-content h2 {
     margin:
-      0 0 30px;
+      0 0 28px;
 
     font-size:
-      clamp(29px, 2.3vw, 43px);
+      clamp(29px, 2.2vw, 42px);
 
     line-height: 1.22;
 
@@ -755,10 +766,10 @@ img {
 
   .about-why .why-lead {
     margin:
-      0 0 26px;
+      0 0 25px;
 
     font-size:
-      clamp(18px, 1.35vw, 25px);
+      clamp(18px, 1.3vw, 24px);
 
     font-weight: 600;
 
@@ -770,22 +781,27 @@ img {
 
   /* ========================================
      RESULT
-     SECOND SCREEN
   ======================================== */
 
   .about-result {
-    grid-column: 1 / -1;
+    grid-column:
+      1 / -1;
 
-    min-height: calc(100vh - 88px);
+    min-height:
+      calc(100vh - 88px);
 
-    padding: 7vw 4.5vw;
+    padding:
+      7vw 4.5vw;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
 
     border-top:
-      1px solid rgba(255,255,255,.25);
+      1px solid
+      rgba(255,255,255,.25);
 
     background: #147a43;
   }
@@ -824,20 +840,14 @@ img {
     padding-bottom: 7px;
 
     border-bottom:
-      1px solid rgba(255,255,255,.65);
+      1px solid
+      rgba(255,255,255,.65);
 
     font-size: 14px;
 
     font-weight: 700;
 
     letter-spacing: .09em;
-
-    transition: opacity .2s ease;
-  }
-
-
-  .about-result a:hover {
-    opacity: .6;
   }
 
 }
@@ -847,16 +857,21 @@ img {
    TABLET
 ======================================== */
 
-@media (min-width: 761px) and (max-width: 1100px) {
+@media
+(min-width: 761px)
+and
+(max-width: 1100px) {
 
   .about-section {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 26px;
+    padding-right: 26px;
   }
 
   .about-section-title {
+    margin-bottom: 60px;
+
     font-size:
-      clamp(34px, 4vw, 48px);
+      clamp(32px, 4vw, 46px);
   }
 
   .about-content h2 {
@@ -864,9 +879,10 @@ img {
       clamp(23px, 2.7vw, 32px);
   }
 
-  .about-why .about-content h2 {
+  .about-why
+  .about-content h2 {
     font-size:
-      clamp(25px, 2.8vw, 35px);
+      clamp(24px, 2.8vw, 34px);
   }
 
 }
@@ -886,7 +902,8 @@ img {
   .site-header {
     height: 70px;
 
-    padding: 0 16px;
+    padding:
+      0 16px;
   }
 
   .logo img {
@@ -894,7 +911,7 @@ img {
   }
 
   .site-header nav {
-    gap: 16px;
+    gap: 14px;
   }
 
   .site-header nav a {
@@ -907,7 +924,8 @@ img {
   ======================================== */
 
   .home-main {
-    padding: 0 16px 20px;
+    padding:
+      0 16px 20px;
   }
 
   .home-slider {
@@ -940,7 +958,8 @@ img {
   }
 
   .page-title {
-    padding: 55px 16px 25px;
+    padding:
+      55px 16px 25px;
   }
 
   .page-title h1 {
@@ -959,7 +978,8 @@ img {
   ======================================== */
 
   .contact-main {
-    padding: 60px 20px;
+    padding:
+      60px 20px;
 
     grid-template-columns: 1fr;
 
@@ -1010,7 +1030,7 @@ img {
 
 
   /* ========================================
-     ABOUT MOBILE
+     ABOUT
   ======================================== */
 
   .about-main {
@@ -1018,27 +1038,34 @@ img {
   }
 
 
+  /*
+     ABOUT / WHAT WE DO / WHY WISE
+     각각 한 화면
+  */
+
   .about-section {
-    min-height: calc(100svh - 70px);
+    min-height:
+      calc(100svh - 70px);
 
     padding:
       42px
       20px
-      42px;
+      45px;
 
-    display: flex;
-    flex-direction: column;
+    display: block;
 
     border-bottom:
-      1px solid rgba(255,255,255,.27);
+      1px solid
+      rgba(255,255,255,.27);
   }
 
 
   .about-section-title {
-    margin: 0;
+    margin:
+      0 0 60px;
 
     font-size:
-      clamp(44px, 13vw, 66px);
+      clamp(42px, 12vw, 62px);
 
     font-weight: 700;
 
@@ -1050,9 +1077,9 @@ img {
 
   /* ABOUT */
 
-  .about-intro .about-content {
-    margin-top: 70px;
-    padding-bottom: 0;
+  .about-content {
+    margin: 0;
+    padding: 0;
   }
 
 
@@ -1086,31 +1113,34 @@ img {
 
   /* WHAT WE DO */
 
-  .about-services .service-list {
-    margin-top: 55px;
-
-    padding-bottom: 0;
+  .service-list {
+    margin: 0;
+    padding: 0;
   }
 
 
   .service-item {
-    padding: 20px 0;
+    padding:
+      20px 0;
 
     border-top:
-      1px solid rgba(255,255,255,.3);
+      1px solid
+      rgba(255,255,255,.3);
   }
 
 
   .service-item:last-child {
     border-bottom:
-      1px solid rgba(255,255,255,.3);
+      1px solid
+      rgba(255,255,255,.3);
   }
 
 
   .service-item span {
     display: block;
 
-    margin-bottom: 10px;
+    margin:
+      0 0 10px;
 
     font-size: 9px;
 
@@ -1145,18 +1175,12 @@ img {
   }
 
 
-  /* WHY WISE */
+  /* WHY */
 
-  .about-why .about-content {
-    margin-top: 70px;
-
-    padding-bottom: 0;
-  }
-
-
-  .about-why .about-content h2 {
+  .about-why
+  .about-content h2 {
     margin:
-      0 0 32px;
+      0 0 30px;
 
     font-size:
       clamp(29px, 8.3vw, 41px);
@@ -1167,7 +1191,8 @@ img {
   }
 
 
-  .about-why .why-lead {
+  .about-why
+  .why-lead {
     margin:
       0 0 27px;
 
@@ -1183,7 +1208,7 @@ img {
 
 
   /* ========================================
-     RESULT MOBILE
+     RESULT
   ======================================== */
 
   .about-result {
@@ -1194,7 +1219,9 @@ img {
       60px 20px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
 
     background: #147a43;
@@ -1232,7 +1259,8 @@ img {
     padding-bottom: 6px;
 
     border-bottom:
-      1px solid rgba(255,255,255,.65);
+      1px solid
+      rgba(255,255,255,.65);
 
     font-size: 13px;
 
