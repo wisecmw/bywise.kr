@@ -10,7 +10,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-
   background: #147a43;
   color: #fff;
 
@@ -67,17 +66,11 @@ img {
 .site-header nav {
   display: flex;
   align-items: center;
-
   gap: 34px;
 
   font-size: 15px;
   font-weight: 700;
-
   letter-spacing: .08em;
-}
-
-.site-header nav a {
-  color: #fff;
 }
 
 .site-header nav a:hover {
@@ -90,7 +83,7 @@ img {
 
 
 /* ==================================================
-   KAKAO FLOATING BUTTON
+   KAKAO FLOATING
 ================================================== */
 
 .kakao-floating {
@@ -118,7 +111,6 @@ img {
 
   font-size: 9px;
   font-weight: 800;
-
   letter-spacing: .08em;
 
   transition:
@@ -140,8 +132,6 @@ img {
 
 .home-main {
   padding: 0 3.2vw 30px;
-
-  background: #147a43;
 }
 
 .home-slider {
@@ -173,7 +163,6 @@ img {
 .slide img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }
 
@@ -181,7 +170,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: #777;
 }
 
@@ -205,8 +193,6 @@ img {
   left: 3vw;
   bottom: 3vw;
 
-  color: #fff;
-
   z-index: 3;
 }
 
@@ -222,7 +208,6 @@ img {
   margin: 0;
 
   font-size: 11px;
-
   letter-spacing: .12em;
 }
 
@@ -233,7 +218,6 @@ img {
   padding-top: 16px;
 
   font-size: 11px;
-
   letter-spacing: .1em;
 }
 
@@ -244,8 +228,6 @@ img {
 
 .work-page {
   min-height: 100vh;
-
-  background: #147a43;
 }
 
 .page-title {
@@ -262,24 +244,31 @@ img {
   font-size: clamp(54px,9vw,140px);
 
   line-height: .8;
-
   letter-spacing: -.07em;
 }
 
 .page-title span {
   font-size: 10px;
-
   letter-spacing: .14em;
 }
 
+
+/* PC = 3 THUMBNAILS */
+
 .work-grid {
+  width: 100%;
+
   display: grid;
 
   grid-template-columns:
-    repeat(2,1fr);
+    repeat(3, minmax(0, 1fr));
+
+  gap: 0;
 }
 
 .work-card {
+  width: 100%;
+
   aspect-ratio: 16 / 9;
 
   position: relative;
@@ -338,7 +327,6 @@ img {
   margin: 0;
 
   font-size: 10px;
-
   letter-spacing: .1em;
 }
 
@@ -349,9 +337,6 @@ img {
 
 .about-page {
   min-height: 100vh;
-
-  background: #147a43;
-  color: #fff;
 }
 
 .about-main {
@@ -394,7 +379,6 @@ img {
 
 .about-title {
   margin: 0 0 38px;
-  padding: 0;
 
   font-size: clamp(38px,2.7vw,52px);
   font-weight: 800;
@@ -410,12 +394,8 @@ img {
 
 .about-body {
   width: 100%;
-
   text-align: center;
 }
-
-
-/* MAIN COPY + 01 / 02 / 03 */
 
 .about-page .about-main-copy,
 .about-page .service-item .service-number {
@@ -438,20 +418,13 @@ img {
   opacity: 1;
 }
 
-.about-column:first-child .about-main-copy {
-  margin-bottom: 30px;
-}
-
+.about-column:first-child .about-main-copy,
 .about-column:last-child .about-main-copy {
   margin-bottom: 30px;
 }
 
-
-/* DESCRIPTION */
-
 .about-description {
   margin: 0 auto;
-  padding: 0;
 
   font-size: clamp(12px,.72vw,14px);
   font-weight: 400;
@@ -464,9 +437,6 @@ img {
 
   word-break: keep-all;
 }
-
-
-/* SERVICES */
 
 .service-list {
   width: 100%;
@@ -495,17 +465,6 @@ img {
   display: block !important;
 
   margin: 0 0 2px !important;
-
-  font-size:
-    clamp(23px,1.45vw,29px) !important;
-
-  font-weight: 700 !important;
-
-  line-height: 1.35 !important;
-
-  letter-spacing: -.04em !important;
-
-  opacity: 1 !important;
 }
 
 .service-title {
@@ -516,23 +475,15 @@ img {
 
 .service-item .about-description {
   font-size: clamp(12px,.72vw,14px);
-  font-weight: 400;
 }
 
 .why-lead {
   margin-bottom: 27px;
-
-  font-size: clamp(12px,.72vw,14px);
-  font-weight: 400;
-
-  line-height: 1.7;
 }
-
-
-/* ABOUT RESULT */
 
 .about-result {
   width: 100%;
+
   min-height: 500px;
 
   padding: 65px 5vw;
@@ -555,8 +506,6 @@ img {
 
   align-items: center;
   justify-content: center;
-
-  text-align: center;
 }
 
 .result-small {
@@ -598,12 +547,6 @@ img {
    CONTACT
 ================================================== */
 
-.contact-page {
-  min-height: 100vh;
-
-  background: #147a43;
-}
-
 .contact-main {
   width: min(1500px,91vw);
 
@@ -611,9 +554,6 @@ img {
 
   padding: 55px 0 100px;
 }
-
-
-/* CONTACT INTRO */
 
 .contact-intro {
   width: 100%;
@@ -654,9 +594,6 @@ img {
   letter-spacing: -.02em;
 }
 
-
-/* CONTACT INFO */
-
 .contact-info {
   margin-top: 38px;
 
@@ -668,7 +605,6 @@ img {
   gap: 10px;
 
   font-size: 14px;
-
   line-height: 1.5;
 }
 
@@ -681,10 +617,6 @@ img {
 
   border-bottom:
     1px solid transparent;
-
-  transition:
-    border-color .2s ease,
-    opacity .2s ease;
 }
 
 .contact-info a:hover {
@@ -702,9 +634,6 @@ img {
 
   opacity: .65;
 }
-
-
-/* FORM SECTION */
 
 .contact-form-section {
   width: 100%;
@@ -736,8 +665,6 @@ img {
 .contact-form-section label {
   display: flex;
   flex-direction: column;
-
-  margin: 0;
 }
 
 .field-title {
@@ -746,9 +673,6 @@ img {
 
   letter-spacing: .1em;
 }
-
-
-/* INPUT + SELECT */
 
 .contact-form-section input,
 .contact-form-section select {
@@ -772,7 +696,6 @@ img {
 
   font-family: inherit;
   font-size: 15px;
-  font-weight: 400;
 }
 
 .contact-form-section input::placeholder,
@@ -788,12 +711,8 @@ img {
 
 .contact-form-section select option {
   color: #111;
-
   background: #fff;
 }
-
-
-/* TEXTAREA */
 
 .contact-form-section textarea {
   width: 100%;
@@ -826,9 +745,6 @@ img {
   grid-column: 1 / -1;
 }
 
-
-/* SEND */
-
 .contact-form-section button {
   width: 100%;
   height: 90px;
@@ -851,8 +767,6 @@ img {
   letter-spacing: .06em;
 
   cursor: pointer;
-
-  transition: opacity .2s ease;
 }
 
 .contact-form-section button:hover {
@@ -862,9 +776,6 @@ img {
 .form-honey {
   display: none !important;
 }
-
-
-/* SUCCESS */
 
 .contact-success {
   min-height: 420px;
@@ -921,19 +832,10 @@ img {
 
   .about-overview {
     width: 94vw;
-
     column-gap: 8px;
-
-    padding-top: 35px;
-  }
-
-  .about-column {
-    padding: 0 6px;
   }
 
   .about-title {
-    margin-bottom: 32px;
-
     font-size:
       clamp(29px,3.7vw,40px);
   }
@@ -948,10 +850,6 @@ img {
   .service-item .about-description,
   .why-lead {
     font-size: 11px;
-  }
-
-  .service-list {
-    max-width: 300px;
   }
 
 }
@@ -982,8 +880,6 @@ img {
   }
 
 
-  /* KAKAO */
-
   .kakao-floating {
     right: 18px;
     bottom: 18px;
@@ -1013,7 +909,7 @@ img {
   }
 
 
-  /* WORK */
+  /* WORK MOBILE = 1 */
 
   .work-grid {
     grid-template-columns: 1fr;
@@ -1046,10 +942,7 @@ img {
   }
 
   .about-column-inner {
-    width: 100%;
     max-width: 500px;
-
-    margin: 0 auto;
   }
 
   .about-title {
@@ -1063,40 +956,21 @@ img {
   .about-page .service-item .service-number {
     font-size:
       clamp(25px,6.7vw,32px) !important;
-
-    font-weight: 700 !important;
-
-    line-height: 1.35 !important;
   }
 
-  .about-description {
+  .about-description,
+  .service-item .about-description,
+  .why-lead {
     font-size: 14px;
   }
 
   .service-list {
-    width: 100%;
     max-width: 420px;
-
-    margin: 0 auto;
   }
 
   .service-item {
     padding: 18px 0 20px;
   }
-
-  .service-title {
-    margin-bottom: 9px;
-  }
-
-  .service-item .about-description,
-  .why-lead {
-    font-size: 14px;
-
-    font-weight: 400;
-  }
-
-
-  /* ABOUT RESULT */
 
   .about-result {
     min-height: 470px;
@@ -1111,12 +985,6 @@ img {
   .about-result h2 {
     font-size:
       clamp(42px,12vw,60px);
-
-    line-height: .94;
-  }
-
-  .about-result a {
-    font-size: 12px;
   }
 
 
@@ -1149,14 +1017,10 @@ img {
     margin-top: 28px;
 
     font-size: 14px;
-
-    line-height: 1.7;
   }
 
   .contact-info {
     margin-top: 30px;
-
-    gap: 11px;
 
     font-size: 13px;
   }
