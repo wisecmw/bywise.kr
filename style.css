@@ -58,6 +58,7 @@ img {
 
 .logo img {
   width: 126px;
+
   filter: brightness(0) invert(1);
 }
 
@@ -119,6 +120,7 @@ img {
 
 .slide.active {
   opacity: 1;
+
   z-index: 2;
 }
 
@@ -356,14 +358,20 @@ img {
   display: flex;
   flex-direction: column;
 
+  margin: 0;
+
   font-size: 16px;
   font-weight: 700;
 
   letter-spacing: .08em;
+
+  line-height: 1.4;
 }
 
 .contact-main input,
 .contact-main select {
+  display: block;
+
   width: 100%;
   height: 82px;
 
@@ -379,12 +387,16 @@ img {
   color: #fff;
 
   outline: none;
+  border-radius: 0;
 
   font-family: inherit;
   font-size: 16px;
+  font-weight: 400;
 }
 
 .contact-main textarea {
+  display: block;
+
   width: 100%;
   height: 210px;
 
@@ -400,9 +412,11 @@ img {
   color: #fff;
 
   outline: none;
+  border-radius: 0;
 
   font-family: inherit;
   font-size: 16px;
+  font-weight: 400;
 
   resize: vertical;
 }
@@ -410,6 +424,8 @@ img {
 .contact-main input::placeholder,
 .contact-main textarea::placeholder {
   color: rgba(255,255,255,.5);
+
+  font-size: 16px;
 }
 
 .contact-main select option {
@@ -443,6 +459,10 @@ img {
   cursor: pointer;
 }
 
+.contact-main button:hover {
+  opacity: .92;
+}
+
 
 /* ==================================================
    ABOUT
@@ -461,13 +481,15 @@ img {
 
 
 /* ==================================================
-   ABOUT 3 COLUMN AREA
+   ABOUT 3 COLUMNS
 ================================================== */
 
 .about-overview {
   width: min(1380px, 88vw);
 
   margin: 0 auto;
+
+  padding: 38px 0 55px;
 
   display: grid;
 
@@ -476,15 +498,8 @@ img {
 
   column-gap: 18px;
 
-  padding: 38px 0 55px;
-
   min-height: 470px;
 }
-
-
-/* ==================================================
-   COLUMN
-================================================== */
 
 .about-column {
   min-width: 0;
@@ -505,12 +520,11 @@ img {
 
 
 /* ==================================================
-   BIG TITLE
+   ABOUT LARGE TITLES
 ================================================== */
 
 .about-title {
   margin: 0 0 38px;
-
   padding: 0;
 
   font-size: clamp(38px, 2.7vw, 52px);
@@ -538,9 +552,9 @@ img {
 
 
 /* ==================================================
-   MAIN COPY
+   SECOND LEVEL TYPOGRAPHY
 
-   아래 글씨 전부 같은 사이즈
+   전부 같은 크기 / 굵기
 
    길게 말하지 않고,
    만들어서 보여줍니다.
@@ -558,33 +572,41 @@ img {
    영상은 산으로 갑니다.
 ================================================== */
 
-.about-main-copy,
-.service-number {
+.about-page .about-main-copy,
+.about-page .service-item .service-number {
   margin: 0;
-
   padding: 0;
 
-  font-size: clamp(23px, 1.45vw, 29px);
-  font-weight: 700;
+  font-family:
+    Arial,
+    "Noto Sans KR",
+    sans-serif;
 
-  line-height: 1.35;
+  font-size:
+    clamp(23px, 1.45vw, 29px) !important;
 
-  letter-spacing: -.04em;
+  font-weight: 700 !important;
+
+  line-height: 1.35 !important;
+
+  letter-spacing: -.04em !important;
 
   text-align: center;
 
   word-break: keep-all;
+
+  opacity: 1;
 }
 
 
-/* ABOUT 메인 문구 */
+/* ABOUT MAIN COPY */
 
 .about-column:first-child .about-main-copy {
   margin-bottom: 30px;
 }
 
 
-/* WHY 메인 문구 */
+/* WHY MAIN COPY */
 
 .about-column:last-child .about-main-copy {
   margin-bottom: 30px;
@@ -592,17 +614,18 @@ img {
 
 
 /* ==================================================
-   DESCRIPTION
+   SMALL DESCRIPTION TYPOGRAPHY
 
-   아래 작은 본문들은 모두 같은 크기
+   전부 동일
 ================================================== */
 
 .about-description {
   margin: 0 auto;
-
   padding: 0;
 
-  font-size: clamp(12px, .72vw, 14px);
+  font-size:
+    clamp(12px, .72vw, 14px);
+
   font-weight: 400;
 
   line-height: 1.7;
@@ -647,17 +670,29 @@ img {
    01 / 02 / 03
 ================================================== */
 
-.service-number {
-  display: block;
+.about-page .service-item .service-number {
+  display: block !important;
 
-  margin: 0 0 2px;
+  margin: 0 0 2px !important;
+  padding: 0 !important;
 
-  opacity: 1;
+  font-size:
+    clamp(23px, 1.45vw, 29px) !important;
+
+  font-weight: 700 !important;
+
+  line-height: 1.35 !important;
+
+  letter-spacing: -.04em !important;
+
+  opacity: 1 !important;
+
+  text-align: center !important;
 }
 
 
 /* ==================================================
-   BRAND FILM / COMMERCIAL FILM / DIGITAL CONTENTS
+   SERVICE TITLE
 ================================================== */
 
 .service-title {
@@ -672,21 +707,23 @@ img {
 ================================================== */
 
 .service-item .about-description {
-  font-size: clamp(12px, .72vw, 14px);
+  font-size:
+    clamp(12px, .72vw, 14px);
+
   font-weight: 400;
 }
 
 
 /* ==================================================
    WHY WISE
-
-   작은 본문은 전부 동일한 크기/굵기
 ================================================== */
 
 .why-lead {
   margin-bottom: 27px;
 
-  font-size: clamp(12px, .72vw, 14px);
+  font-size:
+    clamp(12px, .72vw, 14px);
+
   font-weight: 400;
 
   line-height: 1.7;
@@ -699,7 +736,6 @@ img {
 
 .about-result {
   width: 100%;
-
   min-height: 500px;
 
   padding: 65px 5vw;
@@ -733,17 +769,23 @@ img {
   font-weight: 700;
 
   letter-spacing: .22em;
+
+  text-align: center;
 }
 
 .about-result h2 {
   margin: 0 0 35px;
 
-  font-size: clamp(58px, 5vw, 94px);
+  font-size:
+    clamp(58px, 5vw, 94px);
+
   font-weight: 800;
 
   line-height: .93;
 
   letter-spacing: -.05em;
+
+  text-align: center;
 }
 
 .about-result a {
@@ -758,6 +800,8 @@ img {
   font-weight: 700;
 
   letter-spacing: .1em;
+
+  text-align: center;
 }
 
 
@@ -786,10 +830,10 @@ img {
       clamp(29px, 3.7vw, 40px);
   }
 
-  .about-main-copy,
-  .service-number {
+  .about-page .about-main-copy,
+  .about-page .service-item .service-number {
     font-size:
-      clamp(19px, 2.25vw, 25px);
+      clamp(19px, 2.25vw, 25px) !important;
   }
 
   .about-description {
@@ -817,7 +861,6 @@ img {
 ================================================== */
 
 @media (max-width: 760px) {
-
 
   /* HEADER */
 
@@ -885,6 +928,13 @@ img {
     gap: 60px;
   }
 
+  .contact-copy h1 {
+    font-size:
+      clamp(52px, 15vw, 78px);
+
+    line-height: .92;
+  }
+
   .contact-main form {
     grid-template-columns: 1fr;
 
@@ -904,6 +954,8 @@ img {
     display: block;
 
     padding: 0;
+
+    min-height: 0;
   }
 
   .about-column {
@@ -932,20 +984,18 @@ img {
   }
 
 
-  /* 모바일에서도
-     메인카피 / 01 02 03 / 서비스명
-     전부 같은 크기 */
+  /* MAIN COPY + 01 / 02 / 03 */
 
-  .about-main-copy,
-  .service-number {
+  .about-page .about-main-copy,
+  .about-page .service-item .service-number {
     font-size:
-      clamp(25px, 6.7vw, 32px);
+      clamp(25px, 6.7vw, 32px) !important;
 
-    font-weight: 700;
+    font-weight: 700 !important;
 
-    line-height: 1.35;
+    line-height: 1.35 !important;
 
-    letter-spacing: -.04em;
+    letter-spacing: -.04em !important;
   }
 
 
@@ -953,16 +1003,18 @@ img {
 
   .about-description {
     font-size: 14px;
+
     font-weight: 400;
   }
 
 
-  /* SERVICES */
+  /* SERVICE */
 
   .service-list {
     width: 100%;
-
     max-width: 420px;
+
+    margin: 0 auto;
   }
 
   .service-item {
@@ -976,18 +1028,19 @@ img {
     margin-bottom: 9px;
 
     font-size:
-      clamp(25px, 6.7vw, 32px);
+      clamp(25px, 6.7vw, 32px) !important;
   }
 
-  .service-number {
-    margin-bottom: 2px;
+  .about-page .service-item .service-number {
+    margin-bottom: 2px !important;
 
     font-size:
-      clamp(25px, 6.7vw, 32px);
+      clamp(25px, 6.7vw, 32px) !important;
   }
 
   .service-item .about-description {
     font-size: 14px;
+
     font-weight: 400;
   }
 
@@ -996,6 +1049,7 @@ img {
 
   .why-lead {
     font-size: 14px;
+
     font-weight: 400;
   }
 
