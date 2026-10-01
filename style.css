@@ -1,3 +1,8 @@
+/* ========================================
+   WISE
+   GLOBAL
+======================================== */
+
 * {
   box-sizing: border-box;
 }
@@ -5,86 +10,144 @@
 html,
 body {
   margin: 0;
+  padding: 0;
   background: #147a43;
   color: #fff;
   font-family: Arial, "Noto Sans KR", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+}
+
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 
-/* =========================
+/* ========================================
    HEADER
-========================= */
+======================================== */
 
 .site-header {
+  width: 100%;
   height: 88px;
+
   padding: 0 3.2vw;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   background: #147a43;
+
   position: relative;
   z-index: 20;
 }
 
-.logo img {
+.logo {
   display: block;
+}
+
+.logo img {
   width: 126px;
+  height: auto;
+
   filter: brightness(0) invert(1);
 }
 
 .site-header nav {
   display: flex;
   align-items: center;
+
   gap: 34px;
 }
 
 .site-header nav a {
   color: #fff;
-  font-size: 15px !important;
+
+  font-size: 15px;
   font-weight: 700;
+
   letter-spacing: .08em;
   line-height: 1;
+
+  transition: opacity .2s ease;
+}
+
+.site-header nav a:hover {
+  opacity: .6;
+}
+
+.site-header nav a.active {
+  opacity: .55;
 }
 
 
-/* =========================
+/* ========================================
    HOME
-========================= */
+======================================== */
 
-.home-main {
-  padding: 0 3.2vw 30px;
+.home-page {
   background: #147a43;
 }
 
+.home-main {
+  padding: 0 3.2vw 30px;
+
+  background: #147a43;
+}
+
+
+/* HOME SLIDER */
+
 .home-slider {
+  width: 100%;
+
   height: calc(100vh - 145px);
   min-height: 520px;
+
   position: relative;
+
   overflow: hidden;
+
   background: #111;
 }
+
+
+/* SLIDE */
 
 .slide {
   position: absolute;
   inset: 0;
+
   opacity: 0;
+
   transition: opacity .9s ease;
+
   cursor: pointer;
 }
 
 .slide.active {
   opacity: 1;
+
   z-index: 2;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 }
 
@@ -92,108 +155,160 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #777;
 }
 
+
+/* DARK GRADIENT */
+
 .slide::after {
   content: "";
+
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 55%,
-    rgba(0, 0, 0, .65)
-  );
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 55%,
+      rgba(0, 0, 0, .65)
+    );
 }
+
+
+/* SLIDE TEXT */
 
 .slide-info {
   position: absolute;
+
   left: 3vw;
   bottom: 3vw;
+
   color: #fff;
+
   z-index: 3;
 }
 
 .slide-info h2 {
-  font-size: clamp(30px, 4.5vw, 72px);
   margin: 0 0 6px;
+
+  font-size: clamp(30px, 4.5vw, 72px);
+
+  line-height: 1;
+
   letter-spacing: -.05em;
 }
 
 .slide-info p {
-  font-size: 11px;
-  letter-spacing: .12em;
   margin: 0;
+
+  font-size: 11px;
+
+  letter-spacing: .12em;
 }
+
+
+/* HOME BOTTOM */
 
 .home-bottom {
+  padding-top: 16px;
+
   display: flex;
   justify-content: space-between;
-  padding-top: 16px;
+  align-items: center;
+
+  color: #fff;
+
   font-size: 11px;
+
   letter-spacing: .1em;
-  color: #fff;
-}
-
-.home-bottom a {
-  color: #fff;
 }
 
 
-/* =========================
+/* ========================================
    WORK
-========================= */
+======================================== */
 
 .work-page {
-  padding-bottom: 0;
-  background: #147a43;
   min-height: 100vh;
+
+  padding-bottom: 0;
+
+  background: #147a43;
 }
+
+
+/* WORK TITLE */
 
 .page-title {
   padding: 5vw 3.2vw 2vw;
+
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
-  background: #147a43;
+
   color: #fff;
+
+  background: #147a43;
 }
 
 .page-title h1 {
-  font-size: clamp(54px, 9vw, 140px);
-  line-height: .8;
-  letter-spacing: -.07em;
   margin: 0;
+
+  font-size: clamp(54px, 9vw, 140px);
+
+  line-height: .8;
+
+  letter-spacing: -.07em;
 }
 
 .page-title span {
   font-size: 10px;
+
   letter-spacing: .14em;
 }
 
+
+/* WORK GRID */
+
 .work-grid {
   width: 100%;
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
   gap: 0;
+
   background: #147a43;
 }
+
+
+/* WORK CARD */
 
 .work-card {
   width: 100%;
   min-width: 0;
+
   aspect-ratio: 16 / 9;
+
   position: relative;
+
   overflow: hidden;
+
   background: #191919;
+
   cursor: pointer;
 }
 
 .work-card img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  display: block;
+
   transition: transform .55s ease;
 }
 
@@ -201,171 +316,248 @@ a {
   transform: scale(1.025);
 }
 
+
+/* WORK CARD GRADIENT */
+
 .work-card::after {
   content: "";
+
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 50%,
-    rgba(0, 0, 0, .7)
-  );
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 50%,
+      rgba(0, 0, 0, .7)
+    );
 }
+
+
+/* EMPTY */
 
 .work-empty {
   position: absolute;
   inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #555;
+
   font-size: 11px;
+
   letter-spacing: .15em;
 }
 
+
+/* WORK TEXT */
+
 .work-meta {
   position: absolute;
+
   left: 24px;
   bottom: 22px;
+
   color: #fff;
+
   z-index: 3;
 }
 
 .work-meta h2 {
-  font-size: clamp(18px, 2vw, 31px);
-  letter-spacing: -.04em;
   margin: 0 0 5px;
+
+  font-size: clamp(18px, 2vw, 31px);
+
+  line-height: 1;
+
+  letter-spacing: -.04em;
 }
 
 .work-meta p {
-  font-size: 10px;
-  letter-spacing: .1em;
   margin: 0;
+
+  font-size: 10px;
+
+  letter-spacing: .1em;
 }
 
 
-/* =========================
+/* ========================================
    CONTACT
-========================= */
+======================================== */
 
 .contact-page {
-  background: #147a43;
-  color: #fff;
   min-height: 100vh;
-}
 
-.contact-page .site-header {
   background: #147a43;
+
+  color: #fff;
 }
 
 .contact-main {
   padding: 7vw 4.5vw 8vw;
+
   display: grid;
-  grid-template-columns: .95fr 1.45fr;
+
+  grid-template-columns:
+    .95fr 1.45fr;
+
   gap: 6vw;
-  background: #147a43;
 }
 
+
+/* CONTACT LEFT */
+
 .contact-copy > p {
+  margin: 0;
+
   font-size: 11px;
+
   letter-spacing: .16em;
 }
 
 .contact-copy h1 {
-  font-size: clamp(64px, 7.4vw, 120px);
-  line-height: .9;
-  letter-spacing: -.03em;
   margin: 30px 0 48px;
+
+  font-size: clamp(64px, 7.4vw, 120px);
+
+  line-height: .9;
+
+  letter-spacing: -.03em;
 }
 
 .contact-copy > a {
-  font-size: 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, .6);
   padding-bottom: 5px;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.6);
+
+  font-size: 18px;
 }
+
+
+/* CONTACT FORM */
 
 .contact-main form {
   width: 100%;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   column-gap: 40px;
   row-gap: 36px;
 }
 
 .contact-main label {
+  margin: 0;
+
   display: flex;
   flex-direction: column;
-  margin: 0;
+
   font-size: 16px;
   font-weight: 700;
-  letter-spacing: .08em;
+
   line-height: 1.4;
+
+  letter-spacing: .08em;
 }
+
+
+/* INPUT */
 
 .contact-main input,
 .contact-main select {
-  display: block;
   width: 100%;
   height: 82px;
+
   margin-top: 10px;
+
   padding: 20px 4px;
 
   border: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, .5);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.5);
+
+  border-radius: 0;
 
   background: transparent;
+
   color: #fff;
 
   outline: none;
-  border-radius: 0;
 
   font-family: inherit;
+
   font-size: 16px;
   font-weight: 400;
 }
 
+
+/* TEXTAREA */
+
 .contact-main textarea {
-  display: block;
   width: 100%;
   height: 210px;
 
   margin-top: 10px;
+
   padding: 20px 4px;
 
   border: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, .5);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.5);
+
+  border-radius: 0;
 
   background: transparent;
+
   color: #fff;
 
   outline: none;
-  border-radius: 0;
-
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 400;
 
   resize: vertical;
+
+  font-family: inherit;
+
+  font-size: 16px;
+  font-weight: 400;
 }
+
+
+/* PLACEHOLDER */
 
 .contact-main input::placeholder,
 .contact-main textarea::placeholder {
-  color: rgba(255, 255, 255, .5);
+  color:
+    rgba(255,255,255,.5);
+
   font-size: 16px;
 }
 
-.contact-main select {
-  font-size: 16px;
-}
+
+/* SELECT */
 
 .contact-main select option {
   color: #111;
+
   font-size: 16px;
 }
+
+
+/* FULL WIDTH */
 
 .contact-main .wide {
   grid-column: 1 / -1;
 }
+
+
+/* SEND */
 
 .contact-main button {
   grid-column: 1 / -1;
@@ -373,20 +565,24 @@ a {
   width: 100%;
   height: 96px;
 
-  border: 0;
-  background: #fff;
-  color: #147a43;
-
   padding: 0 30px;
 
-  font-size: 18px;
-  font-weight: 800;
+  border: 0;
+
+  background: #fff;
+
+  color: #147a43;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  font-size: 18px;
+  font-weight: 800;
+
   cursor: pointer;
+
+  transition: opacity .2s ease;
 }
 
 .contact-main button:hover {
@@ -394,15 +590,394 @@ a {
 }
 
 
-/* =========================
+/* ========================================
+   ABOUT
+======================================== */
+
+.about-page {
+  min-height: 100vh;
+
+  background: #147a43;
+
+  color: #fff;
+
+  font-family:
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    Arial,
+    sans-serif;
+}
+
+.about-main {
+  width: 100%;
+}
+
+
+/* ========================================
+   ABOUT — PC FIRST PAGE
+======================================== */
+
+@media (min-width: 761px) {
+
+  /*
+    ABOUT / WHAT WE DO / WHY WISE
+    = PC 첫 화면
+  */
+
+  .about-main {
+    display: grid;
+
+    grid-template-columns:
+      1fr 1fr 1fr;
+  }
+
+
+  .about-section {
+    height:
+      calc(100vh - 88px);
+
+    min-height: 650px;
+
+    padding:
+      clamp(60px, 6vh, 90px)
+      clamp(30px, 3vw, 60px)
+      clamp(50px, 5vh, 80px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+  }
+
+
+  /* SECTION DIVIDER */
+
+  .about-section +
+  .about-section {
+    border-left:
+      1px solid
+      rgba(255,255,255,.24);
+  }
+
+
+  /* MAIN SECTION TITLE */
+
+  .about-section-title {
+    margin: 0;
+
+    color: #fff;
+
+    font-size:
+      clamp(42px, 3.7vw, 68px);
+
+    font-weight: 700;
+
+    line-height: .95;
+
+    letter-spacing: -.055em;
+
+    white-space: nowrap;
+  }
+
+
+  /* ========================================
+     ABOUT COLUMN
+  ======================================== */
+
+  .about-intro
+  .about-content {
+    margin-top: auto;
+
+    padding-bottom: 4vh;
+  }
+
+
+  .about-content h2 {
+    margin:
+      0 0 32px;
+
+    font-size:
+      clamp(27px, 2.15vw, 40px);
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    letter-spacing: -.04em;
+
+    word-break: keep-all;
+  }
+
+
+  .about-content p {
+    margin: 0;
+
+    font-size:
+      clamp(13px, .95vw, 17px);
+
+    font-weight: 400;
+
+    line-height: 1.8;
+
+    letter-spacing: -.02em;
+
+    word-break: keep-all;
+  }
+
+
+  /* ========================================
+     WHAT WE DO
+  ======================================== */
+
+  .about-services
+  .service-list {
+    margin-top: auto;
+
+    padding-bottom: 2vh;
+  }
+
+
+  .service-item {
+    padding:
+      clamp(17px, 2vh, 25px)
+      0;
+
+    border-top:
+      1px solid
+      rgba(255,255,255,.3);
+  }
+
+
+  .service-item:last-child {
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.3);
+  }
+
+
+  .service-item span {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: .13em;
+
+    opacity: .55;
+  }
+
+
+  .service-item h3 {
+    margin:
+      0 0 7px;
+
+    font-size:
+      clamp(19px, 1.45vw, 27px);
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    letter-spacing: -.03em;
+  }
+
+
+  .service-item p {
+    margin: 0;
+
+    max-width: 390px;
+
+    font-size:
+      clamp(11px, .78vw, 14px);
+
+    line-height: 1.6;
+
+    letter-spacing: -.015em;
+
+    opacity: .82;
+
+    word-break: keep-all;
+  }
+
+
+  /* ========================================
+     WHY WISE
+  ======================================== */
+
+  .about-why
+  .about-content {
+    margin-top: auto;
+
+    padding-bottom: 3vh;
+  }
+
+
+  .about-why
+  .about-content h2 {
+    margin:
+      0 0 34px;
+
+    font-size:
+      clamp(29px, 2.3vw, 43px);
+
+    line-height: 1.22;
+
+    letter-spacing: -.045em;
+  }
+
+
+  .about-why
+  .why-lead {
+    margin:
+      0 0 28px;
+
+    font-size:
+      clamp(18px, 1.35vw, 25px);
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    letter-spacing: -.035em;
+  }
+
+
+  /* ========================================
+     RESULT — PC SECOND PAGE
+  ======================================== */
+
+  .about-result {
+    grid-column:
+      1 / -1;
+
+    min-height:
+      calc(100vh - 88px);
+
+    padding:
+      7vw 4.5vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border-top:
+      1px solid
+      rgba(255,255,255,.25);
+
+    background: #147a43;
+  }
+
+
+  .result-small {
+    margin:
+      0 0 38px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: .16em;
+  }
+
+
+  .about-result h2 {
+    margin:
+      0 0 65px;
+
+    font-size:
+      clamp(70px, 9vw, 160px);
+
+    font-weight: 700;
+
+    line-height: .83;
+
+    letter-spacing: -.065em;
+  }
+
+
+  .about-result a {
+    width: fit-content;
+
+    padding-bottom: 7px;
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.65);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: .09em;
+
+    transition: opacity .2s ease;
+  }
+
+
+  .about-result a:hover {
+    opacity: .6;
+  }
+
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (
+  min-width: 761px
+) and (
+  max-width: 1100px
+) {
+
+  .about-section {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .about-section-title {
+    font-size:
+      clamp(34px, 4vw, 48px);
+  }
+
+  .about-content h2 {
+    font-size:
+      clamp(23px, 2.7vw, 32px);
+  }
+
+  .about-why
+  .about-content h2 {
+    font-size:
+      clamp(25px, 2.8vw, 35px);
+  }
+
+}
+
+
+/* ========================================
    MOBILE
-========================= */
+======================================== */
 
 @media (max-width: 760px) {
 
+
+  /* HEADER */
+
   .site-header {
     height: 70px;
-    padding: 0 16px;
+
+    padding:
+      0 16px;
   }
 
   .logo img {
@@ -414,15 +989,22 @@ a {
   }
 
   .site-header nav a {
-    font-size: 13px !important;
+    font-size: 13px;
   }
 
+
+  /* ========================================
+     HOME MOBILE
+  ======================================== */
+
   .home-main {
-    padding: 0 16px 20px;
+    padding:
+      0 16px 20px;
   }
 
   .home-slider {
     height: 70vh;
+
     min-height: 430px;
   }
 
@@ -431,16 +1013,33 @@ a {
     bottom: 22px;
   }
 
+  .slide-info h2 {
+    font-size:
+      clamp(30px, 10vw, 50px);
+  }
+
   .home-bottom {
     font-size: 9px;
   }
 
+
+  /* ========================================
+     WORK MOBILE
+  ======================================== */
+
   .work-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns:
+      1fr;
   }
 
   .page-title {
-    padding: 55px 16px 25px;
+    padding:
+      55px 16px 25px;
+  }
+
+  .page-title h1 {
+    font-size:
+      clamp(54px, 20vw, 90px);
   }
 
   .work-meta {
@@ -448,20 +1047,34 @@ a {
     bottom: 15px;
   }
 
+
+  /* ========================================
+     CONTACT MOBILE
+  ======================================== */
+
   .contact-main {
-    padding: 60px 20px;
-    grid-template-columns: 1fr;
+    padding:
+      60px 20px;
+
+    grid-template-columns:
+      1fr;
+
     gap: 60px;
   }
 
   .contact-copy h1 {
-    font-size: clamp(52px, 15vw, 78px);
+    font-size:
+      clamp(52px, 15vw, 78px);
+
     line-height: .92;
+
     letter-spacing: -.02em;
   }
 
   .contact-main form {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
+
     row-gap: 30px;
   }
 
@@ -476,167 +1089,264 @@ a {
   .contact-main input,
   .contact-main select {
     height: 74px;
+
     font-size: 16px;
   }
 
   .contact-main textarea {
     height: 190px;
-    font-size: 16px;
-  }
 
-  .contact-main input::placeholder,
-  .contact-main textarea::placeholder {
     font-size: 16px;
   }
 
   .contact-main button {
     height: 82px;
+
     font-size: 16px;
   }
-}
 
-/* =========================
-   ABOUT — DESKTOP / MOBILE PAGING
-========================= */
-.about-page{background:#147a43;color:#fff}
-.about-page .site-header nav a.active{opacity:.55}
-.about-page,.about-page button,.about-page input,.about-page textarea{font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
-.about-main{padding:0 3.2vw 3.2vw}
-.about-kicker,.about-section-label{margin:0;font-size:11px;font-weight:700;letter-spacing:.12em;line-height:1.5}
 
-/* PC PAGE 1 : ABOUT + WHAT WE DO + WHY WISE */
-.about-intro-pages{height:calc(100vh - 88px);min-height:680px;display:grid;grid-template-columns:1.15fr .9fr 1.05fr;border-bottom:1px solid rgba(255,255,255,.3)}
-.about-intro-pages>section{min-width:0;padding:7vh 2.2vw 5vh 0;display:flex;flex-direction:column;justify-content:flex-start;border-right:1px solid rgba(255,255,255,.24)}
-.about-intro-pages>section+section{padding-left:2.2vw}
-.about-intro-pages>section:last-child{border-right:0;padding-right:0}
-.about-hero{min-height:0;border-bottom:0}
-.about-hero h1{margin:clamp(36px,6vh,72px) 0 34px;font-size:clamp(46px,4.7vw,82px);line-height:1.16;letter-spacing:-.045em;font-weight:700;word-break:keep-all}
-.about-lead{margin:0;max-width:580px;font-size:clamp(16px,1.15vw,20px);line-height:1.8;letter-spacing:-.02em;word-break:keep-all}
-.about-section{border-bottom:0}
-.about-section-label{margin-bottom:clamp(34px,5vh,60px);opacity:.85}
-.about-section-content{width:100%}
-.about-section-content h2{margin:0 0 36px;font-size:clamp(34px,3.1vw,54px);line-height:1.2;letter-spacing:-.04em;font-weight:700;word-break:keep-all}
-.about-services{display:block;border-top:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35)}
-.about-services article,.about-services article+article{min-height:0;padding:17px 0 18px;border-right:0;border-bottom:1px solid rgba(255,255,255,.22)}
-.about-services article:last-child{border-bottom:0}
-.about-services span{font-size:9px;letter-spacing:.1em;opacity:.55}
-.about-services h3{margin:7px 0 5px;font-size:clamp(19px,1.65vw,29px);line-height:1.2;letter-spacing:-.025em;font-weight:700}
-.about-services p{margin:0;max-width:360px;font-size:13px;line-height:1.65;letter-spacing:-.015em;opacity:.85;word-break:keep-all}
-.about-why .about-section-content{max-width:none}
-.about-why .about-section-content h2{margin-bottom:32px;font-size:clamp(38px,3.6vw,64px);line-height:1.16}
-.about-statement{margin:0 0 28px;max-width:620px;font-size:clamp(22px,2vw,34px);line-height:1.45;letter-spacing:-.03em;word-break:keep-all}
-.about-small{margin:0;max-width:620px;font-size:clamp(14px,1.05vw,18px);line-height:1.8;letter-spacing:-.015em;opacity:.88;word-break:keep-all}
+  /* ========================================
+     ABOUT MOBILE
+  ======================================== */
 
-/* PC PAGE 2 : RESULT */
-.about-result{min-height:calc(100vh - 88px);padding:7vh 0 7vh;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid rgba(255,255,255,.28)}
-.about-result .about-section-label{margin-bottom:4vh}
-.about-result .about-section-content h2{margin:0 0 3vh;font-size:clamp(48px,5.3vw,88px);line-height:1.15;letter-spacing:-.045em}
-.about-work-link{display:inline-flex;gap:20px;align-items:center;margin-bottom:4vh;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.65);font-size:13px;font-weight:700;letter-spacing:.08em}
-.about-result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.25)}
-.about-result-grid div{aspect-ratio:16/8.3;background:#126d3c;display:flex;align-items:flex-end;padding:22px;font-size:10px;letter-spacing:.12em}
-.about-contact{padding:72px 0 44px}
-.about-contact p{margin:0 0 24px;font-size:11px;line-height:1.5;letter-spacing:.14em}
-.about-contact a{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;font-size:clamp(50px,6vw,104px);font-weight:700;line-height:1.08;letter-spacing:-.045em}
-.about-contact a span{font-size:.6em}
+  .about-main {
+    display: block;
+  }
 
-/* MOBILE : 1 ABOUT / 2 WHAT / 3 WHY / 4 RESULT */
-@media(max-width:760px){
- .about-main{padding:0 16px 24px}
- .about-intro-pages{height:auto;min-height:0;display:block;border-bottom:0}
- .about-intro-pages>section,.about-intro-pages>section+section{height:calc(100svh - 70px);min-height:600px;padding:54px 0 42px;display:flex;flex-direction:column;justify-content:center;border-right:0;border-bottom:1px solid rgba(255,255,255,.28)}
- .about-kicker,.about-section-label{font-size:10px;letter-spacing:.12em}
- .about-hero h1{margin:42px 0 42px;font-size:clamp(48px,14vw,68px);line-height:1.16;letter-spacing:-.045em}
- .about-lead{font-size:16px;line-height:1.8}
- .about-section-label{margin-bottom:38px}
- .about-section-content h2{font-size:clamp(40px,11.5vw,56px);line-height:1.2;margin-bottom:42px}
- .about-services article,.about-services article+article{padding:22px 0 23px}
- .about-services h3{margin:9px 0 7px;font-size:27px;line-height:1.22}
- .about-services p{font-size:14px;line-height:1.7}
- .about-why .about-section-content h2{font-size:clamp(45px,12.5vw,62px);line-height:1.18;margin-bottom:40px}
- .about-statement{font-size:clamp(25px,7vw,34px);line-height:1.48;margin-bottom:34px}
- .about-small{font-size:15px;line-height:1.8}
- .about-result{height:calc(100svh - 70px);min-height:650px;padding:48px 0 42px;justify-content:center}
- .about-result .about-section-label{margin-bottom:34px}
- .about-result .about-section-content h2{font-size:clamp(44px,12vw,60px);margin-bottom:28px}
- .about-work-link{margin-bottom:32px}
- .about-result-grid{grid-template-columns:1fr;gap:1px}
- .about-result-grid div{aspect-ratio:16/5.2;padding:16px}
- .about-contact{padding:70px 0 38px}
- .about-contact a{font-size:clamp(40px,11vw,58px);line-height:1.14}
-}
 
-/* ABOUT V4 — TYPOGRAPHY HIERARCHY */
-@media (min-width:761px){
-  .about-kicker,.about-section-label{
-    font-size:clamp(34px,2.65vw,50px);
-    font-weight:700;
-    letter-spacing:-.035em;
-    line-height:1.08;
-    opacity:1;
-    margin-bottom:clamp(34px,4.5vh,54px);
-  }
-  .about-hero h1{
-    margin:0 0 32px;
-    font-size:clamp(28px,2.25vw,42px);
-    line-height:1.3;
-    letter-spacing:-.035em;
-  }
-  .about-lead{
-    font-size:clamp(14px,1vw,18px);
-    line-height:1.75;
-  }
-  .about-section-content h2{
-    margin:0 0 30px;
-    font-size:clamp(27px,2.1vw,38px);
-    line-height:1.28;
-    letter-spacing:-.035em;
-  }
-  .about-why .about-section-content h2{
-    margin-bottom:28px;
-    font-size:clamp(28px,2.2vw,40px);
-    line-height:1.28;
-  }
-  .about-statement{
-    font-size:clamp(18px,1.45vw,26px);
-    line-height:1.55;
-  }
-  .about-small{
-    font-size:clamp(13px,.95vw,17px);
-    line-height:1.8;
-  }
-  .about-services h3{font-size:clamp(18px,1.45vw,26px)}
-  .about-services p{font-size:clamp(12px,.82vw,14px);line-height:1.7}
-  .about-result .about-section-label{margin-bottom:4vh}
-  .about-result .about-section-content h2{font-size:clamp(34px,3vw,52px);line-height:1.2}
-}
+  /*
+    PAGE 1 ABOUT
+    PAGE 2 WHAT WE DO
+    PAGE 3 WHY WISE
+  */
 
-@media (max-width:760px){
-  .about-kicker,.about-section-label{
-    font-size:clamp(34px,10.5vw,46px);
-    font-weight:700;
-    letter-spacing:-.04em;
-    line-height:1.08;
-    opacity:1;
-    margin-bottom:40px;
+  .about-section {
+    min-height:
+      calc(100svh - 70px);
+
+    padding:
+      48px
+      20px
+      42px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.27);
   }
-  .about-hero h1{
-    margin:0 0 32px;
-    font-size:clamp(28px,8vw,38px);
-    line-height:1.32;
-    letter-spacing:-.035em;
+
+
+  /* LARGE SECTION TITLE */
+
+  .about-section-title {
+    margin: 0;
+
+    font-size:
+      clamp(44px, 13vw, 66px);
+
+    font-weight: 700;
+
+    line-height: .92;
+
+    letter-spacing: -.055em;
   }
-  .about-lead{font-size:15px;line-height:1.75}
-  .about-section-content h2,
-  .about-why .about-section-content h2{
-    margin:0 0 34px;
-    font-size:clamp(26px,7.5vw,34px);
-    line-height:1.32;
-    letter-spacing:-.035em;
+
+
+  /* ABOUT */
+
+  .about-intro
+  .about-content {
+    margin-top: auto;
+
+    padding-bottom: 25px;
   }
-  .about-services h3{font-size:23px;line-height:1.25}
-  .about-services p{font-size:13px;line-height:1.7}
-  .about-statement{font-size:clamp(20px,6vw,27px);line-height:1.55;margin-bottom:30px}
-  .about-small{font-size:14px;line-height:1.8}
-  .about-result .about-section-label{margin-bottom:38px}
-  .about-result .about-section-content h2{font-size:clamp(28px,8vw,38px);line-height:1.3}
+
+  .about-content h2 {
+    margin:
+      0 0 28px;
+
+    font-size:
+      clamp(28px, 8vw, 39px);
+
+    line-height: 1.25;
+
+    letter-spacing: -.04em;
+
+    word-break: keep-all;
+  }
+
+  .about-content p {
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    letter-spacing: -.02em;
+
+    word-break: keep-all;
+  }
+
+
+  /* WHAT WE DO */
+
+  .about-services
+  .service-list {
+    margin-top: auto;
+
+    padding-bottom: 15px;
+  }
+
+  .service-item {
+    padding:
+      20px 0;
+
+    border-top:
+      1px solid
+      rgba(255,255,255,.3);
+  }
+
+  .service-item:last-child {
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.3);
+  }
+
+  .service-item span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 9px;
+
+    letter-spacing: .14em;
+
+    opacity: .55;
+  }
+
+  .service-item h3 {
+    margin:
+      0 0 7px;
+
+    font-size: 23px;
+
+    line-height: 1.1;
+
+    letter-spacing: -.03em;
+  }
+
+  .service-item p {
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    opacity: .82;
+
+    word-break: keep-all;
+  }
+
+
+  /* WHY WISE */
+
+  .about-why
+  .about-content {
+    margin-top: auto;
+
+    padding-bottom: 25px;
+  }
+
+  .about-why
+  .about-content h2 {
+    margin:
+      0 0 32px;
+
+    font-size:
+      clamp(29px, 8.3vw, 41px);
+
+    line-height: 1.23;
+
+    letter-spacing: -.045em;
+  }
+
+  .about-why
+  .why-lead {
+    margin:
+      0 0 27px;
+
+    font-size:
+      clamp(19px, 5.6vw, 25px);
+
+    font-weight: 600;
+
+    line-height: 1.5;
+
+    letter-spacing: -.035em;
+  }
+
+
+  /* ========================================
+     RESULT MOBILE
+  ======================================== */
+
+  .about-result {
+    min-height:
+      calc(100svh - 70px);
+
+    padding:
+      60px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: #147a43;
+  }
+
+  .result-small {
+    margin:
+      0 0 30px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .15em;
+  }
+
+  .about-result h2 {
+    margin:
+      0 0 50px;
+
+    font-size:
+      clamp(52px, 17vw, 84px);
+
+    line-height: .85;
+
+    letter-spacing: -.06em;
+  }
+
+  .about-result a {
+    width: fit-content;
+
+    padding-bottom: 6px;
+
+    border-bottom:
+      1px solid
+      rgba(255,255,255,.65);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: .08em;
+  }
+
 }
