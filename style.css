@@ -1,6 +1,6 @@
-/* =========================================
+/* ==================================================
    RESET
-========================================= */
+================================================== */
 
 * {
   box-sizing: border-box;
@@ -36,9 +36,9 @@ img {
 }
 
 
-/* =========================================
+/* ==================================================
    HEADER
-========================================= */
+================================================== */
 
 .site-header {
   width: 100%;
@@ -86,9 +86,9 @@ img {
 }
 
 
-/* =========================================
+/* ==================================================
    HOME
-========================================= */
+================================================== */
 
 .home-main {
   padding: 0 3.2vw 30px;
@@ -186,20 +186,15 @@ img {
   font-size: 11px;
 
   letter-spacing: .1em;
-
-  color: #fff;
 }
 
 
-/* =========================================
+/* ==================================================
    WORK
-========================================= */
+================================================== */
 
 .work-page {
   min-height: 100vh;
-
-  padding-bottom: 0;
-
   background: #147a43;
 }
 
@@ -209,8 +204,6 @@ img {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-
-  color: #fff;
 }
 
 .page-title h1 {
@@ -225,16 +218,12 @@ img {
 
 .page-title span {
   font-size: 10px;
-
   letter-spacing: .14em;
 }
 
 .work-grid {
   display: grid;
-
   grid-template-columns: repeat(2,1fr);
-
-  gap: 0;
 }
 
 .work-card {
@@ -281,8 +270,6 @@ img {
   left: 24px;
   bottom: 22px;
 
-  color: #fff;
-
   z-index: 3;
 }
 
@@ -303,15 +290,14 @@ img {
 }
 
 
-/* =========================================
+/* ==================================================
    CONTACT
-========================================= */
+================================================== */
 
 .contact-page {
   min-height: 100vh;
 
   background: #147a43;
-  color: #fff;
 }
 
 .contact-main {
@@ -366,8 +352,6 @@ img {
   display: flex;
   flex-direction: column;
 
-  margin: 0;
-
   font-size: 16px;
   font-weight: 700;
 
@@ -388,12 +372,9 @@ img {
     1px solid rgba(255,255,255,.5);
 
   background: transparent;
-
   color: #fff;
 
   outline: none;
-
-  border-radius: 0;
 
   font-family: inherit;
   font-size: 16px;
@@ -412,12 +393,9 @@ img {
     1px solid rgba(255,255,255,.5);
 
   background: transparent;
-
   color: #fff;
 
   outline: none;
-
-  border-radius: 0;
 
   font-family: inherit;
   font-size: 16px;
@@ -462,9 +440,9 @@ img {
 }
 
 
-/* =========================================
+/* ==================================================
    ABOUT
-========================================= */
+================================================== */
 
 .about-page {
   min-height: 100vh;
@@ -478,33 +456,43 @@ img {
 }
 
 
-/* =========================================
-   ABOUT 3 COLUMNS
-========================================= */
+/* ==================================================
+   ABOUT 3 COLUMN AREA
+================================================== */
 
 .about-overview {
-  width: 100%;
+  width: min(1500px, 92vw);
+
+  margin: 0 auto;
 
   display: grid;
 
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
 
-  padding: 0 3.2vw 55px;
+  column-gap: 28px;
 
-  min-height: 500px;
+  padding: 38px 0 55px;
+
+  min-height: 470px;
 }
+
+
+/* ==================================================
+   COLUMN
+================================================== */
 
 .about-column {
   min-width: 0;
 
-  padding: 45px 2.5vw 35px;
+  padding: 0 12px;
 
   text-align: center;
 }
 
 .about-column-inner {
   width: 100%;
-  max-width: 440px;
+  max-width: 420px;
 
   margin: 0 auto;
 
@@ -512,19 +500,14 @@ img {
 }
 
 
-/* =========================================
-   ABOUT TITLE
-========================================= */
+/* ==================================================
+   BIG TITLES
+================================================== */
 
 .about-title {
-  height: 58px;
+  margin: 0 0 38px;
 
-  margin: 0 0 28px;
   padding: 0;
-
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
 
   font-size: clamp(38px,2.7vw,52px);
   font-weight: 800;
@@ -539,30 +522,38 @@ img {
 }
 
 
-/* =========================================
-   SAME CONTENT START
-========================================= */
+/* ==================================================
+   BODY
+================================================== */
 
 .about-body {
   width: 100%;
-
-  min-height: 300px;
 
   text-align: center;
 }
 
 
-/* =========================================
-   ABOUT / WHY CONTENT
-========================================= */
+/* ==================================================
+   SECOND LEVEL TYPE
 
-.about-body > h2 {
-  margin: 0 0 25px;
+   아래 글씨들은 전부 같은 크기
 
-  font-size: clamp(24px,1.55vw,30px);
+   길게 말하지 않고
+   BRAND FILM
+   COMMERCIAL FILM
+   DIGITAL CONTENTS
+   사공이 많으면
+================================================== */
+
+.about-main-copy {
+  margin: 0;
+
+  padding: 0;
+
+  font-size: clamp(23px,1.45vw,29px);
   font-weight: 700;
 
-  line-height: 1.32;
+  line-height: 1.35;
 
   letter-spacing: -.04em;
 
@@ -571,10 +562,36 @@ img {
   word-break: keep-all;
 }
 
-.about-body > p {
+
+/* ABOUT 첫 메인 카피 */
+
+.about-column:first-child
+.about-main-copy {
+  margin-bottom: 30px;
+}
+
+
+/* WHY 메인 카피 */
+
+.about-column:last-child
+.about-main-copy {
+  margin-bottom: 30px;
+}
+
+
+/* ==================================================
+   THIRD LEVEL TYPE
+
+   아래 설명들은 전부 같은 크기
+================================================== */
+
+.about-description {
   margin: 0 auto;
 
-  font-size: clamp(11px,.7vw,14px);
+  padding: 0;
+
+  font-size: clamp(12px,.72vw,14px);
+  font-weight: 400;
 
   line-height: 1.7;
 
@@ -586,41 +603,42 @@ img {
 }
 
 
-/* =========================================
+/* ==================================================
    WHAT WE DO
-========================================= */
+================================================== */
 
 .service-list {
-  width: 78%;
-  max-width: 340px;
+  width: 100%;
+  max-width: 360px;
 
   margin: 0 auto;
-
-  text-align: center;
 }
 
 .service-item {
   width: 100%;
 
-  padding: 12px 0 14px;
+  padding: 12px 0 17px;
 
   border-top:
-    1px solid rgba(255,255,255,.24);
+    1px solid rgba(255,255,255,.22);
 
   text-align: center;
 }
 
 .service-item:last-child {
   border-bottom:
-    1px solid rgba(255,255,255,.24);
+    1px solid rgba(255,255,255,.22);
 }
 
-.service-item span {
+
+/* NUMBER */
+
+.service-number {
   display: block;
 
-  margin: 0 0 5px;
+  margin: 0 0 6px;
 
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 600;
 
   line-height: 1;
@@ -632,58 +650,50 @@ img {
   text-align: center;
 }
 
-.service-item h3 {
-  margin: 0 0 5px;
 
-  font-size: clamp(17px,1.05vw,21px);
-  font-weight: 700;
+/* 서비스 제목 */
 
-  line-height: 1.1;
+.service-title {
+  margin: 0 0 7px;
 
-  letter-spacing: -.03em;
-
-  text-align: center;
-}
-
-.service-item p {
-  margin: 0;
-
-  font-size: clamp(9px,.57vw,11px);
-
-  line-height: 1.55;
-
-  opacity: .82;
-
-  text-align: center;
-
-  word-break: keep-all;
+  white-space: nowrap;
 }
 
 
-/* =========================================
+/* 서비스 설명 */
+
+.service-item .about-description {
+  font-size: clamp(12px,.72vw,14px);
+}
+
+
+/* ==================================================
    WHY WISE
-========================================= */
+================================================== */
+
+/*
+좋은 결과물에는...
+이 문장도 ABOUT 설명과
+완전히 동일한 크기로 사용
+*/
 
 .why-lead {
-  margin: 0 auto 23px !important;
+  margin-bottom: 27px;
 
-  font-size: clamp(15px,.9vw,18px) !important;
-  font-weight: 600;
+  font-size: clamp(12px,.72vw,14px);
+  font-weight: 700;
 
-  line-height: 1.5 !important;
-
-  letter-spacing: -.03em !important;
-
-  text-align: center;
+  line-height: 1.7;
 }
 
 
-/* =========================================
+/* ==================================================
    RESULT
-========================================= */
+================================================== */
 
 .about-result {
   width: 100%;
+
   min-height: 500px;
 
   padding: 65px 5vw;
@@ -717,8 +727,6 @@ img {
   font-weight: 700;
 
   letter-spacing: .22em;
-
-  text-align: center;
 }
 
 .about-result h2 {
@@ -730,8 +738,6 @@ img {
   line-height: .93;
 
   letter-spacing: -.05em;
-
-  text-align: center;
 }
 
 .about-result a {
@@ -746,61 +752,58 @@ img {
   font-weight: 700;
 
   letter-spacing: .1em;
-
-  text-align: center;
 }
 
 
-/* =========================================
+/* ==================================================
    TABLET
-========================================= */
+================================================== */
 
 @media (min-width: 761px) and (max-width: 1100px) {
 
   .about-overview {
-    padding:
-      0
-      20px
-      45px;
+    width: 96vw;
+
+    column-gap: 10px;
+
+    padding-top: 35px;
   }
 
   .about-column {
-    padding:
-      40px
-      16px
-      30px;
-  }
-
-  .about-column-inner {
-    max-width: 100%;
+    padding: 0 8px;
   }
 
   .about-title {
-    height: 52px;
-
-    margin-bottom: 25px;
+    margin-bottom: 32px;
 
     font-size:
       clamp(29px,3.7vw,40px);
   }
 
-  .about-body > h2 {
+  .about-main-copy {
     font-size:
-      clamp(19px,2.3vw,26px);
+      clamp(19px,2.25vw,25px);
+  }
+
+  .about-description {
+    font-size: 11px;
   }
 
   .service-list {
-    width: 90%;
+    max-width: 300px;
   }
 
 }
 
 
-/* =========================================
+/* ==================================================
    MOBILE
-========================================= */
+================================================== */
 
 @media (max-width: 760px) {
+
+
+  /* HEADER */
 
   .site-header {
     height: 70px;
@@ -880,9 +883,9 @@ img {
   /* ABOUT */
 
   .about-overview {
-    display: block;
+    width: 100%;
 
-    min-height: 0;
+    display: block;
 
     padding: 0;
   }
@@ -894,90 +897,67 @@ img {
       55px
       22px;
 
-    text-align: center;
-
     border-bottom:
       1px solid rgba(255,255,255,.16);
   }
 
   .about-column-inner {
     width: 100%;
-
-    max-width: none;
+    max-width: 500px;
 
     margin: 0 auto;
-
-    text-align: center;
   }
 
   .about-title {
-    height: auto;
-
-    margin:
-      0
-      0
-      38px;
-
-    display: block;
+    margin-bottom: 38px;
 
     font-size:
       clamp(40px,11vw,54px);
-
-    text-align: center;
   }
 
-  .about-body {
-    min-height: 0;
-
-    text-align: center;
-  }
-
-  .about-body > h2 {
-    margin-bottom: 25px;
-
+  .about-main-copy {
     font-size:
-      clamp(27px,7.2vw,34px);
-
-    text-align: center;
+      clamp(25px,6.7vw,32px);
   }
 
-  .about-body > p {
+  .about-description {
     font-size: 14px;
-
-    text-align: center;
   }
 
 
-  /* SERVICE */
+  /* SERVICES */
 
   .service-list {
     width: 100%;
 
     max-width: 420px;
-
-    margin: 0 auto;
   }
 
   .service-item {
     padding:
       18px
-      0;
+      0
+      20px;
   }
 
-  .service-item h3 {
-    font-size: 21px;
+  .service-title {
+    font-size:
+      clamp(25px,6.7vw,32px);
   }
 
-  .service-item p {
-    font-size: 12px;
+  .service-item .about-description {
+    font-size: 14px;
+  }
+
+  .service-number {
+    font-size: 9px;
   }
 
 
   /* WHY */
 
   .why-lead {
-    font-size:
-      clamp(18px,5vw,22px) !important;
+    font-size: 14px;
   }
 
 
