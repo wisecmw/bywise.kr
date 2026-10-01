@@ -244,8 +244,6 @@ img {
   grid-template-columns: repeat(2,1fr);
 
   gap: 0;
-
-  background: #147a43;
 }
 
 .work-card {
@@ -515,29 +513,25 @@ img {
 
 
 /* ==================================================
-   ABOUT — THREE COLUMNS
+   ABOUT OVERVIEW
 ================================================== */
 
 .about-overview {
   width: 100%;
 
-  /*
-     기존 100vh 제거.
-     화면이 아무리 커져도 아래가 텅 비지 않도록
-     고정된 적당한 높이로 정리.
-  */
-
-  min-height: 610px;
-
   display: grid;
 
-  grid-template-columns:
-    repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
 
   padding: 0 3.2vw;
 
-  border-bottom:
-    1px solid rgba(255,255,255,.16);
+  /*
+    빨간 박스 부분의 세로선 없음
+  */
+
+  border: 0;
+
+  min-height: 540px;
 }
 
 
@@ -548,29 +542,31 @@ img {
 .about-column {
   min-width: 0;
 
-  min-height: 610px;
+  padding:
+    72px
+    3vw
+    65px;
 
-  padding: 48px 3vw;
+  /*
+    세로선 완전 삭제
+  */
 
-  display: flex;
+  border: 0;
 
-  align-items: center;
-
-  justify-content: center;
+  display: block;
 }
 
 .about-column + .about-column {
-  border-left:
-    1px solid rgba(255,255,255,.16);
+  border-left: 0;
 }
 
 
-/* 실제 콘텐츠 박스 */
+/* 세 칸 모두 같은 콘텐츠 폭 */
 
 .about-column-inner {
   width: 100%;
 
-  max-width: 440px;
+  max-width: 430px;
 
   margin: 0 auto;
 }
@@ -581,10 +577,20 @@ img {
 ================================================== */
 
 .about-title {
+  /*
+    ABOUT
+    WHAT WE DO
+    WHY WISE
+
+    세 제목의 시작 Y값 완전히 동일
+  */
+
   margin:
     0
     0
     58px;
+
+  padding: 0;
 
   font-size:
     clamp(38px,2.8vw,54px);
@@ -600,7 +606,7 @@ img {
 
 
 /* ==================================================
-   ABOUT MAIN COPY
+   ABOUT CONTENT
 ================================================== */
 
 .about-content h2 {
@@ -608,6 +614,8 @@ img {
     0
     0
     26px;
+
+  padding: 0;
 
   font-size:
     clamp(25px,1.55vw,31px);
@@ -640,9 +648,18 @@ img {
 ================================================== */
 
 .service-list {
-  width: 100%;
+  /*
+    파란 박스 부분.
+    선이 칼럼 전체까지 가지 않고
+    내용 폭 안에서만 나오게 함.
+  */
+
+  width: 88%;
+
+  max-width: 380px;
 
   margin: 0;
+
   padding: 0;
 }
 
@@ -672,6 +689,7 @@ img {
     6px;
 
   font-size: 8px;
+
   font-weight: 600;
 
   letter-spacing: .14em;
@@ -703,8 +721,6 @@ img {
 
   line-height: 1.55;
 
-  letter-spacing: -.015em;
-
   opacity: .82;
 
   word-break: keep-all;
@@ -735,17 +751,6 @@ img {
   letter-spacing: -.03em;
 }
 
-.about-why .why-description {
-  margin: 0;
-
-  font-size:
-    clamp(12px,.72vw,14px);
-
-  line-height: 1.7;
-
-  font-weight: 400;
-}
-
 
 /* ==================================================
    RESULT
@@ -754,15 +759,10 @@ img {
 .about-result {
   width: 100%;
 
-  /*
-     100vh 제거.
-     마지막 페이지도 과도하게 커지지 않도록 설정.
-  */
-
-  min-height: 560px;
+  min-height: 520px;
 
   padding:
-    80px
+    70px
     5vw;
 
   display: flex;
@@ -777,7 +777,7 @@ img {
 .result-inner {
   width: 100%;
 
-  max-width: 1100px;
+  max-width: 1000px;
 
   margin: 0 auto;
 
@@ -796,13 +796,11 @@ img {
   margin:
     0
     0
-    30px;
+    26px;
 
   font-size: 11px;
 
   font-weight: 700;
-
-  line-height: 1;
 
   letter-spacing: .22em;
 }
@@ -811,16 +809,16 @@ img {
   margin:
     0
     0
-    42px;
+    38px;
 
   font-size:
-    clamp(60px,5.5vw,100px);
+    clamp(58px,5vw,92px);
 
   font-weight: 800;
 
-  line-height: .92;
+  line-height: .93;
 
-  letter-spacing: -.055em;
+  letter-spacing: -.05em;
 }
 
 .about-result a {
@@ -840,44 +838,21 @@ img {
 
 
 /* ==================================================
-   LARGE DESKTOP
-================================================== */
-
-@media (min-width: 1600px) {
-
-  .about-overview {
-    min-height: 650px;
-  }
-
-  .about-column {
-    min-height: 650px;
-  }
-
-  .about-column-inner {
-    max-width: 470px;
-  }
-
-}
-
-
-/* ==================================================
    TABLET
 ================================================== */
 
 @media (min-width: 761px) and (max-width: 1100px) {
 
   .about-overview {
-    padding: 0;
+    padding: 0 20px;
 
-    min-height: 560px;
+    min-height: 500px;
   }
 
   .about-column {
-    min-height: 560px;
-
     padding:
-      40px
-      24px;
+      60px
+      20px;
   }
 
   .about-column-inner {
@@ -896,13 +871,8 @@ img {
       clamp(20px,2.4vw,27px);
   }
 
-  .about-content > p {
-    font-size: 11px;
-  }
-
-  .about-why .why-lead {
-    font-size:
-      clamp(14px,1.7vw,17px);
+  .service-list {
+    width: 100%;
   }
 
 }
@@ -972,11 +942,6 @@ img {
       25px;
   }
 
-  .work-meta {
-    left: 16px;
-    bottom: 15px;
-  }
-
 
   /* CONTACT */
 
@@ -990,11 +955,6 @@ img {
     gap: 60px;
   }
 
-  .contact-copy h1 {
-    font-size:
-      clamp(52px,15vw,78px);
-  }
-
   .contact-main form {
     grid-template-columns: 1fr;
 
@@ -1005,23 +965,8 @@ img {
     grid-column: 1;
   }
 
-  .contact-main input,
-  .contact-main select {
-    height: 74px;
-  }
 
-  .contact-main textarea {
-    height: 190px;
-  }
-
-  .contact-main button {
-    height: 82px;
-  }
-
-
-  /* ==================================================
-     ABOUT MOBILE
-  ================================================== */
+  /* ABOUT */
 
   .about-overview {
     display: block;
@@ -1029,32 +974,18 @@ img {
     min-height: 0;
 
     padding: 0;
-
-    border-bottom: 0;
   }
-
-
-  /* 각각 한 페이지처럼 */
 
   .about-column {
     width: 100%;
 
-    min-height: 0;
-
     padding:
-      64px
+      60px
       22px;
-
-    display: block;
 
     border-bottom:
       1px solid rgba(255,255,255,.18);
   }
-
-  .about-column + .about-column {
-    border-left: 0;
-  }
-
 
   .about-column-inner {
     width: 100%;
@@ -1064,127 +995,78 @@ img {
     margin: 0;
   }
 
-
-  /* MOBILE TITLE */
-
   .about-title {
     margin:
       0
       0
-      48px;
+      45px;
 
     font-size:
       clamp(40px,11vw,54px);
-
-    line-height: 1;
-
-    letter-spacing: -.05em;
   }
 
-
-  /* MOBILE COPY */
-
   .about-content h2 {
-    margin:
-      0
-      0
-      28px;
+    margin-bottom: 27px;
 
     font-size:
       clamp(27px,7.4vw,35px);
-
-    line-height: 1.28;
   }
 
   .about-content > p {
     font-size: 14px;
-
-    line-height: 1.7;
   }
 
 
-  /* MOBILE SERVICES */
+  /* SERVICES */
+
+  .service-list {
+    width: 100%;
+
+    max-width: none;
+  }
 
   .service-item {
     padding:
-      20px
+      19px
       0;
   }
 
-  .service-item span {
-    margin-bottom: 7px;
-
-    font-size: 8px;
-  }
-
   .service-item h3 {
-    margin-bottom: 7px;
-
     font-size: 21px;
   }
 
   .service-item p {
     font-size: 12px;
-
-    line-height: 1.6;
   }
 
 
-  /* MOBILE WHY */
+  /* WHY */
 
   .about-why .why-lead {
-    margin-bottom: 26px;
-
     font-size:
       clamp(18px,5vw,22px);
-
-    line-height: 1.5;
-  }
-
-  .about-why .why-description {
-    font-size: 14px;
-
-    line-height: 1.7;
   }
 
 
-  /* MOBILE RESULT */
+  /* RESULT */
 
   .about-result {
-    min-height: 520px;
+    min-height: 500px;
 
     padding:
       70px
       22px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-  }
-
-  .result-inner {
-    max-width: 100%;
   }
 
   .result-small {
-    margin-bottom: 26px;
-
     font-size: 9px;
-
-    letter-spacing: .2em;
   }
 
   .about-result h2 {
-    margin-bottom: 36px;
-
     font-size:
       clamp(42px,12vw,60px);
 
     line-height: .94;
-
-    letter-spacing: -.05em;
   }
 
   .about-result a {
