@@ -1,61 +1,54 @@
 <!doctype html>
 <html lang="ko">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="description" content="WISE selected works — Commercial Film, Brand Film, Digital Contents.">
   <title>WORK — WISE</title>
-
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css?v=41">
+  <link rel="stylesheet" href="style.css?v=50">
 </head>
-
-<body>
+<body class="work-body">
 
 <header class="site-header">
-
-  <a class="logo" href="index.html">
+  <a class="logo" href="index.html" aria-label="WISE Home">
     <img src="wise-logo.png" alt="WISE">
   </a>
-
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="index.html">HOME</a>
     <a href="about.html">ABOUT</a>
     <a href="work.html" class="active">WORK</a>
     <a href="contact.html">CONTACT</a>
   </nav>
-
 </header>
 
-
 <main class="work-page">
+  <section class="work-intro">
+    <p class="section-kicker">SELECTED WORK / WISE</p>
+    <div class="work-intro-row">
+      <h1>WORK</h1>
+      <div class="work-intro-copy">
+        <p>COMMERCIAL FILM<br>BRAND FILM<br>DIGITAL CONTENTS</p>
+        <span id="work-count">00 PROJECTS</span>
+      </div>
+    </div>
+  </section>
 
-  <div class="page-title">
+  <section class="work-browser">
+    <div id="work-filters" class="work-filters" aria-label="Work filters"></div>
+    <div id="work-grid" class="work-grid"></div>
+  </section>
 
-    <h1>WORK</h1>
-
-    <span>SELECTED WORKS</span>
-
-  </div>
-
-  <div id="work-grid" class="work-grid"></div>
-
+  <section class="work-end reveal">
+    <p>LOOKING FOR A PRODUCTION PARTNER?</p>
+    <a href="contact.html">START A PROJECT ↗</a>
+  </section>
 </main>
 
-
-<a
-  class="kakao-floating"
-  href="https://open.kakao.com/o/swSuRfQi"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="카카오톡 문의하기"
->
+<a class="kakao-floating" href="https://open.kakao.com/o/swSuRfQi" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 문의하기">
   <span>KAKAO</span>
 </a>
 
-
-<script type="module" src="works.js?v=41"></script>
-
+<script type="module" src="works.js?v=50"></script>
 </body>
 </html>

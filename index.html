@@ -1,63 +1,103 @@
 <!doctype html>
 <html lang="ko">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>WISE</title>
-
+  <meta name="description" content="WISE — Brand Film, Commercial Film, Digital Contents. Creative Production.">
+  <title>WISE — Creative Production</title>
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="stylesheet" href="style.css?v=41">
+  <link rel="stylesheet" href="style.css?v=50">
 </head>
-
 <body class="home-page">
 
 <header class="site-header">
-
-  <a class="logo" href="index.html">
+  <a class="logo" href="index.html" aria-label="WISE Home">
     <img src="wise-logo.png" alt="WISE">
   </a>
-
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="index.html" class="active">HOME</a>
     <a href="about.html">ABOUT</a>
     <a href="work.html">WORK</a>
     <a href="contact.html">CONTACT</a>
   </nav>
-
 </header>
 
+<main>
+  <section class="home-hero">
+    <div id="home-slider" class="home-slider" aria-label="Featured works"></div>
+    <div class="hero-footer">
+      <span>CREATIVE PRODUCTION</span>
+      <span>SEOUL · KOREA</span>
+    </div>
+  </section>
 
-<main class="home-main">
+  <section class="home-statement reveal">
+    <p class="section-kicker">WISE / CREATIVE PRODUCTION</p>
+    <div class="statement-grid">
+      <h1>길게 말하지 않고,<br>만들어서 보여줍니다.</h1>
+      <p>
+        브랜드와 기업의 이야기를 기획부터 촬영, 후반작업까지<br>
+        하나의 방향으로 완성하는 Creative Production입니다.
+      </p>
+    </div>
+  </section>
 
-  <div id="home-slider" class="home-slider"></div>
+  <section class="home-selected reveal">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">01 / SELECTED WORK</p>
+        <h2>RECENT PROJECTS</h2>
+      </div>
+      <a class="text-link" href="work.html">VIEW ALL WORK ↗</a>
+    </div>
+    <div id="home-work-grid" class="home-work-grid"></div>
+  </section>
 
-  <div class="home-bottom">
+  <section class="home-services reveal">
+    <div class="section-head services-head">
+      <div>
+        <p class="section-kicker">02 / WHAT WE DO</p>
+        <h2>ONE DIRECTION.<br>ONE RESULT.</h2>
+      </div>
+      <p class="services-copy">
+        좋은 결과물에는 많은 목소리보다<br>
+        분명한 하나의 방향이 필요합니다.
+      </p>
+    </div>
 
-    <span>CREATIVE PRODUCTION</span>
+    <div class="service-rows">
+      <a class="service-row" href="work.html" data-filter-link="Commercial Film">
+        <span class="service-index">01</span>
+        <strong>COMMERCIAL FILM</strong>
+        <span>제품과 서비스가 기억되는 광고 영상</span>
+        <b>↗</b>
+      </a>
+      <a class="service-row" href="work.html" data-filter-link="Brand Film">
+        <span class="service-index">02</span>
+        <strong>BRAND FILM</strong>
+        <span>브랜드의 가치와 이야기를 담는 영상</span>
+        <b>↗</b>
+      </a>
+      <a class="service-row" href="work.html" data-filter-link="Digital Contents">
+        <span class="service-index">03</span>
+        <strong>DIGITAL CONTENTS</strong>
+        <span>인터뷰, 스케치, 디지털 캠페인 콘텐츠</span>
+        <b>↗</b>
+      </a>
+    </div>
+  </section>
 
-    <a href="work.html">
-      VIEW ALL WORK →
-    </a>
-
-  </div>
-
+  <section class="home-cta reveal">
+    <p class="section-kicker">03 / START A PROJECT</p>
+    <h2>HAVE A PROJECT?</h2>
+    <a href="contact.html">LET'S WORK TOGETHER ↗</a>
+  </section>
 </main>
 
-
-<a
-  class="kakao-floating"
-  href="https://open.kakao.com/o/swSuRfQi"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="카카오톡 문의하기"
->
+<a class="kakao-floating" href="https://open.kakao.com/o/swSuRfQi" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 문의하기">
   <span>KAKAO</span>
 </a>
 
-
-<script type="module" src="works.js?v=41"></script>
-
+<script type="module" src="works.js?v=50"></script>
 </body>
 </html>
