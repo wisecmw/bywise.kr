@@ -1,0 +1,4 @@
+WISE REDESIGN v53
+- Removed public video landing page files (video.html, video.js, video.css).
+- No navigation or public page links expose a video page.
+- Project VIDEO URL fields in admin and WORK behavior remain unchanged for project playback/linking.

@@ -1,0 +1,10 @@
+WISE v52
+
+Typography
+- Display / project titles: Wanted Sans Variable
+- Navigation / filters / Korean body / utility copy: SUIT Variable
+- Removed Pretendard from public pages
+- Rebalanced tracking and line-height by text role
+- Enlarged and refined WORK filters
+
+Existing Supabase/project/admin behavior is unchanged.

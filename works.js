@@ -156,12 +156,12 @@ async function renderHomeGrid(projects) {
   });
 }
 
-function makeFilterLabel(type) {
+function canonicalCategory(type = "") {
   const value = normalizeType(type);
-  if (value.includes("COMMERCIAL")) return "COMMERCIAL";
-  if (value.includes("BRAND")) return "BRAND";
-  if (value.includes("DIGITAL")) return "DIGITAL";
-  return value || "ETC";
+  if (value.includes("COMMERCIAL")) return "COMMERCIAL FILM";
+  if (value.includes("BRAND")) return "BRAND FILM";
+  if (value.includes("DIGITAL")) return "DIGITAL CONTENTS";
+  return "";
 }
 
 async function renderWork(projects) {
@@ -170,15 +170,11 @@ async function renderWork(projects) {
   const count = document.querySelector("#work-count");
   if (!grid) return;
 
-  const typeMap = new Map();
-  projects.forEach(project => {
-    const key = normalizeType(project.type) || "ETC";
-    if (!typeMap.has(key)) typeMap.set(key, makeFilterLabel(project.type));
-  });
-
   const filters = [
-    { key: "ALL", label: "ALL" },
-    ...[...typeMap.entries()].map(([key, label]) => ({ key, label }))
+    { key: "ALL", label: "All" },
+    { key: "COMMERCIAL FILM", label: "Commercial Film" },
+    { key: "BRAND FILM", label: "Brand Film" },
+    { key: "DIGITAL CONTENTS", label: "Digital Contents" }
   ];
 
   if (filterWrap) {
@@ -192,7 +188,7 @@ async function renderWork(projects) {
   const draw = filterKey => {
     const visible = filterKey === "ALL"
       ? projects
-      : projects.filter(project => (normalizeType(project.type) || "ETC") === filterKey);
+      : projects.filter(project => canonicalCategory(project.type) === filterKey);
 
     if (count) count.textContent = `${String(visible.length).padStart(2,"0")} PROJECTS`;
     grid.innerHTML = "";
@@ -200,12 +196,13 @@ async function renderWork(projects) {
     visible.forEach((project, index) => {
       const card = document.createElement("article");
       card.className = "work-card";
+      const category = canonicalCategory(project.type) || normalizeType(project.type);
       card.innerHTML = `
         ${projectImage(project)}
         <div class="work-meta">
           <div>
             <h2>${escapeHTML(project.title)}</h2>
-            <p>${escapeHTML(normalizeType(project.type))}</p>
+            <p>${escapeHTML(category)}</p>
           </div>
           <span class="work-card-index">${String(index + 1).padStart(2,"0")} ↗</span>
         </div>
@@ -229,7 +226,7 @@ async function renderWork(projects) {
 
   const queryFilter = new URLSearchParams(window.location.search).get("type");
   if (queryFilter && filterWrap) {
-    const normalized = normalizeType(queryFilter);
+    const normalized = canonicalCategory(queryFilter) || normalizeType(queryFilter);
     const target = [...filterWrap.querySelectorAll(".filter-button")]
       .find(button => button.dataset.filter === normalized);
     if (target) target.click();

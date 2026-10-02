@@ -1,40 +1,10 @@
-WISE REDESIGN v50
+WISE v51
 
-주요 변경사항
-1. HOME
-- 대표작 히어로 슬라이더 유지, 전환 속도 4.5초로 조정
-- SELECTED WORK 6개 섹션 추가
-- WHAT WE DO 서비스 섹션 추가
-- CONTACT CTA 강화
-
-2. WORK
-- 프로젝트 수 표시
-- 프로젝트 TYPE 기반 필터 자동 생성
-- 썸네일 타이포/번호/호버 개선
-- HOME의 서비스 항목 클릭 시 해당 WORK 필터로 이동
-
-3. ABOUT
-- 3단 설명형 레이아웃에서 에디토리얼 구조로 재구성
-- 기존 핵심 문구 유지
-
-4. DESIGN
-- WISE 초록(#147a43) 유지
-- Pretendard 웹폰트 적용
-- 초록/오프화이트 대비 섹션 추가
-- PC / MOBILE 반응형 재정리
-- 스크롤 reveal 모션 추가
-
-5. DATA / ADMIN
-- Supabase DB 스키마 변경 없음
-- 기존 admin.html 업로드 방식 그대로 사용 가능
-- 기존 등록 프로젝트 자동 반영
-
-수정 파일
-index.html
-work.html
-about.html
-contact.html
-style.css
-works.js
-admin.html (CSS cache version only)
-manage.html (CSS cache version only)
+- ABOUT layout rebuilt with alternating green/white sections only.
+- Removed beige/off-white and dark ink auxiliary colors from the visual system.
+- Refined Pretendard typography: less aggressive negative tracking, cleaner line-height, stronger hierarchy.
+- WORK filters fixed to: All / Commercial Film / Brand Film / Digital Contents.
+- WORK filter labels enlarged and displayed on a white/green filter bar.
+- Project type variations are normalized into the four fixed WORK categories.
+- Existing Supabase project data and admin workflow remain unchanged.
+- Mobile typography and spacing refined to match desktop hierarchy.
