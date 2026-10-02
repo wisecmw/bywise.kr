@@ -1,0 +1,16 @@
+WISE v54
+
+- HOME hero 하단의 CREATIVE PRODUCTION / SEOUL · KOREA 중복 라인 제거
+- HOME SELECTED WORK를 포트폴리오 중심 비대칭 그리드로 재구성
+  · 1번 프로젝트 대형
+  · 2/3번 프로젝트 우측 스택
+  · 4~6번 프로젝트 3열
+  · 모바일은 1열
+- HOME WHAT WE DO에서 ABOUT과 중복되던 ONE DIRECTION / ONE RESULT 철학 문구 제거
+- WHAT WE DO는 서비스 3종과 ABOUT WISE 링크 중심으로 단순화
+- WORK 필터 유지: All / Commercial Film / Brand Film / Digital Contents
+- WORK 데스크톱 3열 → 2열로 변경, 썸네일/프로젝트명/필터 확대
+- ABOUT 초록/흰색 2색 시스템 유지, 여백/그리드/행간 재정돈
+- Wanted Sans + SUIT 조합 유지
+- video.html / video.css / video.js 완전 제거
+- Supabase / 관리자 업로드 구조 변경 없음
