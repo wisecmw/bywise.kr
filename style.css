@@ -1,38 +1,332 @@
-/* ==================================================
-   WISE ABOUT — REDESIGN
-   VERSION 43
-================================================== */
+/* =========================================
+   WISE GLOBAL
+========================================= */
+
+:root {
+  --green: #147a43;
+  --white: #ffffff;
+  --line: rgba(255,255,255,.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--green);
+  color: var(--white);
+  font-family: Arial, "Noto Sans KR", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+  position: relative;
+  z-index: 20;
+
+  width: 100%;
+  height: 88px;
+  padding: 0 3.2vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--green);
+}
+
+.logo img {
+  width: 126px;
+  filter: brightness(0) invert(1);
+}
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.site-header nav a {
+  transition: opacity .2s ease;
+}
+
+.site-header nav a:hover,
+.site-header nav a.active {
+  opacity: .5;
+}
+
+
+/* =========================================
+   KAKAO FLOATING
+========================================= */
+
+.kakao-floating {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 999;
+
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #fff;
+  color: var(--green);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+
+  box-shadow: 0 8px 28px rgba(0,0,0,.14);
+  transition: transform .2s ease;
+}
+
+.kakao-floating:hover {
+  transform: scale(1.08);
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.home-main {
+  padding: 0 3.2vw 30px;
+}
+
+.home-slider {
+  position: relative;
+  overflow: hidden;
+
+  height: calc(100vh - 145px);
+  min-height: 520px;
+
+  background: #111;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  cursor: pointer;
+
+  transition: opacity .9s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+}
+
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(0,0,0,.65)
+  );
+}
+
+.slide-info {
+  position: absolute;
+  left: 3vw;
+  bottom: 3vw;
+  z-index: 3;
+}
+
+.slide-info h2 {
+  margin: 0 0 6px;
+  font-size: clamp(30px,4.5vw,72px);
+  letter-spacing: -.05em;
+}
+
+.slide-info p {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.home-bottom {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 16px;
+
+  font-size: 11px;
+  letter-spacing: .1em;
+}
+
+
+/* =========================================
+   WORK
+========================================= */
+
+.work-page {
+  min-height: 100vh;
+}
+
+.page-title {
+  padding: 5vw 3.2vw 2vw;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.page-title h1 {
+  margin: 0;
+
+  font-size: clamp(54px,9vw,140px);
+  line-height: .8;
+  letter-spacing: -.07em;
+}
+
+.page-title span {
+  font-size: 10px;
+  letter-spacing: .14em;
+}
+
+/* PC 3 COLUMNS */
+
+.work-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 0;
+}
+
+.work-card {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  background: #191919;
+  cursor: pointer;
+}
+
+.work-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .55s ease;
+}
+
+.work-card:hover img {
+  transform: scale(1.025);
+}
+
+.work-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgba(0,0,0,.7)
+  );
+}
+
+.work-meta {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+  z-index: 3;
+}
+
+.work-meta h2 {
+  margin: 0 0 5px;
+  font-size: clamp(18px,2vw,31px);
+  letter-spacing: -.04em;
+}
+
+.work-meta p {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+
+
+/* =========================================
+   ABOUT GLOBAL
+========================================= */
 
 .wise-about {
   width: 100%;
   overflow: hidden;
-
-  background: #147a43;
-  color: #fff;
-}
-
-.wise-about *,
-.wise-about *::before,
-.wise-about *::after {
-  box-sizing: border-box;
+  background: var(--green);
 }
 
 .wise-about-container {
   width: 100%;
   max-width: 1600px;
-
   margin: 0 auto;
   padding: 0 5%;
 }
 
 
-/* ==================================================
-   HERO
-================================================== */
+/* =========================================
+   ABOUT HERO
+========================================= */
 
 .wise-about-hero {
   width: 100%;
-
   min-height: 620px;
 
   display: flex;
@@ -47,8 +341,7 @@
   justify-content: space-between;
 
   padding-bottom: 20px;
-
-  border-bottom: 1px solid rgba(255,255,255,.3);
+  border-bottom: 1px solid var(--line);
 
   font-size: 11px;
   font-weight: 700;
@@ -57,10 +350,8 @@
 
 .wise-about-hero-content {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-
+  grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
   align-items: end;
-
   gap: 60px;
 
   padding-top: 100px;
@@ -69,10 +360,9 @@
 .wise-about-hero-title h1 {
   margin: 0;
 
-  font-size: clamp(90px, 10vw, 170px);
+  font-size: clamp(80px,9vw,155px);
   font-weight: 800;
-
-  line-height: .82;
+  line-height: .86;
   letter-spacing: -.075em;
 }
 
@@ -88,12 +378,10 @@
 .wise-about-hero-description h2 {
   margin: 0 0 30px;
 
-  font-size: clamp(26px, 2.3vw, 38px);
+  font-size: clamp(25px,2.3vw,38px);
   font-weight: 700;
-
   line-height: 1.4;
   letter-spacing: -.05em;
-
   word-break: keep-all;
 }
 
@@ -101,20 +389,16 @@
   margin: 0;
 
   font-size: 15px;
-  font-weight: 400;
-
   line-height: 1.9;
   letter-spacing: -.025em;
-
   opacity: .85;
-
   word-break: keep-all;
 }
 
 
-/* ==================================================
-   SECTION HEADING
-================================================== */
+/* =========================================
+   ABOUT SECTION HEADINGS
+========================================= */
 
 .wise-about-section-heading {
   display: flex;
@@ -122,19 +406,17 @@
   justify-content: space-between;
 
   padding: 20px 0;
-
   border-top: 1px solid rgba(255,255,255,.45);
 
   font-size: 11px;
   font-weight: 700;
-
   letter-spacing: .12em;
 }
 
 
-/* ==================================================
+/* =========================================
    WHAT WE DO
-================================================== */
+========================================= */
 
 .wise-about-services {
   padding: 70px 0 150px;
@@ -142,10 +424,7 @@
 
 .wise-about-services-layout {
   display: grid;
-
-  grid-template-columns: 40% 60%;
-
-  gap: 0;
+  grid-template-columns: minmax(0,40%) minmax(0,60%);
 
   padding-top: 75px;
 }
@@ -153,29 +432,25 @@
 .wise-about-services-title h2 {
   margin: 0;
 
-  font-size: clamp(60px, 6vw, 100px);
+  font-size: clamp(60px,6vw,100px);
   font-weight: 800;
-
   line-height: .9;
   letter-spacing: -.065em;
 }
 
 .wise-about-services-list {
   width: 100%;
+  min-width: 0;
 }
 
 .wise-about-service {
   display: grid;
-
-  grid-template-columns: 45px 1fr 25px;
-
+  grid-template-columns: 45px minmax(0,1fr) 25px;
   align-items: start;
-
   gap: 20px;
 
   padding: 30px 0 35px;
-
-  border-bottom: 1px solid rgba(255,255,255,.3);
+  border-bottom: 1px solid var(--line);
 }
 
 .wise-about-service:first-child {
@@ -184,19 +459,16 @@
 
 .wise-about-service-number {
   padding-top: 6px;
-
   font-size: 12px;
   font-weight: 700;
-
   opacity: .65;
 }
 
 .wise-about-service h3 {
   margin: 0 0 13px;
 
-  font-size: clamp(24px, 2.3vw, 38px);
+  font-size: clamp(24px,2.3vw,38px);
   font-weight: 700;
-
   line-height: 1.1;
   letter-spacing: -.045em;
 }
@@ -205,26 +477,20 @@
   margin: 0;
 
   font-size: 14px;
-  font-weight: 400;
-
   line-height: 1.8;
-
   opacity: .8;
-
   word-break: keep-all;
 }
 
 .wise-about-service-arrow {
   font-size: 21px;
-  font-weight: 400;
-
   text-align: right;
 }
 
 
-/* ==================================================
+/* =========================================
    WHY WISE
-================================================== */
+========================================= */
 
 .wise-about-why {
   padding: 60px 0 160px;
@@ -232,39 +498,36 @@
 
 .wise-about-why-layout {
   display: grid;
-
-  grid-template-columns: 40% 60%;
-
+  grid-template-columns: minmax(0,40%) minmax(0,60%);
   padding-top: 75px;
 }
 
 .wise-about-why-title h2 {
   margin: 0;
 
-  font-size: clamp(60px, 6vw, 100px);
+  font-size: clamp(60px,6vw,100px);
   font-weight: 800;
-
   line-height: .9;
   letter-spacing: -.065em;
+}
+
+.wise-about-why-content {
+  min-width: 0;
 }
 
 .wise-about-why-content h3 {
   margin: 0 0 55px;
 
-  font-size: clamp(36px, 3.4vw, 56px);
+  font-size: clamp(34px,3.4vw,56px);
   font-weight: 700;
-
   line-height: 1.3;
   letter-spacing: -.055em;
-
   word-break: keep-all;
 }
 
 .wise-about-why-description {
   display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
+  grid-template-columns: repeat(2,minmax(0,1fr));
   gap: 30px;
 }
 
@@ -272,20 +535,16 @@
   margin: 0;
 
   font-size: 15px;
-  font-weight: 400;
-
   line-height: 1.9;
   letter-spacing: -.025em;
-
   opacity: .85;
-
   word-break: keep-all;
 }
 
 
-/* ==================================================
-   RESULT
-================================================== */
+/* =========================================
+   ABOUT RESULT
+========================================= */
 
 .wise-about-result {
   min-height: 620px;
@@ -295,14 +554,12 @@
   justify-content: center;
 
   padding: 100px 0 130px;
-
   text-align: center;
 }
 
 .wise-about-result .wise-about-container {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 }
@@ -312,16 +569,14 @@
 
   font-size: 11px;
   font-weight: 700;
-
   letter-spacing: .2em;
 }
 
 .wise-about-result h2 {
   margin: 0 0 45px;
 
-  font-size: clamp(60px, 7vw, 110px);
+  font-size: clamp(56px,7vw,110px);
   font-weight: 800;
-
   line-height: .92;
   letter-spacing: -.065em;
 }
@@ -330,14 +585,11 @@
   display: inline-block;
 
   padding-bottom: 10px;
-
   border-bottom: 1px solid rgba(255,255,255,.7);
 
   font-size: 13px;
   font-weight: 700;
-
   letter-spacing: .1em;
-
   transition: opacity .2s ease;
 }
 
@@ -346,11 +598,244 @@
 }
 
 
-/* ==================================================
-   TABLET
-================================================== */
+/* =========================================
+   CONTACT
+========================================= */
 
-@media (min-width: 761px) and (max-width: 1100px) {
+.contact-page {
+  min-height: 100vh;
+}
+
+.contact-main {
+  width: min(1500px,91vw);
+  margin: 0 auto;
+  padding: 55px 0 100px;
+}
+
+.contact-intro {
+  width: 100%;
+  padding-bottom: 65px;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-eyebrow {
+  margin: 0 0 26px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.contact-intro h1 {
+  margin: 0;
+
+  font-size: clamp(68px,7.5vw,125px);
+  font-weight: 800;
+  line-height: .88;
+  letter-spacing: -.055em;
+}
+
+.contact-guide {
+  margin: 38px 0 0;
+
+  font-size: clamp(15px,1.15vw,18px);
+  line-height: 1.7;
+  letter-spacing: -.02em;
+}
+
+.contact-info {
+  margin-top: 38px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.contact-info a {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+
+.contact-info a:hover {
+  border-bottom-color: rgba(255,255,255,.65);
+}
+
+.contact-info span {
+  min-width: 58px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  opacity: .65;
+}
+
+.contact-form-section {
+  width: 100%;
+  padding-top: 60px;
+}
+
+.form-heading {
+  margin: 0 0 42px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.contact-form-section form {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  column-gap: 55px;
+  row-gap: 40px;
+}
+
+.contact-form-section label {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.field-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.contact-form-section input,
+.contact-form-section select {
+  width: 100%;
+  height: 70px;
+  margin-top: 7px;
+  padding: 0;
+
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.45);
+  border-radius: 0;
+
+  background: transparent;
+  color: #fff;
+  outline: none;
+
+  font-size: 15px;
+}
+
+.contact-form-section input::placeholder,
+.contact-form-section textarea::placeholder {
+  color: rgba(255,255,255,.48);
+  opacity: 1;
+}
+
+.contact-form-section select {
+  cursor: pointer;
+}
+
+.contact-form-section select option {
+  color: #111;
+  background: #fff;
+}
+
+.contact-form-section textarea {
+  width: 100%;
+  height: 190px;
+
+  margin-top: 7px;
+  padding: 22px 0;
+
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.45);
+  border-radius: 0;
+
+  background: transparent;
+  color: #fff;
+  outline: none;
+  resize: vertical;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.contact-form-section .wide {
+  grid-column: 1 / -1;
+}
+
+.contact-form-section button {
+  width: 100%;
+  height: 90px;
+  padding: 0 28px;
+
+  border: 0;
+  background: #fff;
+  color: var(--green);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  cursor: pointer;
+}
+
+.contact-form-section button:hover {
+  opacity: .9;
+}
+
+.form-honey {
+  display: none !important;
+}
+
+.contact-success {
+  min-height: 420px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  border-top: 1px solid rgba(255,255,255,.4);
+  border-bottom: 1px solid rgba(255,255,255,.4);
+}
+
+.contact-success p {
+  margin: 0 0 22px;
+  font-size: 11px;
+  letter-spacing: .16em;
+}
+
+.contact-success h2 {
+  margin: 0 0 38px;
+
+  font-size: clamp(48px,6vw,90px);
+  line-height: .92;
+  letter-spacing: -.05em;
+}
+
+.contact-success a {
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(255,255,255,.7);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width:761px) and (max-width:1100px) {
 
   .wise-about-hero {
     min-height: 550px;
@@ -361,7 +846,7 @@
   }
 
   .wise-about-hero-title h1 {
-    font-size: clamp(75px, 9vw, 110px);
+    font-size: clamp(70px,8.5vw,110px);
   }
 
   .wise-about-hero-description h2 {
@@ -370,7 +855,7 @@
 
   .wise-about-services-layout,
   .wise-about-why-layout {
-    grid-template-columns: 35% 65%;
+    grid-template-columns: minmax(0,35%) minmax(0,65%);
   }
 
   .wise-about-services-title h2,
@@ -394,41 +879,89 @@
 }
 
 
-/* ==================================================
+/* =========================================
    MOBILE
-================================================== */
+========================================= */
 
-@media (max-width: 760px) {
+@media (max-width:760px) {
+
+  /* HEADER */
+
+  .site-header {
+    height: 70px;
+    padding: 0 16px;
+  }
+
+  .logo img {
+    width: 92px;
+  }
+
+  .site-header nav {
+    gap: 11px;
+    font-size: 9px;
+    letter-spacing: .05em;
+  }
+
+  /* KAKAO */
+
+  .kakao-floating {
+    right: 18px;
+    bottom: 18px;
+    width: 56px;
+    height: 56px;
+    font-size: 8px;
+  }
+
+  /* HOME */
+
+  .home-main {
+    padding: 0 16px 20px;
+  }
+
+  .home-slider {
+    height: 70vh;
+    min-height: 430px;
+  }
+
+  .slide-info {
+    left: 20px;
+    bottom: 22px;
+  }
+
+  /* WORK — 1 COLUMN */
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    padding: 55px 16px 25px;
+  }
+
+  /* ABOUT */
 
   .wise-about-container {
     padding: 0 20px;
   }
 
-
-  /* HERO */
-
   .wise-about-hero {
     min-height: auto;
-
     padding: 35px 0 110px;
   }
 
   .wise-about-topline {
     padding-bottom: 15px;
-
     font-size: 9px;
     letter-spacing: .08em;
   }
 
   .wise-about-hero-content {
     display: block;
-
     padding-top: 85px;
   }
 
   .wise-about-hero-title h1 {
-    font-size: clamp(70px, 17vw, 110px);
-
+    font-size: clamp(65px,16vw,110px);
     line-height: .86;
   }
 
@@ -439,7 +972,6 @@
 
   .wise-about-hero-description h2 {
     margin-bottom: 22px;
-
     font-size: 27px;
     line-height: 1.45;
   }
@@ -449,18 +981,13 @@
     line-height: 1.9;
   }
 
-
-  /* SECTION HEADING */
-
   .wise-about-section-heading {
     padding: 15px 0;
-
     font-size: 9px;
     letter-spacing: .06em;
   }
 
-
-  /* SERVICES */
+  /* WHAT WE DO */
 
   .wise-about-services {
     padding: 20px 0 110px;
@@ -468,27 +995,22 @@
 
   .wise-about-services-layout {
     display: block;
-
     padding-top: 55px;
   }
 
   .wise-about-services-title h2 {
     margin-bottom: 60px;
-
     font-size: 62px;
   }
 
   .wise-about-service {
-    grid-template-columns: 25px 1fr 20px;
-
+    grid-template-columns: 25px minmax(0,1fr) 20px;
     gap: 12px;
-
     padding: 25px 0 30px;
   }
 
   .wise-about-service h3 {
-    font-size: clamp(20px, 5.5vw, 27px);
-
+    font-size: clamp(20px,5.5vw,27px);
     margin-bottom: 12px;
   }
 
@@ -505,8 +1027,7 @@
     font-size: 17px;
   }
 
-
-  /* WHY */
+  /* WHY WISE */
 
   .wise-about-why {
     padding: 20px 0 110px;
@@ -514,20 +1035,17 @@
 
   .wise-about-why-layout {
     display: block;
-
     padding-top: 55px;
   }
 
   .wise-about-why-title h2 {
     margin-bottom: 55px;
-
     font-size: 62px;
   }
 
   .wise-about-why-content h3 {
     margin-bottom: 40px;
-
-    font-size: clamp(28px, 7.5vw, 38px);
+    font-size: clamp(28px,7.5vw,38px);
     line-height: 1.4;
   }
 
@@ -537,36 +1055,144 @@
 
   .wise-about-why-description p {
     margin-bottom: 25px;
-
     font-size: 13px;
     line-height: 1.9;
   }
-
 
   /* RESULT */
 
   .wise-about-result {
     min-height: 450px;
-
     padding: 80px 0 110px;
   }
 
   .wise-about-result p {
     margin-bottom: 25px;
-
     font-size: 9px;
   }
 
   .wise-about-result h2 {
     margin-bottom: 35px;
-
-    font-size: clamp(36px, 9vw, 55px);
-
+    font-size: clamp(36px,9vw,55px);
     line-height: .98;
   }
 
   .wise-about-result a {
     font-size: 11px;
+  }
+
+  /* CONTACT */
+
+  .contact-main {
+    width: 100%;
+    padding: 45px 20px 100px;
+  }
+
+  .contact-intro {
+    padding-bottom: 48px;
+  }
+
+  .contact-eyebrow {
+    margin-bottom: 20px;
+    font-size: 9px;
+  }
+
+  .contact-intro h1 {
+    font-size: clamp(49px,14vw,72px);
+    line-height: .9;
+  }
+
+  .contact-guide {
+    margin-top: 28px;
+    font-size: 14px;
+  }
+
+  .contact-info {
+    margin-top: 30px;
+    gap: 11px;
+    font-size: 13px;
+  }
+
+  .contact-form-section {
+    padding-top: 45px;
+  }
+
+  .form-heading {
+    margin-bottom: 32px;
+    font-size: 9px;
+  }
+
+  .contact-form-section form {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 30px;
+  }
+
+  .contact-form-section form > * {
+    grid-column: 1;
+  }
+
+  .field-title {
+    font-size: 10px;
+  }
+
+  .contact-form-section input,
+  .contact-form-section select {
+    height: 62px;
+    font-size: 14px;
+  }
+
+  .contact-form-section textarea {
+    height: 170px;
+    font-size: 14px;
+  }
+
+  .contact-form-section button {
+    height: 78px;
+    font-size: 13px;
+  }
+
+  .contact-success {
+    min-height: 360px;
+  }
+
+  .contact-success h2 {
+    font-size: clamp(42px,12vw,60px);
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width:380px) {
+
+  .site-header {
+    padding: 0 12px;
+  }
+
+  .logo img {
+    width: 78px;
+  }
+
+  .site-header nav {
+    gap: 8px;
+    font-size: 8px;
+  }
+
+  .wise-about-topline {
+    font-size: 8px;
+  }
+
+  .wise-about-hero-title h1 {
+    font-size: 15vw;
+  }
+
+  .wise-about-services-title h2,
+  .wise-about-why-title h2 {
+    font-size: 55px;
   }
 
 }
