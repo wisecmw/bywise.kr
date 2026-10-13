@@ -1,5 +1,5 @@
 /* =========================================
-   WISE GLOBAL
+   WISE — GLOBAL
 ========================================= */
 
 :root {
@@ -52,20 +52,24 @@ textarea {
 .site-header {
   position: relative;
   z-index: 20;
-
   width: 100%;
   height: 88px;
   padding: 0 3.2vw;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   background: var(--green);
 }
 
-.logo img {
+.site-header .logo {
+  display: block;
+  flex-shrink: 0;
+}
+
+.site-header .logo img {
+  display: block;
   width: 126px;
+  height: auto;
   filter: brightness(0) invert(1);
 }
 
@@ -73,13 +77,14 @@ textarea {
   display: flex;
   align-items: center;
   gap: 34px;
-
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: .08em;
 }
 
 .site-header nav a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-decoration: none;
   transition: opacity .2s ease;
 }
 
@@ -124,7 +129,7 @@ textarea {
 
 
 /* =========================================
-   HOME
+   HOME — HERO
 ========================================= */
 
 .home-main {
@@ -134,20 +139,16 @@ textarea {
 .home-slider {
   position: relative;
   overflow: hidden;
-
   height: calc(100vh - 145px);
   min-height: 520px;
-
   background: #111;
 }
 
 .slide {
   position: absolute;
   inset: 0;
-
   opacity: 0;
   cursor: pointer;
-
   transition: opacity .9s ease;
 }
 
@@ -173,102 +174,310 @@ textarea {
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     180deg,
-    transparent 55%,
-    rgba(0,0,0,.65)
+    transparent 50%,
+    rgba(0,0,0,.7)
   );
+  pointer-events: none;
 }
 
 .slide-info {
   position: absolute;
   left: 3vw;
+  right: 3vw;
   bottom: 3vw;
   z-index: 3;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.slide-copy {
+  min-width: 0;
 }
 
 .slide-info h2 {
-  margin: 0 0 6px;
+  margin: 0 0 8px;
   font-size: clamp(30px,4.5vw,72px);
+  font-weight: 800;
+  line-height: 1;
   letter-spacing: -.05em;
 }
 
 .slide-info p {
   margin: 0;
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: .12em;
+}
+
+.slide-number {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
 }
 
 .home-bottom {
   display: flex;
   justify-content: space-between;
-
+  gap: 20px;
   padding-top: 16px;
-
   font-size: 11px;
   letter-spacing: .1em;
 }
 
 
 /* =========================================
-   WORK
+   HOME — PROJECT GRID
 ========================================= */
 
-.work-page {
-  min-height: 100vh;
-}
-
-.page-title {
-  padding: 5vw 3.2vw 2vw;
-
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-.page-title h1 {
-  margin: 0;
-
-  font-size: clamp(54px,9vw,140px);
-  line-height: .8;
-  letter-spacing: -.07em;
-}
-
-.page-title span {
-  font-size: 10px;
-  letter-spacing: .14em;
-}
-
-/* PC 3 COLUMNS */
-
-.work-grid {
-  width: 100%;
+.home-work-grid {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
   gap: 0;
 }
 
-.work-card {
+.home-work-card {
   position: relative;
-  overflow: hidden;
-
   width: 100%;
   aspect-ratio: 16 / 9;
-
+  overflow: hidden;
   background: #191919;
   cursor: pointer;
 }
 
-.work-card img {
+.home-work-card > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.home-work-card:hover > img {
+  transform: scale(1.04);
+}
+
+.home-work-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 45%,
+    rgba(0,0,0,.7)
+  );
+  pointer-events: none;
+}
+
+.home-card-meta {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.home-card-meta h3 {
+  margin: 0 0 6px;
+  font-size: clamp(18px,2vw,30px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+}
+
+.home-card-meta p {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+.home-card-meta > span {
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+
+/* =========================================
+   WORK — PAGE
+========================================= */
+
+.work-body {
+  background: var(--green);
+}
+
+.work-page {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--green);
+}
+
+
+/* =========================================
+   WORK — INTRO
+========================================= */
+
+.work-intro {
+  width: 100%;
+  padding: 75px 3.2vw 85px;
+}
+
+.section-kicker {
+  margin: 0;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid var(--line);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.work-intro-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 50px;
+
+  padding-top: 55px;
+}
+
+.work-intro-row h1 {
+  margin: 0;
+
+  font-size: clamp(100px,15vw,250px);
+  font-weight: 800;
+  line-height: .78;
+  letter-spacing: -.085em;
+}
+
+.work-intro-copy {
+  min-width: 220px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  text-align: right;
+}
+
+.work-intro-copy p {
+  margin: 0 0 28px;
+
+  font-size: clamp(14px,1.35vw,20px);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -.02em;
+}
+
+.work-intro-copy span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+
+/* =========================================
+   WORK — FILTERS
+========================================= */
+
+.work-browser {
+  width: 100%;
+}
+
+.work-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+
+  padding: 0 3.2vw 30px;
+}
+
+.filter-button {
+  appearance: none;
+  -webkit-appearance: none;
+
+  padding: 13px 22px;
+
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 0;
+
+  background: transparent;
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+
+  cursor: pointer;
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.filter-button + .filter-button {
+  margin-left: -1px;
+}
+
+.filter-button:hover {
+  background: rgba(255,255,255,.12);
+}
+
+.filter-button.active {
+  position: relative;
+  z-index: 1;
+
+  background: #fff;
+  border-color: #fff;
+  color: var(--green);
+}
+
+
+/* =========================================
+   WORK — GRID
+========================================= */
+
+.work-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+
+  gap: 0;
+}
+
+.work-card {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+  background: #191919;
+
+  cursor: pointer;
+}
+
+.work-card > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
   transition: transform .55s ease;
 }
 
-.work-card:hover img {
-  transform: scale(1.025);
+.work-card:hover > img {
+  transform: scale(1.04);
 }
 
 .work-card::after {
@@ -278,33 +487,130 @@ textarea {
 
   background: linear-gradient(
     180deg,
-    transparent 50%,
-    rgba(0,0,0,.7)
+    transparent 45%,
+    rgba(0,0,0,.75)
   );
+
+  pointer-events: none;
 }
 
 .work-meta {
   position: absolute;
   left: 24px;
+  right: 24px;
   bottom: 22px;
-  z-index: 3;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.work-meta > div {
+  min-width: 0;
 }
 
 .work-meta h2 {
-  margin: 0 0 5px;
-  font-size: clamp(18px,2vw,31px);
+  margin: 0 0 7px;
+
+  font-size: clamp(18px,1.8vw,30px);
+  font-weight: 700;
+  line-height: 1.15;
   letter-spacing: -.04em;
+
+  overflow-wrap: anywhere;
 }
 
 .work-meta p {
   margin: 0;
+
   font-size: 10px;
+  font-weight: 700;
   letter-spacing: .1em;
+}
+
+.work-card-index {
+  flex-shrink: 0;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.work-empty {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #126839;
+  color: rgba(255,255,255,.5);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
 }
 
 
 /* =========================================
-   ABOUT GLOBAL
+   WORK — END
+========================================= */
+
+.work-end {
+  min-height: 420px;
+
+  padding: 100px 3.2vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.work-end p {
+  margin: 0 0 30px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.work-end a {
+  display: inline-block;
+
+  padding-bottom: 12px;
+  border-bottom: 1px solid #fff;
+
+  font-size: clamp(35px,5vw,75px);
+  font-weight: 800;
+  letter-spacing: -.05em;
+
+  transition: opacity .2s ease;
+}
+
+.work-end a:hover {
+  opacity: .65;
+}
+
+
+/* =========================================
+   REVEAL
+========================================= */
+
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* =========================================
+   ABOUT — GLOBAL
 ========================================= */
 
 .wise-about {
@@ -322,7 +628,7 @@ textarea {
 
 
 /* =========================================
-   ABOUT HERO
+   ABOUT — HERO
 ========================================= */
 
 .wise-about-hero {
@@ -397,7 +703,7 @@ textarea {
 
 
 /* =========================================
-   ABOUT SECTION HEADINGS
+   ABOUT — SECTION HEADING
 ========================================= */
 
 .wise-about-section-heading {
@@ -415,7 +721,7 @@ textarea {
 
 
 /* =========================================
-   WHAT WE DO
+   ABOUT — SERVICES
 ========================================= */
 
 .wise-about-services {
@@ -425,7 +731,6 @@ textarea {
 .wise-about-services-layout {
   display: grid;
   grid-template-columns: minmax(0,40%) minmax(0,60%);
-
   padding-top: 75px;
 }
 
@@ -489,7 +794,7 @@ textarea {
 
 
 /* =========================================
-   WHY WISE
+   ABOUT — WHY WISE
 ========================================= */
 
 .wise-about-why {
@@ -543,7 +848,7 @@ textarea {
 
 
 /* =========================================
-   ABOUT RESULT
+   ABOUT — RESULT
 ========================================= */
 
 .wise-about-result {
@@ -620,7 +925,6 @@ textarea {
 
 .contact-eyebrow {
   margin: 0 0 26px;
-
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .16em;
@@ -670,7 +974,6 @@ textarea {
 
 .contact-info span {
   min-width: 58px;
-
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .1em;
@@ -684,7 +987,6 @@ textarea {
 
 .form-heading {
   margin: 0 0 42px;
-
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .16em;
@@ -747,7 +1049,6 @@ textarea {
 .contact-form-section textarea {
   width: 100%;
   height: 190px;
-
   margin-top: 7px;
   padding: 22px 0;
 
@@ -815,7 +1116,6 @@ textarea {
 
 .contact-success h2 {
   margin: 0 0 38px;
-
   font-size: clamp(48px,6vw,90px);
   line-height: .92;
   letter-spacing: -.05em;
@@ -824,7 +1124,6 @@ textarea {
 .contact-success a {
   padding-bottom: 7px;
   border-bottom: 1px solid rgba(255,255,255,.7);
-
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .1em;
@@ -836,6 +1135,24 @@ textarea {
 ========================================= */
 
 @media (min-width:761px) and (max-width:1100px) {
+
+  .work-intro-row h1 {
+    font-size: 14vw;
+  }
+
+  .work-intro-copy {
+    min-width: 180px;
+  }
+
+  .work-meta {
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .work-meta h2 {
+    font-size: 18px;
+  }
 
   .wise-about-hero {
     min-height: 550px;
@@ -875,7 +1192,6 @@ textarea {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-
 }
 
 
@@ -892,12 +1208,15 @@ textarea {
     padding: 0 16px;
   }
 
-  .logo img {
+  .site-header .logo img {
     width: 92px;
   }
 
   .site-header nav {
     gap: 11px;
+  }
+
+  .site-header nav a {
     font-size: 9px;
     letter-spacing: .05em;
   }
@@ -925,17 +1244,98 @@ textarea {
 
   .slide-info {
     left: 20px;
+    right: 20px;
     bottom: 22px;
   }
 
-  /* WORK — 1 COLUMN */
+  .slide-info h2 {
+    font-size: clamp(28px,7vw,45px);
+  }
+
+  .slide-number {
+    font-size: 10px;
+  }
+
+  .home-work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* WORK */
+
+  .work-intro {
+    padding: 55px 20px 65px;
+  }
+
+  .section-kicker {
+    font-size: 10px;
+    padding-bottom: 16px;
+  }
+
+  .work-intro-row {
+    display: block;
+    padding-top: 50px;
+  }
+
+  .work-intro-row h1 {
+    font-size: clamp(80px,21vw,145px);
+    line-height: .85;
+  }
+
+  .work-intro-copy {
+    min-width: 0;
+    margin-top: 45px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .work-intro-copy p {
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+
+  .work-intro-copy span {
+    font-size: 11px;
+  }
+
+  .work-filters {
+    padding: 0 20px 25px;
+    gap: 8px;
+  }
+
+  .filter-button {
+    padding: 11px 13px;
+    font-size: 11px;
+  }
+
+  .filter-button + .filter-button {
+    margin-left: 0;
+  }
 
   .work-grid {
     grid-template-columns: 1fr;
   }
 
-  .page-title {
-    padding: 55px 16px 25px;
+  .work-meta {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .work-meta h2 {
+    font-size: 24px;
+  }
+
+  .work-end {
+    min-height: 350px;
+    padding: 80px 20px;
+  }
+
+  .work-end p {
+    font-size: 10px;
+  }
+
+  .work-end a {
+    font-size: clamp(30px,8vw,48px);
   }
 
   /* ABOUT */
@@ -987,8 +1387,6 @@ textarea {
     letter-spacing: .06em;
   }
 
-  /* WHAT WE DO */
-
   .wise-about-services {
     padding: 20px 0 110px;
   }
@@ -1027,8 +1425,6 @@ textarea {
     font-size: 17px;
   }
 
-  /* WHY WISE */
-
   .wise-about-why {
     padding: 20px 0 110px;
   }
@@ -1058,8 +1454,6 @@ textarea {
     font-size: 13px;
     line-height: 1.9;
   }
-
-  /* RESULT */
 
   .wise-about-result {
     min-height: 450px;
@@ -1159,7 +1553,6 @@ textarea {
   .contact-success h2 {
     font-size: clamp(42px,12vw,60px);
   }
-
 }
 
 
@@ -1173,12 +1566,15 @@ textarea {
     padding: 0 12px;
   }
 
-  .logo img {
+  .site-header .logo img {
     width: 78px;
   }
 
   .site-header nav {
     gap: 8px;
+  }
+
+  .site-header nav a {
     font-size: 8px;
   }
 
@@ -1194,5 +1590,4 @@ textarea {
   .wise-about-why-title h2 {
     font-size: 55px;
   }
-
 }
