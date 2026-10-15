@@ -8,9 +8,7 @@
   --line: rgba(255,255,255,.3);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   margin: 0;
@@ -27,23 +25,9 @@ body {
   font-family: Arial, "Noto Sans KR", sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-}
-
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, input, select, textarea { font-family: inherit; }
 
 /* =========================================
    HEADER
@@ -89,13 +73,10 @@ textarea {
 }
 
 .site-header nav a:hover,
-.site-header nav a.active {
-  opacity: .5;
-}
-
+.site-header nav a.active { opacity: .5; }
 
 /* =========================================
-   KAKAO FLOATING
+   KAKAO
 ========================================= */
 
 .kakao-floating {
@@ -103,44 +84,58 @@ textarea {
   right: 30px;
   bottom: 30px;
   z-index: 999;
-
   width: 64px;
   height: 64px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
   background: #fff;
   color: var(--green);
-
   font-size: 9px;
   font-weight: 800;
   letter-spacing: .08em;
-
   box-shadow: 0 8px 28px rgba(0,0,0,.14);
   transition: transform .2s ease;
 }
 
-.kakao-floating:hover {
-  transform: scale(1.08);
+.kakao-floating:hover { transform: scale(1.08); }
+
+/* =========================================
+   SHARED SECTION STYLES
+========================================= */
+
+.section-kicker {
+  margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
 }
 
+.reveal {
+  opacity: 1;
+  transform: none;
+}
 
 /* =========================================
    HOME — HERO
 ========================================= */
 
-.home-main {
-  padding: 0 3.2vw 30px;
+.home-page main { width: 100%; }
+
+.home-hero {
+  width: 100%;
+  padding: 0 3.2vw;
 }
 
 .home-slider {
   position: relative;
-  overflow: hidden;
-  height: calc(100vh - 145px);
+  width: 100%;
+  height: calc(100vh - 120px);
   min-height: 520px;
+  overflow: hidden;
   background: #111;
 }
 
@@ -157,17 +152,10 @@ textarea {
   z-index: 2;
 }
 
-.slide img {
+.slide > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.slide.empty {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #777;
 }
 
 .slide::after {
@@ -188,16 +176,13 @@ textarea {
   right: 3vw;
   bottom: 3vw;
   z-index: 3;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 30px;
 }
 
-.slide-copy {
-  min-width: 0;
-}
+.slide-copy { min-width: 0; }
 
 .slide-info h2 {
   margin: 0 0 8px;
@@ -221,19 +206,98 @@ textarea {
   letter-spacing: .1em;
 }
 
-.home-bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding-top: 16px;
-  font-size: 11px;
-  letter-spacing: .1em;
+/* =========================================
+   HOME — STATEMENT
+========================================= */
+
+.home-statement {
+  padding: 155px 5% 175px;
 }
 
+.home-statement .section-kicker {
+  margin-bottom: 75px;
+}
+
+.statement-grid {
+  display: grid;
+  grid-template-columns: minmax(0,1.4fr) minmax(0,.6fr);
+  align-items: end;
+  gap: 70px;
+}
+
+.statement-grid h1 {
+  margin: 0;
+  font-size: clamp(40px,5vw,82px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -.065em;
+  word-break: keep-all;
+}
+
+.statement-grid > p {
+  margin: 0 0 8px;
+  font-size: clamp(14px,1.15vw,18px);
+  line-height: 1.95;
+  letter-spacing: -.025em;
+  word-break: keep-all;
+  opacity: .85;
+}
 
 /* =========================================
-   HOME — PROJECT GRID
+   HOME — SECTION HEADINGS
 ========================================= */
+
+.home-selected,
+.home-services {
+  width: 100%;
+}
+
+.section-head {
+  padding: 0 5% 55px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.section-head > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.section-head .section-kicker {
+  margin-bottom: 35px;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: clamp(52px,7vw,112px);
+  font-weight: 800;
+  line-height: .92;
+  letter-spacing: -.065em;
+}
+
+.text-link {
+  flex-shrink: 0;
+  display: inline-block;
+  margin-bottom: 7px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,.7);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  transition: opacity .2s ease;
+}
+
+.text-link:hover { opacity: .65; }
+
+/* =========================================
+   HOME — SELECTED WORK
+========================================= */
+
+.home-selected {
+  padding: 35px 0 155px;
+}
 
 .home-work-grid {
   display: grid;
@@ -244,6 +308,7 @@ textarea {
 .home-work-card {
   position: relative;
   width: 100%;
+  min-width: 0;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #191919;
@@ -257,9 +322,7 @@ textarea {
   transition: transform .5s ease;
 }
 
-.home-work-card:hover > img {
-  transform: scale(1.04);
-}
+.home-work-card:hover > img { transform: scale(1.04); }
 
 .home-work-card::after {
   content: "";
@@ -279,23 +342,27 @@ textarea {
   right: 24px;
   bottom: 22px;
   z-index: 2;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 20px;
 }
 
+.home-card-meta > div { min-width: 0; }
+
 .home-card-meta h3 {
   margin: 0 0 6px;
   font-size: clamp(18px,2vw,30px);
   font-weight: 700;
+  line-height: 1.15;
   letter-spacing: -.04em;
+  overflow-wrap: anywhere;
 }
 
 .home-card-meta p {
   margin: 0;
   font-size: 10px;
+  font-weight: 700;
   letter-spacing: .12em;
 }
 
@@ -304,14 +371,107 @@ textarea {
   font-size: 12px;
 }
 
+/* =========================================
+   HOME — SERVICES
+========================================= */
+
+.home-services {
+  padding: 55px 0 165px;
+}
+
+.services-head { padding-bottom: 75px; }
+
+.service-rows {
+  width: 90%;
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 55px minmax(0,1.3fr) minmax(0,.8fr) 35px;
+  align-items: center;
+  gap: 28px;
+  min-height: 155px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  transition: opacity .2s ease;
+}
+
+.service-row:hover { opacity: .65; }
+
+.service-index {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: .65;
+}
+
+.service-row strong {
+  font-size: clamp(27px,3.5vw,56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.05em;
+}
+
+.service-row > span:nth-of-type(2) {
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: -.025em;
+  word-break: keep-all;
+  opacity: .8;
+}
+
+.service-row b {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: right;
+}
+
+/* =========================================
+   HOME — CTA
+========================================= */
+
+.home-cta {
+  min-height: 620px;
+  padding: 115px 5% 145px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.home-cta .section-kicker {
+  width: 100%;
+  margin-bottom: 110px;
+  text-align: left;
+}
+
+.home-cta h2 {
+  margin: 0 0 45px;
+  font-size: clamp(55px,9vw,145px);
+  font-weight: 800;
+  line-height: .9;
+  letter-spacing: -.07em;
+}
+
+.home-cta > a {
+  display: inline-block;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #fff;
+  font-size: clamp(17px,2vw,30px);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  transition: opacity .2s ease;
+}
+
+.home-cta > a:hover { opacity: .65; }
 
 /* =========================================
    WORK — PAGE
 ========================================= */
 
-.work-body {
-  background: var(--green);
-}
+.work-body { background: var(--green); }
 
 .work-page {
   width: 100%;
@@ -319,25 +479,9 @@ textarea {
   background: var(--green);
 }
 
-
-/* =========================================
-   WORK — INTRO
-========================================= */
-
 .work-intro {
   width: 100%;
   padding: 75px 3.2vw 85px;
-}
-
-.section-kicker {
-  margin: 0;
-  padding-bottom: 20px;
-
-  border-bottom: 1px solid var(--line);
-
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .14em;
 }
 
 .work-intro-row {
@@ -345,13 +489,11 @@ textarea {
   align-items: flex-end;
   justify-content: space-between;
   gap: 50px;
-
   padding-top: 55px;
 }
 
 .work-intro-row h1 {
   margin: 0;
-
   font-size: clamp(100px,15vw,250px);
   font-weight: 800;
   line-height: .78;
@@ -360,17 +502,14 @@ textarea {
 
 .work-intro-copy {
   min-width: 220px;
-
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
   text-align: right;
 }
 
 .work-intro-copy p {
   margin: 0 0 28px;
-
   font-size: clamp(14px,1.35vw,20px);
   font-weight: 700;
   line-height: 1.5;
@@ -383,64 +522,45 @@ textarea {
   letter-spacing: .1em;
 }
 
-
 /* =========================================
    WORK — FILTERS
 ========================================= */
 
-.work-browser {
-  width: 100%;
-}
+.work-browser { width: 100%; }
 
 .work-filters {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 0;
-
   padding: 0 3.2vw 30px;
 }
 
 .filter-button {
   appearance: none;
   -webkit-appearance: none;
-
   padding: 13px 22px;
-
   border: 1px solid rgba(255,255,255,.4);
   border-radius: 0;
-
   background: transparent;
   color: #fff;
-
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .02em;
-
   cursor: pointer;
-  transition:
-    background .2s ease,
-    color .2s ease,
-    border-color .2s ease;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
 
-.filter-button + .filter-button {
-  margin-left: -1px;
-}
-
-.filter-button:hover {
-  background: rgba(255,255,255,.12);
-}
+.filter-button + .filter-button { margin-left: -1px; }
+.filter-button:hover { background: rgba(255,255,255,.12); }
 
 .filter-button.active {
   position: relative;
   z-index: 1;
-
   background: #fff;
   border-color: #fff;
   color: var(--green);
 }
-
 
 /* =========================================
    WORK — GRID
@@ -448,10 +568,8 @@ textarea {
 
 .work-grid {
   width: 100%;
-
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
-
   gap: 0;
 }
 
@@ -460,10 +578,8 @@ textarea {
   width: 100%;
   min-width: 0;
   aspect-ratio: 16 / 9;
-
   overflow: hidden;
   background: #191919;
-
   cursor: pointer;
 }
 
@@ -472,25 +588,20 @@ textarea {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   transition: transform .55s ease;
 }
 
-.work-card:hover > img {
-  transform: scale(1.04);
-}
+.work-card:hover > img { transform: scale(1.04); }
 
 .work-card::after {
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     180deg,
     transparent 45%,
     rgba(0,0,0,.75)
   );
-
   pointer-events: none;
 }
 
@@ -500,31 +611,25 @@ textarea {
   right: 24px;
   bottom: 22px;
   z-index: 2;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 20px;
 }
 
-.work-meta > div {
-  min-width: 0;
-}
+.work-meta > div { min-width: 0; }
 
 .work-meta h2 {
   margin: 0 0 7px;
-
   font-size: clamp(18px,1.8vw,30px);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -.04em;
-
   overflow-wrap: anywhere;
 }
 
 .work-meta p {
   margin: 0;
-
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .1em;
@@ -532,7 +637,6 @@ textarea {
 
 .work-card-index {
   flex-shrink: 0;
-
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .08em;
@@ -542,19 +646,15 @@ textarea {
   width: 100%;
   height: 100%;
   min-height: 200px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: #126839;
   color: rgba(255,255,255,.5);
-
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .12em;
 }
-
 
 /* =========================================
    WORK — END
@@ -562,20 +662,16 @@ textarea {
 
 .work-end {
   min-height: 420px;
-
   padding: 100px 3.2vw;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   text-align: center;
 }
 
 .work-end p {
   margin: 0 0 30px;
-
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .14em;
@@ -583,31 +679,15 @@ textarea {
 
 .work-end a {
   display: inline-block;
-
   padding-bottom: 12px;
   border-bottom: 1px solid #fff;
-
   font-size: clamp(35px,5vw,75px);
   font-weight: 800;
   letter-spacing: -.05em;
-
   transition: opacity .2s ease;
 }
 
-.work-end a:hover {
-  opacity: .65;
-}
-
-
-/* =========================================
-   REVEAL
-========================================= */
-
-.reveal {
-  opacity: 1;
-  transform: none;
-}
-
+.work-end a:hover { opacity: .65; }
 
 /* =========================================
    ABOUT — GLOBAL
@@ -626,7 +706,6 @@ textarea {
   padding: 0 5%;
 }
 
-
 /* =========================================
    ABOUT — HERO
 ========================================= */
@@ -634,10 +713,8 @@ textarea {
 .wise-about-hero {
   width: 100%;
   min-height: 620px;
-
   display: flex;
   align-items: center;
-
   padding: 60px 0 100px;
 }
 
@@ -645,10 +722,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding-bottom: 20px;
   border-bottom: 1px solid var(--line);
-
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .12em;
@@ -659,13 +734,11 @@ textarea {
   grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
   align-items: end;
   gap: 60px;
-
   padding-top: 100px;
 }
 
 .wise-about-hero-title h1 {
   margin: 0;
-
   font-size: clamp(80px,9vw,155px);
   font-weight: 800;
   line-height: .86;
@@ -677,13 +750,10 @@ textarea {
   margin-top: 10px;
 }
 
-.wise-about-hero-description {
-  padding-bottom: 12px;
-}
+.wise-about-hero-description { padding-bottom: 12px; }
 
 .wise-about-hero-description h2 {
   margin: 0 0 30px;
-
   font-size: clamp(25px,2.3vw,38px);
   font-weight: 700;
   line-height: 1.4;
@@ -693,14 +763,12 @@ textarea {
 
 .wise-about-hero-description p {
   margin: 0;
-
   font-size: 15px;
   line-height: 1.9;
   letter-spacing: -.025em;
   opacity: .85;
   word-break: keep-all;
 }
-
 
 /* =========================================
    ABOUT — SECTION HEADING
@@ -710,23 +778,18 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 20px 0;
   border-top: 1px solid rgba(255,255,255,.45);
-
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .12em;
 }
 
-
 /* =========================================
    ABOUT — SERVICES
 ========================================= */
 
-.wise-about-services {
-  padding: 70px 0 150px;
-}
+.wise-about-services { padding: 70px 0 150px; }
 
 .wise-about-services-layout {
   display: grid;
@@ -736,7 +799,6 @@ textarea {
 
 .wise-about-services-title h2 {
   margin: 0;
-
   font-size: clamp(60px,6vw,100px);
   font-weight: 800;
   line-height: .9;
@@ -753,14 +815,11 @@ textarea {
   grid-template-columns: 45px minmax(0,1fr) 25px;
   align-items: start;
   gap: 20px;
-
   padding: 30px 0 35px;
   border-bottom: 1px solid var(--line);
 }
 
-.wise-about-service:first-child {
-  padding-top: 0;
-}
+.wise-about-service:first-child { padding-top: 0; }
 
 .wise-about-service-number {
   padding-top: 6px;
@@ -771,7 +830,6 @@ textarea {
 
 .wise-about-service h3 {
   margin: 0 0 13px;
-
   font-size: clamp(24px,2.3vw,38px);
   font-weight: 700;
   line-height: 1.1;
@@ -780,7 +838,6 @@ textarea {
 
 .wise-about-service p {
   margin: 0;
-
   font-size: 14px;
   line-height: 1.8;
   opacity: .8;
@@ -792,14 +849,11 @@ textarea {
   text-align: right;
 }
 
-
 /* =========================================
    ABOUT — WHY WISE
 ========================================= */
 
-.wise-about-why {
-  padding: 60px 0 160px;
-}
+.wise-about-why { padding: 60px 0 160px; }
 
 .wise-about-why-layout {
   display: grid;
@@ -809,20 +863,16 @@ textarea {
 
 .wise-about-why-title h2 {
   margin: 0;
-
   font-size: clamp(60px,6vw,100px);
   font-weight: 800;
   line-height: .9;
   letter-spacing: -.065em;
 }
 
-.wise-about-why-content {
-  min-width: 0;
-}
+.wise-about-why-content { min-width: 0; }
 
 .wise-about-why-content h3 {
   margin: 0 0 55px;
-
   font-size: clamp(34px,3.4vw,56px);
   font-weight: 700;
   line-height: 1.3;
@@ -838,7 +888,6 @@ textarea {
 
 .wise-about-why-description p {
   margin: 0;
-
   font-size: 15px;
   line-height: 1.9;
   letter-spacing: -.025em;
@@ -846,18 +895,15 @@ textarea {
   word-break: keep-all;
 }
 
-
 /* =========================================
    ABOUT — RESULT
 ========================================= */
 
 .wise-about-result {
   min-height: 620px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 100px 0 130px;
   text-align: center;
 }
@@ -871,7 +917,6 @@ textarea {
 
 .wise-about-result p {
   margin: 0 0 35px;
-
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .2em;
@@ -879,7 +924,6 @@ textarea {
 
 .wise-about-result h2 {
   margin: 0 0 45px;
-
   font-size: clamp(56px,7vw,110px);
   font-weight: 800;
   line-height: .92;
@@ -888,28 +932,21 @@ textarea {
 
 .wise-about-result a {
   display: inline-block;
-
   padding-bottom: 10px;
   border-bottom: 1px solid rgba(255,255,255,.7);
-
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .1em;
   transition: opacity .2s ease;
 }
 
-.wise-about-result a:hover {
-  opacity: .65;
-}
-
+.wise-about-result a:hover { opacity: .65; }
 
 /* =========================================
    CONTACT
 ========================================= */
 
-.contact-page {
-  min-height: 100vh;
-}
+.contact-page { min-height: 100vh; }
 
 .contact-main {
   width: min(1500px,91vw);
@@ -932,7 +969,6 @@ textarea {
 
 .contact-intro h1 {
   margin: 0;
-
   font-size: clamp(68px,7.5vw,125px);
   font-weight: 800;
   line-height: .88;
@@ -941,7 +977,6 @@ textarea {
 
 .contact-guide {
   margin: 38px 0 0;
-
   font-size: clamp(15px,1.15vw,18px);
   line-height: 1.7;
   letter-spacing: -.02em;
@@ -949,12 +984,10 @@ textarea {
 
 .contact-info {
   margin-top: 38px;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-
   font-size: 14px;
   line-height: 1.5;
 }
@@ -963,7 +996,6 @@ textarea {
   display: inline-flex;
   gap: 12px;
   align-items: center;
-
   border-bottom: 1px solid transparent;
   transition: border-color .2s ease;
 }
@@ -994,7 +1026,6 @@ textarea {
 
 .contact-form-section form {
   width: 100%;
-
   display: grid;
   grid-template-columns: repeat(2,minmax(0,1fr));
   column-gap: 55px;
@@ -1019,15 +1050,12 @@ textarea {
   height: 70px;
   margin-top: 7px;
   padding: 0;
-
   border: 0;
   border-bottom: 1px solid rgba(255,255,255,.45);
   border-radius: 0;
-
   background: transparent;
   color: #fff;
   outline: none;
-
   font-size: 15px;
 }
 
@@ -1037,9 +1065,7 @@ textarea {
   opacity: 1;
 }
 
-.contact-form-section select {
-  cursor: pointer;
-}
+.contact-form-section select { cursor: pointer; }
 
 .contact-form-section select option {
   color: #111;
@@ -1051,59 +1077,44 @@ textarea {
   height: 190px;
   margin-top: 7px;
   padding: 22px 0;
-
   border: 0;
   border-bottom: 1px solid rgba(255,255,255,.45);
   border-radius: 0;
-
   background: transparent;
   color: #fff;
   outline: none;
   resize: vertical;
-
   font-size: 15px;
   line-height: 1.7;
 }
 
-.contact-form-section .wide {
-  grid-column: 1 / -1;
-}
+.contact-form-section .wide { grid-column: 1 / -1; }
 
 .contact-form-section button {
   width: 100%;
   height: 90px;
   padding: 0 28px;
-
   border: 0;
   background: #fff;
   color: var(--green);
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   font-size: 15px;
   font-weight: 800;
   letter-spacing: .06em;
   cursor: pointer;
 }
 
-.contact-form-section button:hover {
-  opacity: .9;
-}
-
-.form-honey {
-  display: none !important;
-}
+.contact-form-section button:hover { opacity: .9; }
+.form-honey { display: none !important; }
 
 .contact-success {
   min-height: 420px;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
   border-top: 1px solid rgba(255,255,255,.4);
   border-bottom: 1px solid rgba(255,255,255,.4);
 }
@@ -1129,20 +1140,28 @@ textarea {
   letter-spacing: .1em;
 }
 
-
 /* =========================================
    TABLET
 ========================================= */
 
 @media (min-width:761px) and (max-width:1100px) {
 
-  .work-intro-row h1 {
-    font-size: 14vw;
+  .statement-grid {
+    grid-template-columns: 1.2fr .8fr;
+    gap: 35px;
   }
 
-  .work-intro-copy {
-    min-width: 180px;
+  .statement-grid h1 { font-size: 4.5vw; }
+
+  .service-row {
+    grid-template-columns: 35px minmax(0,1fr) minmax(0,.7fr) 25px;
+    gap: 18px;
   }
+
+  .service-row strong { font-size: 3vw; }
+
+  .work-intro-row h1 { font-size: 14vw; }
+  .work-intro-copy { min-width: 180px; }
 
   .work-meta {
     left: 15px;
@@ -1150,25 +1169,16 @@ textarea {
     bottom: 15px;
   }
 
-  .work-meta h2 {
-    font-size: 18px;
-  }
+  .work-meta h2 { font-size: 18px; }
 
-  .wise-about-hero {
-    min-height: 550px;
-  }
-
-  .wise-about-hero-content {
-    gap: 30px;
-  }
+  .wise-about-hero { min-height: 550px; }
+  .wise-about-hero-content { gap: 30px; }
 
   .wise-about-hero-title h1 {
     font-size: clamp(70px,8.5vw,110px);
   }
 
-  .wise-about-hero-description h2 {
-    font-size: 25px;
-  }
+  .wise-about-hero-description h2 { font-size: 25px; }
 
   .wise-about-services-layout,
   .wise-about-why-layout {
@@ -1176,24 +1186,16 @@ textarea {
   }
 
   .wise-about-services-title h2,
-  .wise-about-why-title h2 {
-    font-size: 60px;
-  }
+  .wise-about-why-title h2 { font-size: 60px; }
 
-  .wise-about-service h3 {
-    font-size: 25px;
-  }
-
-  .wise-about-why-content h3 {
-    font-size: 36px;
-  }
+  .wise-about-service h3 { font-size: 25px; }
+  .wise-about-why-content h3 { font-size: 36px; }
 
   .wise-about-why-description {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 }
-
 
 /* =========================================
    MOBILE
@@ -1208,13 +1210,8 @@ textarea {
     padding: 0 16px;
   }
 
-  .site-header .logo img {
-    width: 92px;
-  }
-
-  .site-header nav {
-    gap: 11px;
-  }
+  .site-header .logo img { width: 92px; }
+  .site-header nav { gap: 11px; }
 
   .site-header nav a {
     font-size: 9px;
@@ -1231,11 +1228,16 @@ textarea {
     font-size: 8px;
   }
 
-  /* HOME */
+  /* SHARED */
 
-  .home-main {
-    padding: 0 16px 20px;
+  .section-kicker {
+    font-size: 10px;
+    padding-bottom: 16px;
   }
+
+  /* HOME HERO */
+
+  .home-hero { padding: 0 16px; }
 
   .home-slider {
     height: 70vh;
@@ -1252,23 +1254,135 @@ textarea {
     font-size: clamp(28px,7vw,45px);
   }
 
-  .slide-number {
-    font-size: 10px;
+  .slide-number { font-size: 10px; }
+
+  /* HOME STATEMENT */
+
+  .home-statement {
+    padding: 105px 20px 120px;
+  }
+
+  .home-statement .section-kicker {
+    margin-bottom: 50px;
+  }
+
+  .statement-grid {
+    display: block;
+  }
+
+  .statement-grid h1 {
+    font-size: clamp(33px,8vw,50px);
+    line-height: 1.35;
+  }
+
+  .statement-grid > p {
+    margin-top: 40px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  /* HOME SECTION HEADINGS */
+
+  .section-head {
+    padding: 0 20px 40px;
+    display: block;
+  }
+
+  .section-head .section-kicker {
+    margin-bottom: 30px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(42px,11vw,70px);
+    line-height: .95;
+  }
+
+  .text-link {
+    margin-top: 30px;
+    font-size: 11px;
+  }
+
+  /* HOME WORK */
+
+  .home-selected {
+    padding: 15px 0 110px;
   }
 
   .home-work-grid {
     grid-template-columns: 1fr;
   }
 
+  .home-card-meta {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .home-card-meta h3 { font-size: 24px; }
+
+  /* HOME SERVICES */
+
+  .home-services {
+    padding: 20px 0 110px;
+  }
+
+  .services-head { padding-bottom: 45px; }
+
+  .service-rows {
+    width: calc(100% - 40px);
+  }
+
+  .service-row {
+    grid-template-columns: 25px minmax(0,1fr) 20px;
+    gap: 12px;
+    min-height: 125px;
+    padding: 27px 0;
+  }
+
+  .service-index { font-size: 10px; }
+
+  .service-row strong {
+    font-size: clamp(22px,6vw,32px);
+    line-height: 1.1;
+  }
+
+  .service-row > span:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .service-row b {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 18px;
+  }
+
+  /* HOME CTA */
+
+  .home-cta {
+    min-height: 440px;
+    padding: 70px 20px 110px;
+  }
+
+  .home-cta .section-kicker {
+    margin-bottom: 100px;
+  }
+
+  .home-cta h2 {
+    margin-bottom: 35px;
+    font-size: clamp(43px,10vw,72px);
+  }
+
+  .home-cta > a {
+    font-size: 16px;
+  }
+
   /* WORK */
 
   .work-intro {
     padding: 55px 20px 65px;
-  }
-
-  .section-kicker {
-    font-size: 10px;
-    padding-bottom: 16px;
   }
 
   .work-intro-row {
@@ -1293,9 +1407,7 @@ textarea {
     font-size: 14px;
   }
 
-  .work-intro-copy span {
-    font-size: 11px;
-  }
+  .work-intro-copy span { font-size: 11px; }
 
   .work-filters {
     padding: 0 20px 25px;
@@ -1307,9 +1419,7 @@ textarea {
     font-size: 11px;
   }
 
-  .filter-button + .filter-button {
-    margin-left: 0;
-  }
+  .filter-button + .filter-button { margin-left: 0; }
 
   .work-grid {
     grid-template-columns: 1fr;
@@ -1321,18 +1431,14 @@ textarea {
     bottom: 20px;
   }
 
-  .work-meta h2 {
-    font-size: 24px;
-  }
+  .work-meta h2 { font-size: 24px; }
 
   .work-end {
     min-height: 350px;
     padding: 80px 20px;
   }
 
-  .work-end p {
-    font-size: 10px;
-  }
+  .work-end p { font-size: 10px; }
 
   .work-end a {
     font-size: clamp(30px,8vw,48px);
@@ -1340,9 +1446,7 @@ textarea {
 
   /* ABOUT */
 
-  .wise-about-container {
-    padding: 0 20px;
-  }
+  .wise-about-container { padding: 0 20px; }
 
   .wise-about-hero {
     min-height: auto;
@@ -1417,13 +1521,8 @@ textarea {
     line-height: 1.8;
   }
 
-  .wise-about-service-number {
-    font-size: 10px;
-  }
-
-  .wise-about-service-arrow {
-    font-size: 17px;
-  }
+  .wise-about-service-number { font-size: 10px; }
+  .wise-about-service-arrow { font-size: 17px; }
 
   .wise-about-why {
     padding: 20px 0 110px;
@@ -1445,9 +1544,7 @@ textarea {
     line-height: 1.4;
   }
 
-  .wise-about-why-description {
-    display: block;
-  }
+  .wise-about-why-description { display: block; }
 
   .wise-about-why-description p {
     margin-bottom: 25px;
@@ -1471,9 +1568,7 @@ textarea {
     line-height: .98;
   }
 
-  .wise-about-result a {
-    font-size: 11px;
-  }
+  .wise-about-result a { font-size: 11px; }
 
   /* CONTACT */
 
@@ -1482,9 +1577,7 @@ textarea {
     padding: 45px 20px 100px;
   }
 
-  .contact-intro {
-    padding-bottom: 48px;
-  }
+  .contact-intro { padding-bottom: 48px; }
 
   .contact-eyebrow {
     margin-bottom: 20px;
@@ -1507,9 +1600,7 @@ textarea {
     font-size: 13px;
   }
 
-  .contact-form-section {
-    padding-top: 45px;
-  }
+  .contact-form-section { padding-top: 45px; }
 
   .form-heading {
     margin-bottom: 32px;
@@ -1522,13 +1613,8 @@ textarea {
     row-gap: 30px;
   }
 
-  .contact-form-section form > * {
-    grid-column: 1;
-  }
-
-  .field-title {
-    font-size: 10px;
-  }
+  .contact-form-section form > * { grid-column: 1; }
+  .field-title { font-size: 10px; }
 
   .contact-form-section input,
   .contact-form-section select {
@@ -1546,15 +1632,12 @@ textarea {
     font-size: 13px;
   }
 
-  .contact-success {
-    min-height: 360px;
-  }
+  .contact-success { min-height: 360px; }
 
   .contact-success h2 {
     font-size: clamp(42px,12vw,60px);
   }
 }
-
 
 /* =========================================
    SMALL MOBILE
@@ -1562,32 +1645,14 @@ textarea {
 
 @media (max-width:380px) {
 
-  .site-header {
-    padding: 0 12px;
-  }
+  .site-header { padding: 0 12px; }
+  .site-header .logo img { width: 78px; }
+  .site-header nav { gap: 8px; }
+  .site-header nav a { font-size: 8px; }
 
-  .site-header .logo img {
-    width: 78px;
-  }
-
-  .site-header nav {
-    gap: 8px;
-  }
-
-  .site-header nav a {
-    font-size: 8px;
-  }
-
-  .wise-about-topline {
-    font-size: 8px;
-  }
-
-  .wise-about-hero-title h1 {
-    font-size: 15vw;
-  }
+  .wise-about-topline { font-size: 8px; }
+  .wise-about-hero-title h1 { font-size: 15vw; }
 
   .wise-about-services-title h2,
-  .wise-about-why-title h2 {
-    font-size: 55px;
-  }
+  .wise-about-why-title h2 { font-size: 55px; }
 }
