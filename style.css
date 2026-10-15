@@ -1656,3 +1656,351 @@ button, input, select, textarea { font-family: inherit; }
   .wise-about-services-title h2,
   .wise-about-why-title h2 { font-size: 55px; }
 }
+
+/* =========================================
+   WISE — TYPOGRAPHY SYSTEM v56
+   HOME / ABOUT / WORK / CONTACT
+========================================= */
+
+/* 01. GLOBAL */
+
+body {
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.site-header nav a {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.section-kicker,
+.wise-about-topline,
+.wise-about-section-heading,
+.contact-eyebrow,
+.form-heading {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+
+/* =========================================
+   02. MAIN PAGE TITLES
+========================================= */
+
+/* ABOUT — MAIN TITLE */
+
+.wise-about-hero-title h1 {
+  font-size: clamp(72px, 8vw, 112px);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.065em;
+}
+
+/* WORK — MAIN TITLE */
+
+.work-intro-row h1 {
+  font-size: clamp(72px, 8vw, 112px);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.065em;
+}
+
+/* CONTACT — MAIN TITLE */
+
+.contact-intro h1 {
+  font-size: clamp(72px, 8vw, 112px);
+  font-weight: 800;
+  line-height: .95;
+  letter-spacing: -.065em;
+}
+
+
+/* =========================================
+   03. SECTION TITLES
+========================================= */
+
+/* HOME */
+
+.section-head h2 {
+  font-size: clamp(48px, 5.5vw, 76px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+/* ABOUT */
+
+.wise-about-services-title h2,
+.wise-about-why-title h2 {
+  font-size: clamp(48px, 5.5vw, 76px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+/* HOME — CTA */
+
+.home-cta h2 {
+  font-size: clamp(64px, 7vw, 100px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+/* ABOUT — CTA */
+
+.wise-about-result h2 {
+  font-size: clamp(64px, 7vw, 100px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.06em;
+}
+
+
+/* =========================================
+   04. BRAND STATEMENTS
+========================================= */
+
+/* HOME — INTRO */
+
+.statement-grid h1 {
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -.045em;
+  word-break: keep-all;
+}
+
+/* ABOUT — INTRO */
+
+.wise-about-hero-description h2 {
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -.045em;
+  word-break: keep-all;
+}
+
+/* ABOUT — WHY WISE */
+
+.wise-about-why-content h3 {
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -.045em;
+  word-break: keep-all;
+}
+
+
+/* =========================================
+   05. SERVICE TITLES
+========================================= */
+
+/* HOME */
+
+.service-row strong {
+  font-size: clamp(26px, 2.7vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.04em;
+}
+
+/* ABOUT */
+
+.wise-about-service h3 {
+  font-size: clamp(26px, 2.7vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.04em;
+}
+
+
+/* =========================================
+   06. BODY TEXT
+========================================= */
+
+.statement-grid > p,
+.wise-about-hero-description p,
+.wise-about-service p,
+.wise-about-why-description p,
+.service-row > span:nth-of-type(2),
+.contact-guide {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: -.02em;
+  word-break: keep-all;
+}
+
+
+/* =========================================
+   07. PROJECT TITLES
+========================================= */
+
+.home-card-meta h3,
+.work-meta h2 {
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+}
+
+.home-card-meta p,
+.work-meta p {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+
+/* =========================================
+   08. BUTTONS / LINKS
+========================================= */
+
+.text-link,
+.work-intro-copy span,
+.work-end p,
+.home-cta > a,
+.wise-about-result a {
+  letter-spacing: .04em;
+}
+
+.filter-button {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+
+/* =========================================
+   09. TABLET
+========================================= */
+
+@media (min-width: 761px) and (max-width: 1100px) {
+
+  .wise-about-hero-title h1,
+  .work-intro-row h1,
+  .contact-intro h1 {
+    font-size: clamp(68px, 8vw, 90px);
+  }
+
+  .section-head h2,
+  .wise-about-services-title h2,
+  .wise-about-why-title h2 {
+    font-size: clamp(48px, 5.5vw, 65px);
+  }
+
+  .statement-grid h1,
+  .wise-about-hero-description h2,
+  .wise-about-why-content h3 {
+    font-size: clamp(28px, 3vw, 38px);
+  }
+
+  .service-row strong,
+  .wise-about-service h3 {
+    font-size: clamp(24px, 2.7vw, 32px);
+  }
+}
+
+
+/* =========================================
+   10. MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+
+  /* HEADER */
+
+  .site-header nav a {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  /* LABELS */
+
+  .section-kicker,
+  .wise-about-topline,
+  .wise-about-section-heading,
+  .contact-eyebrow,
+  .form-heading {
+    font-size: 10px;
+    letter-spacing: .06em;
+  }
+
+  /* MAIN TITLES */
+
+  .wise-about-hero-title h1,
+  .work-intro-row h1,
+  .contact-intro h1 {
+    font-size: clamp(46px, 12vw, 68px);
+    line-height: 1;
+    letter-spacing: -.055em;
+  }
+
+  /* SECTION TITLES */
+
+  .section-head h2,
+  .wise-about-services-title h2,
+  .wise-about-why-title h2 {
+    font-size: clamp(36px, 9vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -.05em;
+  }
+
+  /* CTA TITLES */
+
+  .home-cta h2,
+  .wise-about-result h2 {
+    font-size: clamp(38px, 10vw, 58px);
+    line-height: 1.05;
+  }
+
+  /* BRAND STATEMENTS */
+
+  .statement-grid h1,
+  .wise-about-hero-description h2,
+  .wise-about-why-content h3 {
+    font-size: clamp(24px, 6.5vw, 30px);
+    line-height: 1.45;
+    letter-spacing: -.04em;
+  }
+
+  /* SERVICE TITLES */
+
+  .service-row strong,
+  .wise-about-service h3 {
+    font-size: clamp(20px, 5.5vw, 26px);
+    line-height: 1.2;
+  }
+
+  /* BODY TEXT */
+
+  .statement-grid > p,
+  .wise-about-hero-description p,
+  .wise-about-service p,
+  .wise-about-why-description p,
+  .service-row > span:nth-of-type(2),
+  .contact-guide {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  /* PROJECT TITLES */
+
+  .home-card-meta h3,
+  .work-meta h2 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  /* FILTERS */
+
+  .filter-button {
+    font-size: 11px;
+  }
+}
